@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
 <title>灯屋 | 和食・割烹 · 渋谷</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Kaisei+Tokumin:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -72,6 +75,18 @@ footer{border-top:1px solid rgba(240,235,224,0.06);padding:2rem;text-align:cente
 @keyframes scrollAnim{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
 .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
 .reveal.v{opacity:1;transform:translateY(0);}
+
+/* スマホ調整（サンプル共通バッジは画面下に表示） */
+.sample-badge{top:auto;bottom:max(1rem,env(safe-area-inset-bottom));pointer-events:none;}
+@media(max-width:768px){.sample-badge{font-size:10px;padding:4px 12px;}}
+@media(max-width:768px){
+nav{padding:1rem 1.25rem;}
+.nav-links{gap:1rem;}
+.nav-links a{font-size:10px;letter-spacing:0.1em;white-space:nowrap;}
+.nav-links a:not(:last-child){display:none;}
+.feature-section{padding:5rem 1.25rem;}
+.feature-grid{grid-template-columns:1fr;gap:1rem;}
+}
 </style>
 </head>
 <body>
