@@ -361,6 +361,11 @@ section{padding:112px 0}
 .plan:not(.featured) .btn:hover{background:var(--line)}
 .price-opts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 32px;margin-top:40px;font-size:14px;color:var(--ink-light)}
 .price-opts b{color:var(--ink)}
+.monitor{display:flex;gap:16px;align-items:flex-start;max-width:760px;margin:36px auto 0;background:var(--accent-soft);border:1.5px dashed rgba(232,93,47,.45);border-radius:18px;padding:20px 24px}
+.monitor-tag{flex-shrink:0;background:var(--accent);color:#fff;font-size:13px;font-weight:700;border-radius:999px;padding:4px 14px;margin-top:2px}
+.monitor-title{font-weight:900;font-size:17px;margin-bottom:4px}
+.monitor-body{font-size:14px;color:var(--ink-light)}
+@media (max-width:640px){.monitor{flex-direction:column;gap:10px;padding:18px}}
 .price-support{text-align:center;font-size:13px;color:var(--ink-muted);margin-top:12px}
 .price-support b{color:var(--ink-light)}
 
@@ -513,7 +518,7 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="badge"><b>買い切り</b>月額費用 0円・全業種対応</p>
+      <p class="badge"><b>先着10社</b>モニター価格で受付中・月額費用 0円</p>
       <h1>ホームページ、<br><span class="price">1万円</span>から<br><span class="mark">まるごとお任せ。</span></h1>
       <p class="hero-sub">個人店・小さな会社のホームページを、ちゃんとした品質で、ムリのない価格で。文章づくりから公開作業まで、むずかしいことは全部こちらでやります。</p>
       <div class="hero-actions">
@@ -543,7 +548,7 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
 <div class="stats">
   <div class="wrap">
     <div class="stats-in">
-      <div class="stat"><p class="stat-v">¥9,800<small>〜</small></p><p class="stat-l">1ページから</p></div>
+      <div class="stat"><p class="stat-v">¥9,800<small>〜</small></p><p class="stat-l">1ページから（モニター価格）</p></div>
       <div class="stat"><p class="stat-v">1<small>週間</small></p><p class="stat-l">最短の公開まで</p></div>
       <div class="stat"><p class="stat-v">¥0</p><p class="stat-l">月額費用</p></div>
       <div class="stat"><p class="stat-v">全国</p><p class="stat-l">オンラインで対応</p></div>
@@ -805,6 +810,13 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
       <h2 class="h2 reveal">明朗会計、<em>追加費用なし。</em></h2>
       <p class="lead reveal">すべて税込・買い切り。月額費用や保守費用は一切かかりません。</p>
     </div>
+    <div class="monitor reveal">
+      <span class="monitor-tag">先着10社限定</span>
+      <div>
+        <p class="monitor-title">いまはモニター価格で受け付けています</p>
+        <p class="monitor-body">PAGEYAの実績づくりのため、完成したホームページを「制作事例」として紹介させていただける方を対象に、この価格でお受けしています。10社に達した時点で受付を終了し、料金を見直します。</p>
+      </div>
+    </div>
     <div class="price-grid">
       <div class="plan reveal">
         <p class="plan-name">ミニマム</p>
@@ -841,6 +853,7 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
     </div>
     <div class="faq-list">
       <details class="faq-item reveal"><summary>写真や文章は自分で用意しないといけませんか？</summary><p class="faq-a">写真はスマホで撮ったもので大丈夫です。文章はヒアリングの内容をもとにこちらで作成しますので、ご用意いただく必要はありません。</p></details>
+      <details class="faq-item reveal"><summary>「モニター価格」とは何ですか？</summary><p class="faq-a">実績づくりのための先着10社限定の価格です。完成したホームページを、PAGEYAの制作事例としてサイトやSNSで紹介させていただくことが条件です（掲載内容は事前にご確認いただきます）。10社に達した時点で受付を終了します。</p></details>
       <details class="faq-item reveal"><summary>本当にこの金額だけですか？</summary><p class="faq-a">はい、表示している料金は税込の買い切りです。月額費用はかかりません。独自ドメインやサーバーを使う場合のみ、その実費（年間数千円〜）をご負担いただきます。</p></details>
       <details class="faq-item reveal"><summary>納品後に内容を更新したくなったらどうなりますか？</summary><p class="faq-a">価格・営業時間などの小さな変更は1回3,000円〜承ります。ページの追加など大きな変更は、その都度お見積もりします。</p></details>
       <details class="faq-item reveal"><summary>打ち合わせは対面ですか？</summary><p class="faq-a">基本的にオンライン（Zoom・LINE・メール）で対応しています。全国どこからでもご依頼いただけます。</p></details>
