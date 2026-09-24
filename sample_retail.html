@@ -4,209 +4,226 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>KOMACHI STORE | 地元に愛されるこだわりの雑貨店</title>
+<title>KOMACHI | 暮らしの道具と雑貨の店</title>
 <link rel="icon" href="favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Kaisei+Tokumin:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{--orange:#c0430a;--orange-light:#fff0e8;--warm:#fff8f2;--ink:#1a1a1a;--muted:#777;}
-body{font-family:'Noto Sans JP',sans-serif;background:var(--warm);color:var(--ink);overflow-x:hidden;}
-.sample-badge{position:fixed;top:1rem;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(232,93,47,0.9);color:white;font-size:11px;padding:5px 14px;border-radius:20px;z-index:100;}
-.announcement{background:var(--orange);color:white;text-align:center;padding:10px;font-size:12px;letter-spacing:0.2em;}
-.announcement span{background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:2px;margin-right:0.5rem;font-weight:500;}
-nav{background:white;border-bottom:1px solid #ffe4d0;padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
-.logo{font-family:'Kaisei Tokumin',serif;font-size:1.6rem;color:var(--orange);letter-spacing:0.15em;}
-.logo small{display:block;font-size:9px;letter-spacing:0.3em;color:var(--muted);font-weight:300;}
-.nav-links{display:flex;gap:2rem;align-items:center;}
-.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.1em;}
-.cart-btn{background:var(--orange);color:white;padding:8px 20px;font-size:12px;text-decoration:none;border-radius:3px;letter-spacing:0.1em;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#faf6ef;--bg2:#f1e8da;--ink:#3a2f28;--muted:#8b7b6d;--line:#e6dccd;--terra:#c0643f;--sage:#8f9a7c}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Zen Maru Gothic',sans-serif;line-height:1.95;letter-spacing:.04em;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+.fr{font-family:'Fraunces',serif}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
 
-.hero{background:white;padding:5rem 2.5rem;border-bottom:2px solid var(--orange-light);}
-.hero-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
-.hero-label{font-size:11px;letter-spacing:0.3em;color:var(--orange);text-transform:uppercase;margin-bottom:1rem;display:block;}
-.hero h1{font-family:'Kaisei Tokumin',serif;font-size:clamp(2rem,3.5vw,3rem);line-height:1.4;margin-bottom:1.2rem;}
-.hero-sub{font-size:14px;color:var(--muted);line-height:2;margin-bottom:2rem;font-weight:300;}
-.hero-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2rem;}
-.badge{background:var(--orange-light);color:var(--orange);font-size:11px;padding:4px 12px;border-radius:20px;letter-spacing:0.05em;}
-.hero-cta{background:var(--orange);color:white;padding:14px 36px;font-size:14px;text-decoration:none;display:inline-block;letter-spacing:0.15em;transition:opacity 0.2s;}
-.hero-cta:hover{opacity:0.88;}
-.hero-visual{position:relative;}
-.hero-visual-main{background:linear-gradient(135deg,#ffe8d6,#ffd0b0,#ffb888);border-radius:8px;height:360px;display:flex;align-items:center;justify-content:center;font-size:80px;position:relative;overflow:hidden;}
-.hero-visual-main::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.1) 20px,rgba(255,255,255,0.1) 40px);}
-.hero-visual-sub{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:0.8rem;}
-.hero-visual-item{background:var(--orange-light);border-radius:4px;height:80px;display:flex;align-items:center;justify-content:center;font-size:28px;}
+.notice{background:var(--ink);color:var(--bg);text-align:center;font-size:12px;padding:9px 16px;letter-spacing:.08em}
+.notice b{color:#f2b999;font-weight:500}
+.hd{position:sticky;top:0;z-index:50;background:rgba(250,246,239,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hd .wrap{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:'Fraunces',serif;font-weight:600;font-size:26px;letter-spacing:.08em}
+.logo i{color:var(--terra);font-style:normal}
+.gnav{display:flex;gap:34px;align-items:center;font-size:14px;font-weight:500}
+.gnav a:hover{color:var(--terra)}
+.cart{display:inline-flex;align-items:center;gap:8px;background:var(--terra);color:#fff !important;padding:10px 20px;border-radius:999px}
+.cart svg{width:16px;height:16px}
+.menu-btn{display:none}
 
-.sale-section{background:var(--orange);padding:3rem 2.5rem;text-align:center;color:white;}
-.sale-inner{max-width:800px;margin:0 auto;}
-.sale-tag{font-size:11px;letter-spacing:0.4em;text-transform:uppercase;opacity:0.7;margin-bottom:0.5rem;}
-.sale-title{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1rem;}
-.sale-timer{display:flex;gap:1rem;justify-content:center;margin:1.5rem 0;}
-.timer-item{background:rgba(255,255,255,0.15);padding:0.8rem 1.5rem;border-radius:4px;text-align:center;}
-.timer-num{font-family:'Kaisei Tokumin',serif;font-size:2rem;display:block;}
-.timer-label{font-size:10px;opacity:0.7;letter-spacing:0.2em;}
+.hero{padding:48px 0 0}
+.hero-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;align-items:center}
+.hero-en{font-family:'Fraunces',serif;font-style:italic;color:var(--terra);font-size:20px;margin-bottom:10px}
+.hero h1{font-size:clamp(34px,4.6vw,58px);font-weight:700;line-height:1.45;letter-spacing:.06em;margin-bottom:24px}
+.hero p{color:var(--muted);font-size:15px;max-width:380px;margin-bottom:36px}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--bg);padding:16px 30px;border-radius:999px;font-weight:500;font-size:14px;transition:background .3s}
+.btn:hover{background:var(--terra)}
+.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--ink);margin-left:8px}
+.btn-o:hover{background:var(--ink);color:var(--bg)}
+.hero-img{position:relative;height:620px}
+.hero-img .main{height:100%;border-radius:300px 300px 24px 24px;overflow:hidden}
+.hero-chip{position:absolute;left:-40px;bottom:56px;background:#fff;border-radius:20px;padding:14px 18px 14px 14px;display:flex;align-items:center;gap:14px;box-shadow:0 20px 40px rgba(58,47,40,.12)}
+.hero-chip figure{width:64px;height:64px;border-radius:14px;overflow:hidden}
+.hero-chip small{display:block;font-size:11px;color:var(--muted)}
+.hero-chip b{font-size:14px}
+.hero-chip span{display:block;font-family:'Fraunces';color:var(--terra);font-size:15px}
 
-.products-section{padding:7rem 2.5rem;background:white;}
-.products-inner{max-width:1000px;margin:0 auto;}
-.section-header{margin-bottom:3rem;}
-.section-tag{font-size:11px;letter-spacing:0.3em;color:var(--orange);text-transform:uppercase;display:block;margin-bottom:0.8rem;}
-.section-h{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.6rem,3vw,2rem);}
-.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.product-card{border-radius:8px;overflow:hidden;border:1px solid #ffe4d0;transition:transform 0.3s,box-shadow 0.3s;}
-.product-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(192,67,10,0.12);}
-.product-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:60px;background:linear-gradient(135deg,#fff0e8,#ffe4d0);}
-.product-info{padding:1.2rem;background:white;}
-.product-tag{font-size:10px;color:var(--orange);letter-spacing:0.15em;margin-bottom:0.3rem;display:block;}
-.product-name{font-size:15px;font-weight:500;margin-bottom:0.5rem;}
-.product-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:0.8rem;}
-.product-price{font-size:17px;color:var(--orange);font-weight:500;}
-.product-price del{font-size:12px;color:var(--muted);margin-left:0.3rem;font-weight:300;}
+.cats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding:72px 0 0}
+.cats a{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 22px;font-size:13px;transition:.2s}
+.cats a:hover{border-color:var(--terra);color:var(--terra)}
 
-.feature-section{padding:7rem 2.5rem;background:var(--warm);}
-.feature-inner{max-width:900px;margin:0 auto;}
-.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;}
-.feature-item{text-align:center;padding:2rem 1rem;background:white;border-radius:8px;border:1px solid #ffe4d0;}
-.feature-icon{font-size:2rem;margin-bottom:0.8rem;display:block;}
-.feature-name{font-size:13px;font-weight:500;margin-bottom:0.3rem;}
-.feature-desc{font-size:11px;color:var(--muted);line-height:1.7;}
+section{padding:130px 0}
+.head{display:flex;justify-content:space-between;align-items:end;margin-bottom:48px;gap:24px;flex-wrap:wrap}
+.head .fr{font-style:italic;color:var(--terra);font-size:18px}
+.head h2{font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:.06em;line-height:1.5}
+.more{font-size:14px;font-weight:500;border-bottom:1.5px solid var(--ink);padding-bottom:2px}
 
-.info-section{padding:5rem 2.5rem;background:white;border-top:2px solid var(--orange-light);}
-.info-inner{max-width:700px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
-.info-block h3{font-size:14px;font-weight:500;border-left:3px solid var(--orange);padding-left:0.8rem;margin-bottom:1.5rem;}
-.info-row{display:flex;gap:1rem;padding:0.6rem 0;border-bottom:1px solid var(--orange-light);}
-.info-label{font-size:11px;letter-spacing:0.1em;color:var(--orange);min-width:60px;flex-shrink:0;}
-.info-value{font-size:13px;color:var(--muted);}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.pd figure{aspect-ratio:1/1.15;border-radius:20px;overflow:hidden;background:var(--bg2);margin-bottom:16px;position:relative}
+.pd figure img{transition:transform .8s}
+.pd:hover figure img{transform:scale(1.06)}
+.tag{position:absolute;top:14px;left:14px;background:#fff;border-radius:999px;font-size:11px;padding:3px 12px;font-weight:500}
+.tag.new{background:var(--sage);color:#fff}
+.pd-name{font-size:15px;font-weight:500}
+.pd-meta{font-size:12px;color:var(--muted)}
+.pd-price{font-family:'Fraunces',serif;font-size:18px;margin-top:4px}
 
-footer{background:var(--ink);padding:2rem;text-align:center;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.1em;}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
-.reveal.v{opacity:1;transform:translateY(0);}
-@media(max-width:768px){.hero-inner{grid-template-columns:1fr;}.products-grid{grid-template-columns:repeat(2,1fr);}.feature-grid{grid-template-columns:repeat(2,1fr);}.info-inner{grid-template-columns:1fr;}}
+.story{background:var(--bg2)}
+.story-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:88px;align-items:center}
+.story figure{aspect-ratio:5/4;border-radius:24px;overflow:hidden}
+.story .fr{font-style:italic;color:var(--terra);font-size:18px}
+.story h2{font-size:clamp(26px,3vw,36px);font-weight:700;line-height:1.6;letter-spacing:.06em;margin:10px 0 28px}
+.story p{color:var(--muted);font-size:15px;line-height:2.2}
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:36px}
+.points div{background:var(--bg);border-radius:16px;padding:18px 16px;text-align:center;font-size:13px;font-weight:500}
+.points b{display:block;font-family:'Fraunces';font-size:26px;color:var(--terra);font-weight:400;line-height:1.2}
 
-.nav-links a.cart-btn{color:white;}
-/* スマホ調整（サンプル共通バッジは画面下に表示） */
-.sample-badge{top:auto;bottom:max(1rem,env(safe-area-inset-bottom));pointer-events:none;}
-@media(max-width:768px){.sample-badge{font-size:10px;padding:4px 12px;}}
-@media(max-width:768px){
-.announcement{font-size:11px;letter-spacing:0.05em;padding:8px 1rem;}
-nav{padding:0 1rem;height:56px;}
-.logo{font-size:1.15rem;letter-spacing:0.08em;white-space:nowrap;}
-.logo small{font-size:8px;letter-spacing:0.15em;}
-.nav-links{gap:0;}
-.nav-links a:not(.cart-btn){display:none;}
-.cart-btn{padding:7px 12px;font-size:11px;white-space:nowrap;}
+.journal{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.jr figure{aspect-ratio:4/3;border-radius:18px;overflow:hidden;margin-bottom:16px}
+.jr-date{font-family:'Fraunces';font-size:13px;color:var(--muted)}
+.jr h3{font-size:16px;font-weight:500;line-height:1.7;margin-top:2px}
+
+.shop{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:28px;overflow:hidden;background:var(--ink);color:var(--bg)}
+.shop figure{min-height:420px}
+.shop-body{padding:64px 56px}
+.shop-body .fr{font-style:italic;color:#f2b999;font-size:18px}
+.shop-body h2{font-size:30px;font-weight:700;margin:6px 0 24px;letter-spacing:.06em}
+.shop dl{display:grid;grid-template-columns:90px 1fr;font-size:14px;row-gap:10px;margin-bottom:32px}
+.shop dt{color:rgba(250,246,239,.55)}
+.shop .btn{background:var(--terra)}
+.shop .btn:hover{background:#d4764f}
+
+.news{text-align:center;padding:110px 0}
+.news h2{font-size:26px;font-weight:700;margin:6px 0 12px}
+.news p{color:var(--muted);font-size:14px;margin-bottom:28px}
+.news form{display:flex;max-width:460px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px}
+.news input{flex:1;border:0;background:none;padding:0 18px;font:inherit;font-size:14px;outline:none;min-width:0}
+.news button{border:0;background:var(--ink);color:var(--bg);border-radius:999px;padding:12px 24px;font:inherit;font-size:13px;cursor:pointer}
+
+footer{border-top:1px solid var(--line);padding:48px 0 84px;font-size:12px;color:var(--muted)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .logo{color:var(--ink);font-size:22px}
+
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s ease}
+.rv.v{opacity:1;transform:none}
+.sample-badge{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:100;background:rgba(232,93,47,.92);color:#fff;font-size:11px;padding:6px 16px;border-radius:999px;white-space:nowrap;pointer-events:none}
+
+@media (max-width:960px){
+  .hd .wrap{height:64px}
+  .gnav a:not(.cart){display:none}
+  .cart{padding:8px 16px;font-size:13px}
+  .wrap{padding:0 20px}
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .hero-img{height:440px}
+  .hero-chip{left:12px;bottom:20px}
+  .btn-o{margin:10px 0 0}
+  section{padding:88px 0}
+  .products{grid-template-columns:1fr 1fr;gap:18px}
+  .story-grid{grid-template-columns:1fr;gap:40px}
+  .journal{grid-template-columns:1fr;gap:32px}
+  .shop{grid-template-columns:1fr}
+  .shop figure{min-height:260px}
+  .shop-body{padding:40px 28px}
 }
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 <div class="sample-badge">※ PAGEYAのデザインサンプルです</div>
-<div class="announcement"><span>SALE</span>今週末まで！対象商品20%OFF開催中</div>
-<nav>
-  <div class="logo">KOMACHI STORE<small>NATURAL LIFESTYLE GOODS</small></div>
-  <div class="nav-links">
-    <a href="#">商品一覧</a><a href="#">新着</a><a href="#">セール</a><a href="#">店舗情報</a>
-    <a href="#" class="cart-btn">カートを見る</a>
-  </div>
-</nav>
 
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <span class="hero-label">Natural & Handmade Goods</span>
-      <h1>暮らしに、<br>ほんの少しの<br>こだわりを。</h1>
-      <p class="hero-sub">素材にこだわった日用品から、手作りの温もりあふれる雑貨まで。あなたの毎日をちょっと豊かにする品々を取り揃えています。</p>
-      <div class="hero-badges">
-        <span class="badge">天然素材</span>
-        <span class="badge">国産品多数</span>
-        <span class="badge">ギフト対応</span>
-        <span class="badge">送料無料（5,000円〜）</span>
+<p class="notice">秋の暮らし展 開催中　<b>￥5,500以上で送料無料</b></p>
+<header class="hd">
+  <div class="wrap">
+    <a href="#" class="logo">KOMACHI<i>.</i></a>
+    <nav class="gnav">
+      <a href="#items">アイテム</a>
+      <a href="#story">お店のこと</a>
+      <a href="#journal">読みもの</a>
+      <a href="#shop">店舗</a>
+      <a href="#" class="cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>カート</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:0">
+  <div class="wrap hero-grid">
+    <div class="rv">
+      <p class="hero-en">Everyday objects, chosen with care.</p>
+      <h1>毎日の道具を、<br>すこしだけ<br>いいものに。</h1>
+      <p>日本各地のつくり手をたずねて選んだ、器・リネン・キャンドル・植物。長く使うほど好きになる道具をそろえています。</p>
+      <a href="#items" class="btn">アイテムを見る →</a><a href="#shop" class="btn btn-o">店舗について</a>
+    </div>
+    <div class="hero-img rv">
+      <div class="main"><img src="img/samples/retail-hero.jpg" alt="パンパスグラスとソファのある部屋"></div>
+      <div class="hero-chip"><figure><img src="img/samples/retail-1.jpg" alt=""></figure><div><small>いちばん人気</small><b>ソイキャンドル「森」</b><span>¥3,080</span></div></div>
+    </div>
+  </div>
+  <div class="cats"><a href="#">すべて</a><a href="#">器・食卓</a><a href="#">リネン</a><a href="#">キャンドル・香り</a><a href="#">植物</a><a href="#">インテリア</a><a href="#">ギフト</a></div>
+</section>
+
+<section id="items">
+  <div class="wrap">
+    <div class="head rv"><div><p class="fr">New arrivals</p><h2>新しく入ったもの</h2></div><a href="#" class="more">すべて見る →</a></div>
+    <div class="products">
+      <a href="#" class="pd rv"><figure><img src="img/samples/retail-1.jpg" alt="キャンドル"><span class="tag new">NEW</span></figure><p class="pd-meta">キャンドル・香り</p><p class="pd-name">ソイキャンドル「森」</p><p class="pd-price">¥3,080</p></a>
+      <a href="#" class="pd rv"><figure><img src="img/samples/retail-2.jpg" alt="多肉植物の鉢"><span class="tag">残りわずか</span></figure><p class="pd-meta">植物</p><p class="pd-name">ミントグリーンの鉢と多肉</p><p class="pd-price">¥2,640</p></a>
+      <a href="#" class="pd rv"><figure><img src="img/samples/retail-5.jpg" alt="壁に飾ったアートフレーム"></figure><p class="pd-meta">インテリア</p><p class="pd-name">木のアートフレーム S</p><p class="pd-price">¥1,980</p></a>
+      <a href="#" class="pd rv"><figure><img src="img/samples/retail-4.jpg" alt="明るいダイニング"><span class="tag new">NEW</span></figure><p class="pd-meta">器・食卓</p><p class="pd-name">リネンのランチョンマット</p><p class="pd-price">¥2,200</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <figure class="rv"><img src="img/samples/retail-3.jpg" alt="植物とソファのあるリビング"></figure>
+    <div class="rv">
+      <p class="fr">Our story</p>
+      <h2>小さな町の、<br>小さな道具屋です。</h2>
+      <p>2015年、古い商店街の角にお店をひらきました。つくり手に会いに行き、自分たちの暮らしで使ってみて、本当によかったものだけを並べています。オンラインでも、店頭と同じように一点ずつていねいにお包みしてお届けします。</p>
+      <div class="points"><div><b>48</b>組のつくり手</div><div><b>600+</b>アイテム</div><div><b>2日</b>で発送</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="journal">
+  <div class="wrap">
+    <div class="head rv"><div><p class="fr">Journal</p><h2>読みもの</h2></div><a href="#" class="more">一覧へ →</a></div>
+    <div class="journal">
+      <a href="#" class="jr rv"><figure><img src="img/samples/retail-3.jpg" alt=""></figure><p class="jr-date">2026.09.12</p><h3>秋の模様替え。植物をひとつ増やすだけで、部屋はこんなに変わる</h3></a>
+      <a href="#" class="jr rv"><figure><img src="img/samples/retail-1.jpg" alt=""></figure><p class="jr-date">2026.08.28</p><h3>つくり手をたずねて vol.12 ─ 信州のキャンドル工房</h3></a>
+      <a href="#" class="jr rv"><figure><img src="img/samples/retail-4.jpg" alt=""></figure><p class="jr-date">2026.08.03</p><h3>リネンを長く使うための、洗い方と干し方</h3></a>
+    </div>
+  </div>
+</section>
+
+<section id="shop" style="padding-top:0">
+  <div class="wrap">
+    <div class="shop rv">
+      <figure><img src="img/samples/retail-hero.jpg" alt="店内" style="object-position:30% center"></figure>
+      <div class="shop-body">
+        <p class="fr">Visit us</p>
+        <h2>お店にもぜひ。</h2>
+        <dl><dt>住所</dt><dd>東京都杉並区高円寺南0-0-0</dd><dt>アクセス</dt><dd>JR高円寺駅 南口より徒歩5分</dd><dt>営業</dt><dd>11:00〜19:00（水曜定休）</dd></dl>
+        <a href="#" class="btn">Googleマップで見る →</a>
       </div>
-      <a href="#products" class="hero-cta">商品を見る</a>
-    </div>
-    <div class="hero-visual reveal">
-      <div class="hero-visual-main">🧺</div>
-      <div class="hero-visual-sub">
-        <div class="hero-visual-item">🕯️</div>
-        <div class="hero-visual-item">🫙</div>
-      </div>
     </div>
   </div>
 </section>
 
-<div class="sale-section">
-  <div class="sale-inner">
-    <p class="sale-tag">Limited Sale</p>
-    <h2 class="sale-title">週末限定セール開催中！</h2>
-    <div class="sale-timer" id="timer">
-      <div class="timer-item"><span class="timer-num" id="t-h">12</span><span class="timer-label">時間</span></div>
-      <div class="timer-item"><span class="timer-num" id="t-m">34</span><span class="timer-label">分</span></div>
-      <div class="timer-item"><span class="timer-num" id="t-s">56</span><span class="timer-label">秒</span></div>
-    </div>
-  </div>
-</div>
-
-<section class="products-section" id="products">
-  <div class="products-inner">
-    <div class="section-header reveal">
-      <span class="section-tag">Popular Items</span>
-      <h2 class="section-h">人気商品</h2>
-    </div>
-    <div class="products-grid">
-      <div class="product-card reveal"><div class="product-img">🧺</div><div class="product-info"><span class="product-tag">Natural Living</span><p class="product-name">天然素材バスケット</p><p class="product-desc">職人が一つひとつ手編みした、丈夫で美しいバスケット。</p><p class="product-price">¥3,200 <del>¥4,000</del></p></div></div>
-      <div class="product-card reveal"><div class="product-img">🕯️</div><div class="product-info"><span class="product-tag">Aroma</span><p class="product-name">アロマキャンドル</p><p class="product-desc">天然精油100%使用。やさしい香りで空間を包みます。</p><p class="product-price">¥1,800</p></div></div>
-      <div class="product-card reveal"><div class="product-img">🫙</div><div class="product-info"><span class="product-tag">Kitchen</span><p class="product-name">ガラス保存容器セット</p><p class="product-desc">密閉性の高いガラス容器。食材を美しく保存できます。</p><p class="product-price">¥2,400</p></div></div>
-      <div class="product-card reveal"><div class="product-img">🌿</div><div class="product-info"><span class="product-tag">Green</span><p class="product-name">ミニ観葉植物</p><p class="product-desc">デスクや窓辺に。手のひらサイズで育てやすい品種です。</p><p class="product-price">¥1,200〜</p></div></div>
-      <div class="product-card reveal"><div class="product-img">🪴</div><div class="product-info"><span class="product-tag">Pottery</span><p class="product-name">手びねりマグカップ</p><p class="product-desc">地元の陶芸家による一点もの。毎日の食卓に温もりを。</p><p class="product-price">¥3,800</p></div></div>
-      <div class="product-card reveal"><div class="product-img">🎁</div><div class="product-info"><span class="product-tag">Gift</span><p class="product-name">ギフトセット</p><p class="product-desc">人気商品を詰め合わせたギフトボックス。のし対応可能。</p><p class="product-price">¥5,500〜</p></div></div>
-    </div>
+<section class="news" style="padding-top:0">
+  <div class="wrap rv">
+    <p class="fr" style="font-style:italic;color:var(--terra);font-size:18px">Newsletter</p>
+    <h2>新しい入荷をお知らせします</h2>
+    <p>月に2回、入荷情報と読みものの更新をお届けします。</p>
+    <form onsubmit="event.preventDefault()"><input type="email" placeholder="メールアドレス" aria-label="メールアドレス"><button>登録する</button></form>
   </div>
 </section>
 
-<section class="feature-section">
-  <div class="feature-inner">
-    <div class="section-header reveal">
-      <span class="section-tag">Why KOMACHI</span>
-      <h2 class="section-h">選ばれる理由</h2>
-    </div>
-    <div class="feature-grid">
-      <div class="feature-item reveal"><span class="feature-icon">🌿</span><p class="feature-name">素材へのこだわり</p><p class="feature-desc">天然素材・国産品を中心に厳選した商品のみを取り扱います。</p></div>
-      <div class="feature-item reveal"><span class="feature-icon">🎁</span><p class="feature-name">ギフト包装無料</p><p class="feature-desc">のし・メッセージカード対応。大切な方へのギフトにも。</p></div>
-      <div class="feature-item reveal"><span class="feature-icon">🚚</span><p class="feature-name">5,000円〜送料無料</p><p class="feature-desc">5,000円以上のご購入で全国送料無料。翌日配達も対応。</p></div>
-      <div class="feature-item reveal"><span class="feature-icon">🔄</span><p class="feature-name">返品・交換OK</p><p class="feature-desc">商品到着後7日以内であれば、返品・交換を承ります。</p></div>
-    </div>
-  </div>
-</section>
+<footer><div class="wrap"><a href="#" class="logo">KOMACHI<i>.</i></a><p>© KOMACHI　／　Photos: Unsplash</p></div></footer>
 
-<section class="info-section">
-  <div class="info-inner">
-    <div class="info-block reveal">
-      <h3>店舗情報</h3>
-      <div class="info-row"><span class="info-label">住所</span><span class="info-value">東京都〇〇区△△1-2-3</span></div>
-      <div class="info-row"><span class="info-label">TEL</span><span class="info-value">03-0000-0000</span></div>
-      <div class="info-row"><span class="info-label">最寄駅</span><span class="info-value">〇〇駅 徒歩5分</span></div>
-    </div>
-    <div class="info-block reveal">
-      <h3>営業時間</h3>
-      <div class="info-row"><span class="info-label">平日</span><span class="info-value">10:00〜19:00</span></div>
-      <div class="info-row"><span class="info-label">土日祝</span><span class="info-value">10:00〜18:00</span></div>
-      <div class="info-row"><span class="info-label">定休日</span><span class="info-value">毎週水曜日</span></div>
-    </div>
-  </div>
-</section>
-
-<footer>© 2025 KOMACHI STORE · All rights reserved.</footer>
 <script>
-const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('v'); }), {threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-// Timer
-let end = new Date(); end.setHours(end.getHours() + 12, end.getMinutes() + 34, end.getSeconds() + 56);
-setInterval(() => {
-  const diff = end - new Date();
-  if(diff <= 0) return;
-  const h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
-  document.getElementById('t-h').textContent = String(h).padStart(2,'0');
-  document.getElementById('t-m').textContent = String(m).padStart(2,'0');
-  document.getElementById('t-s').textContent = String(s).padStart(2,'0');
-}, 1000);
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
