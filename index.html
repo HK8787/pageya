@@ -8,6 +8,7 @@
 <link rel="canonical" href="https://hk8787.github.io/pageya/">
 <meta name="google-site-verification" content="geBEZJ6BA8ucewz-RW9w54BQ0y5qM0-N5BXiScRXv9Y">
 <meta name="theme-color" content="#fafaf7">
+<script>document.documentElement.classList.add('js');</script>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PAGEYA">
 <meta property="og:title" content="PAGEYA | ホームページ制作代行｜格安・買い切り・全業種対応【東京・全国OK】">
@@ -78,6 +79,8 @@
 </script>
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Kaisei+Tokumin:wght@400;700&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -305,9 +308,90 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
 
 @keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
 @media (max-width: 600px) { .nav-links { display: none; } .hero { padding-top: 100px; } }
+
+/* ===== 追加：スクロール進捗バー ===== */
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); z-index: 200; pointer-events: none; }
+
+/* ===== 追加：カスタムカーソル（マウス操作の端末のみ） ===== */
+.cursor-ring { position: fixed; top: 0; left: 0; width: 34px; height: 34px; margin: -17px 0 0 -17px; border: 1.5px solid var(--accent); border-radius: 50%; pointer-events: none; z-index: 2000; opacity: 0; transition: width 0.2s, height 0.2s, margin 0.2s, background 0.2s, opacity 0.2s; }
+.cursor-ring.show { opacity: 1; }
+.cursor-ring.hover { width: 56px; height: 56px; margin: -28px 0 0 -28px; background: rgba(232,93,47,0.08); }
+@media (hover: none), (pointer: coarse) { .cursor-ring { display: none; } }
+
+/* ===== 追加：スクロールで表示 ===== */
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.js .reveal.v { opacity: 1; transform: none; }
+
+/* ===== 追加：ストーリー ===== */
+.story-section { padding: 6rem 2rem; }
+.story-inner { max-width: 800px; margin: 0 auto; }
+.story-person { display: flex; align-items: center; gap: 1.2rem; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 1.2rem 1.5rem; margin-bottom: 2.5rem; }
+.story-person svg { width: 64px; height: 64px; flex-shrink: 0; }
+.story-person-name { font-size: 15px; font-weight: 500; }
+.story-person-meta { font-size: 12px; color: var(--ink-muted); }
+.story-steps { list-style: none; position: relative; }
+.story-steps::before { content: ''; position: absolute; left: 19px; top: 8px; bottom: 8px; width: 2px; background: var(--border); }
+.story-step { position: relative; display: grid; grid-template-columns: 40px 1fr; gap: 1.2rem; padding-bottom: 2rem; }
+.story-step:last-child { padding-bottom: 0; }
+.story-dot { width: 40px; height: 40px; border-radius: 50%; background: var(--paper); border: 2px solid var(--accent); color: var(--accent); font-family: 'Kaisei Tokumin', serif; font-weight: 700; display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+.story-step:last-child .story-dot { background: var(--accent); color: white; }
+.story-when { font-size: 11px; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 0.2rem; }
+.story-title { font-size: 16px; font-weight: 500; margin-bottom: 0.4rem; }
+.story-body { font-size: 14px; color: var(--ink-light); line-height: 1.8; }
+.story-quote { margin-top: 0.8rem; background: var(--paper-warm); border-radius: 8px; padding: 0.8rem 1rem; font-size: 13px; color: var(--ink); position: relative; }
+.story-note { font-size: 11px; color: var(--ink-muted); margin-top: 2rem; }
+
+/* ===== 追加：FAQ（開閉式） ===== */
+details.faq-item summary { list-style: none; cursor: pointer; margin-bottom: 0; padding-right: 2rem; position: relative; }
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary::after { content: '+'; position: absolute; right: 0; top: -2px; font-size: 20px; color: var(--accent); transition: transform 0.2s; }
+details.faq-item[open] summary::after { transform: rotate(45deg); }
+details.faq-item .faq-a { margin-top: 0.8rem; }
+
+/* ===== 追加：採用サイトのプレビュー ===== */
+.preview-recruit { background: #f7f7f5; padding: 1.4rem 1.5rem; justify-content: center; }
+.preview-recruit .p-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+.preview-recruit .p-logo { font-size: 10px; font-weight: 500; color: #1a1a1a; }
+.preview-recruit .p-entry { font-size: 8px; background: #1a1a1a; color: white; padding: 3px 10px; border-radius: 20px; }
+.preview-recruit .p-small { font-size: 7px; letter-spacing: 0.3em; color: var(--accent); margin-bottom: 0.4rem; }
+.preview-recruit .p-h1 { font-family: 'Kaisei Tokumin', serif; font-size: 1.1rem; line-height: 1.4; color: #1a1a1a; margin-bottom: 0.8rem; }
+.preview-recruit .p-jobs { display: flex; flex-direction: column; gap: 0.3rem; }
+.preview-recruit .p-job { display: flex; justify-content: space-between; background: white; border: 1px solid #eee; padding: 0.35rem 0.6rem; font-size: 8px; color: #333; border-radius: 3px; }
+.preview-recruit .p-job span { color: var(--accent); }
+
+/* ===== 追加：モーダルの「実際のページ」ボタン ===== */
+.modal-view { display: block; margin: 1rem 2rem 0; border: 1.5px solid var(--ink); color: var(--ink); text-align: center; padding: 12px; border-radius: 4px; font-size: 14px; text-decoration: none; transition: background 0.2s; }
+.modal-view:hover { background: var(--paper-warm); }
+.modal-view + .modal-cta { margin-top: 0.8rem; }
+.work-card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ===== 追加：スマホ下部の固定ボタン ===== */
+.sticky-cta { display: none; }
+@media (max-width: 600px) {
+  .sticky-cta { display: flex; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 150; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(250,250,247,0.95); backdrop-filter: blur(8px); border-top: 1px solid var(--border); transition: transform 0.3s; }
+  .sticky-cta.hide { transform: translateY(110%); }
+  .sticky-cta a { flex: 1; text-align: center; padding: 12px 8px; border-radius: 6px; font-size: 14px; font-weight: 500; text-decoration: none; }
+  .sticky-line { background: #06C755; color: white; }
+  .sticky-tel { flex: 0 0 34% !important; border: 1.5px solid var(--ink); color: var(--ink); }
+  body { padding-bottom: 72px; }
+  .story-section { padding: 4.5rem 1.25rem; }
+}
+
+/* ===== 追加：フッター ===== */
+.footer-links { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+.footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; }
+.footer-links a:hover { color: white; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+  .cursor-ring, .progress-bar { display: none; }
+}
 </style>
 </head>
 <body>
+<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
 <nav>
   <a href="#" class="nav-logo"><span></span>PAGEYA</a>
@@ -315,7 +399,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
     <li><a href="#flow">ご依頼の流れ</a></li>
     <li><a href="#works">制作事例</a></li>
     <li><a href="#price">料金</a></li>
-    <li><a href="https://line.me/R/ti/p/@025wquqd" target="_blank" class="nav-cta" style="background:#06C755;">LINEで相談する</a></li>
+    <li><a href="https://line.me/R/ti/p/@025wquqd" target="_blank" rel="noopener" class="nav-cta" style="background:#06C755;">LINEで相談する</a></li>
   </ul>
 </nav>
 
@@ -324,7 +408,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
   <h1 class="hero-title">大手には頼みにくい。<br>でも、<em>ちゃんとしたもの</em>が欲しい。</h1>
   <p class="hero-sub">「PAGEYA」は、個人店・中小企業のホームページを、丁寧に・素早く・リーズナブルに作る制作代行サービスです。難しいことはすべてこちらで。あなたはお店のことだけ考えていてください。</p>
   <div class="hero-actions">
-    <a href="https://line.me/R/ti/p/@025wquqd" target="_blank" class="btn-primary" style="background:#06C755;">LINEで無料相談する</a>
+    <a href="https://line.me/R/ti/p/@025wquqd" target="_blank" rel="noopener" class="btn-primary" style="background:#06C755;">LINEで無料相談する</a>
     <a href="#works" class="btn-secondary">制作事例を見る</a>
   </div>
   <p class="hero-note"><span>✓</span> 相談・見積もり無料　<span>✓</span> 最短1週間納品　<span>✓</span> 買い切り・保守不要プランあり</p>
@@ -335,11 +419,42 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
     <span class="section-label">こんなお悩みありませんか</span>
     <h2 class="pain-title">「うちにはまだ早い」と思っていませんか？<br>その間にも、お客さんは検索しています。</h2>
     <div class="pain-grid">
-      <div class="pain-item"><strong>ホームページがない</strong><p>Googleで検索されても出てこない。存在しないも同然になっている。</p></div>
-      <div class="pain-item"><strong>制作会社は高すぎる</strong><p>見積もりを取ったら50万〜と言われ、そのまま諦めてしまった。</p></div>
-      <div class="pain-item"><strong>自分で作るのは大変</strong><p>Wixやペライチを触ってみたけど、途中で止まったままになっている。</p></div>
-      <div class="pain-item"><strong>相談できる人がいない</strong><p>何から始めればいいかわからないまま、時間だけが過ぎている。</p></div>
+      <div class="pain-item reveal"><strong>ホームページがない</strong><p>Googleで検索されても出てこない。存在しないも同然になっている。</p></div>
+      <div class="pain-item reveal"><strong>制作会社は高すぎる</strong><p>見積もりを取ったら50万〜と言われ、そのまま諦めてしまった。</p></div>
+      <div class="pain-item reveal"><strong>自分で作るのは大変</strong><p>Wixやペライチを触ってみたけど、途中で止まったままになっている。</p></div>
+      <div class="pain-item reveal"><strong>相談できる人がいない</strong><p>何から始めればいいかわからないまま、時間だけが過ぎている。</p></div>
     </div>
+  </div>
+</section>
+
+
+<section class="story-section" id="story">
+  <div class="story-inner">
+    <span class="section-label reveal">ご依頼のストーリー</span>
+    <h2 class="section-title reveal">「HPがない」から、<br>「HPを見て来ました」まで。</h2>
+    <p class="section-lead reveal">ご依頼いただいてから公開するまでを、ある整体院の例でご紹介します。</p>
+    <div class="story-person reveal">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="32" fill="#f3f1eb"/>
+        <path d="M14 58c2-11 9-16 18-16s16 5 18 16" fill="#e85d2f"/>
+        <circle cx="32" cy="27" r="11" fill="#f6d7bf"/>
+        <path d="M21 26c0-8 5-12 11-12s11 4 11 12c-3-4-7-5-11-5s-8 1-11 5z" fill="#1a1a1a"/>
+        <circle cx="28" cy="28" r="1.3" fill="#1a1a1a"/><circle cx="36" cy="28" r="1.3" fill="#1a1a1a"/>
+        <path d="M29 32.5c1.8 1.4 4.2 1.4 6 0" stroke="#1a1a1a" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+      </svg>
+      <div>
+        <p class="story-person-name">佐藤さん（整体院・個人経営）</p>
+        <p class="story-person-meta">開業5年目。これまでの集客は口コミとチラシだけ。</p>
+      </div>
+    </div>
+    <ol class="story-steps">
+      <li class="story-step reveal"><span class="story-dot">1</span><div><p class="story-when">きっかけ</p><p class="story-title">お店の名前で検索しても、出てこない</p><p class="story-body">常連さんに「ネットで調べたけど見つからなかった」と言われて、HPがないことが気になり始めました。</p></div></li>
+      <li class="story-step reveal"><span class="story-dot">2</span><div><p class="story-when">1日目</p><p class="story-title">LINEで「ちょっと聞いてみた」</p><p class="story-body">制作会社に頼むほどではない気がして、まずはLINEで気軽に質問。その日のうちに返信があり、概算の金額がわかりました。</p><p class="story-quote">「何を用意すればいいかわからないんですが…」→「お話を聞かせていただくだけで大丈夫です」</p></div></li>
+      <li class="story-step reveal"><span class="story-dot">3</span><div><p class="story-when">3日目</p><p class="story-title">30分のヒアリング</p><p class="story-body">施術の特徴、来てほしいお客さん、営業時間など、お店のことを話すだけ。文章はPAGEYAが書き起こします。</p></div></li>
+      <li class="story-step reveal"><span class="story-dot">4</span><div><p class="story-when">1週間後</p><p class="story-title">デザインを見て、直してほしいところを伝える</p><p class="story-body">スマホで確認しながら「もう少し明るい色に」「料金を上に」とLINEで伝えるだけ。むずかしい操作はありません。</p></div></li>
+      <li class="story-step reveal"><span class="story-dot">5</span><div><p class="story-when">公開</p><p class="story-title">検索すれば、お店のページが出てくる</p><p class="story-body">サーバーや公開の設定もすべてPAGEYAが担当。あとはURLをGoogleマップやSNSに載せるだけです。</p></div></li>
+    </ol>
+    <p class="story-note">※ よくあるご相談の流れをもとにした例です。日数はご依頼内容によって変わります。</p>
   </div>
 </section>
 
@@ -349,10 +464,10 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
     <h2 class="section-title">お客様にやっていただくのは、<br>お話しすることだけです。</h2>
     <p class="section-lead">写真の手配から文章まで、面倒な作業はすべて代行します。ITが苦手でも大丈夫。</p>
     <div class="steps">
-      <div class="step"><span class="step-num">01</span><div><p class="step-title">無料ヒアリング（30分）</p><p class="step-body">お店の雰囲気・伝えたいこと・ご予算をお聞きします。ZoomでもLINEでも対応可能です。</p></div></div>
-      <div class="step"><span class="step-num">02</span><div><p class="step-title">デザイン案のご提示</p><p class="step-body">3〜5日でデザインの初稿をお見せします。イメージと違えば何度でも修正します。</p></div></div>
-      <div class="step"><span class="step-num">03</span><div><p class="step-title">修正・仕上げ</p><p class="step-body">文章・写真・色などをご確認いただきながら仕上げます。修正は2回まで無料。</p></div></div>
-      <div class="step"><span class="step-num">04</span><div><p class="step-title">公開・納品</p><p class="step-body">サーバー設定・公開作業もすべてこちらで行います。あとはURLをシェアするだけ。</p></div></div>
+      <div class="step reveal"><span class="step-num">01</span><div><p class="step-title">無料ヒアリング（30分）</p><p class="step-body">お店の雰囲気・伝えたいこと・ご予算をお聞きします。ZoomでもLINEでも対応可能です。</p></div></div>
+      <div class="step reveal"><span class="step-num">02</span><div><p class="step-title">デザイン案のご提示</p><p class="step-body">3〜5日でデザインの初稿をお見せします。イメージと違えば何度でも修正します。</p></div></div>
+      <div class="step reveal"><span class="step-num">03</span><div><p class="step-title">修正・仕上げ</p><p class="step-body">文章・写真・色などをご確認いただきながら仕上げます。修正は2回まで無料。</p></div></div>
+      <div class="step reveal"><span class="step-num">04</span><div><p class="step-title">公開・納品</p><p class="step-body">サーバー設定・公開作業もすべてこちらで行います。あとはURLをシェアするだけ。</p></div></div>
     </div>
   </div>
 </section>
@@ -366,7 +481,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
     <div class="works-grid">
 
       <!-- 飲食店 -->
-      <div class="work-card" onclick="openModal('food')">
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('food')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('food')}">
         <div class="work-preview preview-food">
           <p class="p-badge">Since 2012 · Tokyo</p>
           <p class="p-name">灯屋</p>
@@ -387,7 +502,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
       </div>
 
       <!-- 美容室 -->
-      <div class="work-card" onclick="openModal('beauty')">
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('beauty')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('beauty')}">
         <div class="work-preview preview-beauty">
           <div class="p-nav">
             <span class="p-nav-logo">ATELIER SORA</span>
@@ -416,7 +531,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
       </div>
 
       <!-- 税理士 -->
-      <div class="work-card" onclick="openModal('tax')">
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('tax')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('tax')}">
         <div class="work-preview preview-tax">
           <div class="p-header">
             <span class="p-logo">山田税理士事務所</span>
@@ -443,7 +558,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
       </div>
 
       <!-- 工務店 -->
-      <div class="work-card" onclick="openModal('const')">
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('const')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('const')}">
         <div class="work-preview preview-const">
           <p class="p-tag">地域密着の住まいづくり</p>
           <p class="p-name">田中工務店</p>
@@ -464,7 +579,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
 
 
       <!-- 小売 -->
-      <div class="work-card" onclick="openModal('retail')">
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('retail')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('retail')}">
         <div class="work-preview preview-retail">
           <div class="p-top">
             <span class="p-logo">KOMACHI STORE</span>
@@ -487,7 +602,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
       </div>
 
       <!-- 軽貨物運送 -->
-      <div class="work-card" onclick="openModal('delivery')">
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('delivery')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('delivery')}">
         <div class="work-preview preview-delivery">
           <p class="p-label">軽貨物運送 · 即日対応</p>
           <p class="p-name">スピード便<br>EXPRESS</p>
@@ -510,6 +625,24 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
         </div>
       </div>
 
+      <!-- 採用サイト -->
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('recruit')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('recruit')}">
+        <div class="work-preview preview-recruit">
+          <div class="p-top"><span class="p-logo">PAGEYA, Inc.</span><span class="p-entry">エントリー</span></div>
+          <p class="p-small">RECRUIT 2026</p>
+          <p class="p-h1">一緒に、小さな会社の<br>味方になりませんか。</p>
+          <div class="p-jobs">
+            <div class="p-job">Webディレクター<span>→</span></div>
+            <div class="p-job">Webデザイナー<span>→</span></div>
+          </div>
+        </div>
+        <div class="work-info">
+          <p class="work-label">採用サイト</p>
+          <p class="work-name">求人・採用ページ</p>
+          <p class="work-desc">求人媒体だけでは伝わらない、会社の雰囲気を伝えるデザイン</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -520,9 +653,9 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
     <h2 class="section-title">明朗会計、追加費用なし。</h2>
     <p class="section-lead">すべて買い切り。月額費用・保守費用は一切かかりません。</p>
     <div class="price-grid">
-      <div class="price-card">
+      <div class="price-card reveal">
         <p class="price-plan">ミニマム</p>
-        <p class="price-amount">¥39,800<small> 税込</small></p>
+        <p class="price-amount">¥<span class="count" data-to="39800">39,800</span><small> 税込</small></p>
         <p class="price-desc">とにかくまず「存在する」ことが大事。シンプルに1ページで伝えます。</p>
         <ul class="price-list">
           <li>1ページ完結型</li>
@@ -531,10 +664,10 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
           <li>修正2回まで無料</li>
         </ul>
       </div>
-      <div class="price-card featured">
+      <div class="price-card reveal featured">
         <span class="featured-badge">いちばん人気</span>
         <p class="price-plan">スタンダード</p>
-        <p class="price-amount">¥79,800<small> 税込</small></p>
+        <p class="price-amount">¥<span class="count" data-to="79800">79,800</span><small> 税込</small></p>
         <p class="price-desc">TOP・メニュー・アクセス・お問い合わせなど複数ページでしっかり伝えます。</p>
         <ul class="price-list">
           <li>5ページまで</li>
@@ -545,9 +678,9 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
           <li>公開後1ヶ月サポート</li>
         </ul>
       </div>
-      <div class="price-card">
+      <div class="price-card reveal">
         <p class="price-plan">プレミアム</p>
-        <p class="price-amount">¥148,000<small> 税込〜</small></p>
+        <p class="price-amount">¥<span class="count" data-to="148000">148,000</span><small> 税込〜</small></p>
         <p class="price-desc">こだわりのデザイン・機能が必要な方へ。要件に合わせてご提案します。</p>
         <ul class="price-list">
           <li>ページ数・機能要相談</li>
@@ -566,11 +699,11 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
   <div class="faq-inner">
     <span class="section-label">よくある質問</span>
     <h2 class="section-title">気になることを解消してください。</h2>
-    <div class="faq-item"><p class="faq-q">写真や文章は自分で用意しないといけませんか？</p><p class="faq-a">基本的にはお客様にご用意いただきますが、スマホで撮った写真でも問題ありません。文章についてもヒアリング内容をもとにこちらで作成しますのでご安心ください。</p></div>
-    <div class="faq-item"><p class="faq-q">納品後に内容を更新したくなったらどうなりますか？</p><p class="faq-a">納品後の更新・修正は別途お見積もりになります。ただし、価格・営業時間などの小さな変更は1回3,000円〜対応しています。</p></div>
-    <div class="faq-item"><p class="faq-q">サーバーやドメインはどうすればいいですか？</p><p class="faq-a">すべてこちらで手配・設定します。サーバー・ドメイン費用は別途実費をご負担いただきます（年間1〜2万円程度）。</p></div>
-    <div class="faq-item"><p class="faq-q">打ち合わせは対面ですか？</p><p class="faq-a">基本的にオンライン（Zoom・LINE・メール）での対応です。全国どこでも対応可能です。</p></div>
-    <div class="faq-item"><p class="faq-q">支払い方法は？</p><p class="faq-a">銀行振込にて、着手時50%・納品時50%のお支払いをお願いしています。</p></div>
+    <details class="faq-item reveal"><summary class="faq-q">写真や文章は自分で用意しないといけませんか？</summary><p class="faq-a">基本的にはお客様にご用意いただきますが、スマホで撮った写真でも問題ありません。文章についてもヒアリング内容をもとにこちらで作成しますのでご安心ください。</p></details>
+    <details class="faq-item reveal"><summary class="faq-q">納品後に内容を更新したくなったらどうなりますか？</summary><p class="faq-a">納品後の更新・修正は別途お見積もりになります。ただし、価格・営業時間などの小さな変更は1回3,000円〜対応しています。</p></details>
+    <details class="faq-item reveal"><summary class="faq-q">サーバーやドメインはどうすればいいですか？</summary><p class="faq-a">すべてこちらで手配・設定します。サーバー・ドメイン費用は別途実費をご負担いただきます（年間1〜2万円程度）。</p></details>
+    <details class="faq-item reveal"><summary class="faq-q">打ち合わせは対面ですか？</summary><p class="faq-a">基本的にオンライン（Zoom・LINE・メール）での対応です。全国どこでも対応可能です。</p></details>
+    <details class="faq-item reveal"><summary class="faq-q">支払い方法は？</summary><p class="faq-a">銀行振込にて、着手時50%・納品時50%のお支払いをお願いしています。</p></details>
   </div>
 </section>
 
@@ -584,18 +717,22 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
       <div class="contact-info-block">
         <div class="contact-info-item">
           <span class="ci-label">LINE</span>
-          <span class="ci-value"><a href="https://line.me/R/ti/p/@025wquqd" target="_blank" style="color:var(--accent);text-decoration:none;">@025wquqd（友だち追加）</a></span>
+          <span class="ci-value"><a href="https://line.me/R/ti/p/@025wquqd" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">@025wquqd（友だち追加）</a></span>
+        </div>
+        <div class="contact-info-item">
+          <span class="ci-label">電話</span>
+          <span class="ci-value"><a href="tel:09038021234" style="color:var(--accent);text-decoration:none;">090-3802-1234</a></span>
         </div>
         <div class="contact-info-item">
           <span class="ci-label">メール</span>
-          <span class="ci-value">pageya.info@gmail.com</span>
+          <span class="ci-value"><a href="mailto:pageya.info@gmail.com" style="color:rgba(255,255,255,0.75);text-decoration:none;">pageya.info@gmail.com</a></span>
         </div>
         <div class="contact-info-item">
           <span class="ci-label">受付</span>
           <span class="ci-value">平日 10:00〜19:00</span>
         </div>
       </div>
-      <a href="https://line.me/R/ti/p/@025wquqd" target="_blank" class="line-add-btn">LINEで気軽に相談する</a>
+      <a href="https://line.me/R/ti/p/@025wquqd" target="_blank" rel="noopener" class="line-add-btn">LINEで気軽に相談する</a>
     </div>
     <div class="contact-right">
       <form class="contact-form" action="https://formspree.io/f/xdabkpbv" method="POST" onsubmit="handleSubmit(event)">
@@ -623,7 +760,7 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
         </div>
         <button type="submit" class="form-submit">送信する</button>
         <p class="form-error" id="formError" role="alert">送信できませんでした。時間をおいてもう一度お試しいただくか、LINEからご連絡ください。</p>
-        <p class="form-note">通常1〜2営業日以内にご返信いたします。</p>
+        <p class="form-note">送信前に<a href="privacy.html" style="color:rgba(255,255,255,0.6);">プライバシーポリシー</a>をご確認ください。通常1〜2営業日以内にご返信いたします。</p>
       </form>
       <div class="form-success" id="formSuccess">
         <p class="success-icon">✓</p>
@@ -635,9 +772,9 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
 </section>
 
 <!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" onclick="closeModal()">
   <div class="modal-box" onclick="event.stopPropagation()">
-    <button class="modal-close" onclick="closeModal()">✕</button>
+    <button class="modal-close" onclick="closeModal()" aria-label="閉じる">✕</button>
     <div class="modal-header">
       <span class="modal-label" id="modalLabel"></span>
       <h3 class="modal-title" id="modalTitle"></h3>
@@ -645,11 +782,23 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
     </div>
     <div class="modal-preview-wrap" id="modalPreview"></div>
     <p class="modal-note">※ これはサンプルデザインです。お客様の情報に合わせてゼロから作り込みます。</p>
+    <a href="#" class="modal-view" id="modalView" target="_blank" rel="noopener">実際のページを見る →</a>
     <a href="#contact" class="modal-cta" onclick="closeModal()">このテイストで相談する</a>
   </div>
 </div>
 
-<footer><p>© 2025 PAGEYA · All rights reserved.</p></footer>
+<footer>
+  <div class="footer-links">
+    <a href="privacy.html">プライバシーポリシー</a>
+    <a href="tokushoho.html">特定商取引法に基づく表記</a>
+  </div>
+  <p>© 2026 PAGEYA · All rights reserved.</p>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="https://line.me/R/ti/p/@025wquqd" target="_blank" rel="noopener" class="sticky-line">LINEで無料相談</a>
+  <a href="tel:09038021234" class="sticky-tel">電話する</a>
+</div>
 
 <style>
 /* CONTACT */
@@ -734,12 +883,35 @@ footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: cent
 @media (max-width: 700px) {
   .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
 }
+@media (max-width: 600px) {
+  .modal-preview-wrap { margin: 0 1rem; height: 240px; }
+  .modal-preview-wrap > div { transform: none; }
+  .modal-header { padding: 1.5rem 3.5rem 1rem 1.5rem; }
+  .modal-view, .modal-cta { margin-left: 1rem; margin-right: 1rem; }
+}
 </style>
 
 <script>
 // Work card data
 const works = {
+  recruit: {
+    url: 'sample_recruit.html',
+    label: '採用サイト',
+    title: '求人・採用ページ',
+    desc: '求人媒体だけでは伝わらない、会社の雰囲気や働く人の声を伝えるデザイン。',
+    previewClass: 'work-preview preview-recruit',
+    previewHTML: `
+      <div class="p-top"><span class="p-logo">PAGEYA, Inc.</span><span class="p-entry">エントリー</span></div>
+      <p class="p-small">RECRUIT 2026</p>
+      <p class="p-h1">一緒に、小さな会社の<br>味方になりませんか。</p>
+      <div class="p-jobs">
+        <div class="p-job">Webディレクター<span>→</span></div>
+        <div class="p-job">Webデザイナー<span>→</span></div>
+        <div class="p-job">カスタマーサクセス<span>→</span></div>
+      </div>`
+  },
   food: {
+    url: 'sample_food.html',
     label: '飲食店',
     title: '和食・割烹・レストラン',
     desc: '高級感のある暗色系デザイン。予約ボタンやメニュー表示を自然に配置。',
@@ -757,6 +929,7 @@ const works = {
       </div>`
   },
   beauty: {
+    url: 'sample_beauty.html',
     label: '美容室・サロン',
     title: 'ヘアサロン・エステ・ネイル',
     desc: '明るく清潔感あるミニマルデザイン。予約導線をシンプルに。',
@@ -779,6 +952,7 @@ const works = {
       </div>`
   },
   tax: {
+    url: 'sample_tax.html',
     label: '士業・専門家',
     title: '税理士・行政書士・司法書士',
     desc: '信頼感を伝える紺ベースのデザイン。実績・サービス一覧を見やすく。',
@@ -797,6 +971,7 @@ const works = {
       </div>`
   },
   const: {
+    url: 'sample_const.html',
     label: '建設・リフォーム',
     title: '工務店・外壁・内装',
     desc: '力強さと信頼を伝えるアーシーデザイン。施工実績・無料見積もりを前面に。',
@@ -813,6 +988,7 @@ const works = {
       <div class="p-cta">無料見積もりを依頼する</div>`
   },
   retail: {
+    url: 'sample_retail.html',
     label: '小売・ショップ',
     title: '雑貨店・アパレル・食料品',
     desc: '温かみと購買意欲を引き出すデザイン。商品カードと価格を見やすく。',
@@ -829,6 +1005,7 @@ const works = {
       </div>`
   },
   delivery: {
+    url: 'sample_delivery.html',
     label: '運送・物流',
     title: '軽貨物・宅配・配送業',
     desc: 'スピード感と信頼を伝えるシャープなデザイン。対応エリア・サービスを明確に。',
@@ -858,6 +1035,7 @@ function openModal(key) {
   document.getElementById('modalDesc').textContent = w.desc;
   const wrap = document.getElementById('modalPreview');
   wrap.innerHTML = `<div class="${w.previewClass}" style="height:100%">${w.previewHTML}</div>`;
+  document.getElementById('modalView').href = w.url;
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -868,6 +1046,69 @@ function closeModal() {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+
+// スクロール進捗バー
+(function () {
+  const bar = document.getElementById('progressBar');
+  const update = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+})();
+
+// カスタムカーソル（マウス操作の端末のみ）
+(function () {
+  if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const ring = document.getElementById('cursorRing');
+  addEventListener('mousemove', e => {
+    ring.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    ring.classList.add('show');
+    ring.classList.toggle('hover', !!e.target.closest('a, button, summary, .work-card, input, textarea'));
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => ring.classList.remove('show'));
+})();
+
+// スクロールで表示・料金のカウントアップ
+(function () {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const countUp = el => {
+    const to = +el.dataset.to;
+    if (reduce) return;
+    const start = performance.now(), dur = 900;
+    const tick = now => {
+      const t = Math.min((now - start) / dur, 1);
+      el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3))).toLocaleString('ja-JP');
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('v'));
+    return;
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      en.target.classList.add('v');
+      en.target.querySelectorAll('.count').forEach(countUp);
+      io.unobserve(en.target);
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+
+// お問い合わせ欄が見えている間はスマホ下部のボタンを隠す
+(function () {
+  const bar = document.getElementById('stickyCta');
+  const contact = document.getElementById('contact');
+  if (!('IntersectionObserver' in window)) return;
+  new IntersectionObserver(([en]) => bar.classList.toggle('hide', en.isIntersecting), { threshold: 0.1 }).observe(contact);
+})();
+
 
 async function handleSubmit(e) {
   e.preventDefault();
