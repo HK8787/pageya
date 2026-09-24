@@ -73,6 +73,19 @@ footer{background:#111;padding:2rem;text-align:center;font-size:11px;color:rgba(
 .reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
 .reveal.v{opacity:1;transform:translateY(0);}
 @media(max-width:768px){.hero{grid-template-columns:1fr;}.hero-right{height:300px;}.hero-left{padding:7rem 2rem 3rem;}.menu-grid{grid-template-columns:1fr;}.info-inner{grid-template-columns:1fr;}}
+
+.nav-links a.nav-book{color:white;}
+/* スマホ調整（サンプル共通バッジは画面下に表示） */
+.sample-badge{top:auto;bottom:max(1rem,env(safe-area-inset-bottom));pointer-events:none;}
+@media(max-width:768px){.sample-badge{font-size:10px;padding:4px 12px;}}
+@media(max-width:768px){
+nav{padding:0 1.25rem;height:56px;}
+.logo{font-size:1.15rem;letter-spacing:0.15em;}
+.logo small{font-size:8px;letter-spacing:0.2em;}
+.nav-links{gap:0;}
+.nav-links a:not(.nav-book){display:none;}
+.nav-book{padding:8px 14px;white-space:nowrap;}
+}
 </style>
 </head>
 <body>

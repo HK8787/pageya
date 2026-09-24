@@ -84,6 +84,17 @@ footer{background:#1a1008;padding:2rem;text-align:center;font-size:11px;color:rg
 .reveal.v{opacity:1;transform:translateY(0);}
 @keyframes scrollA{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
 @media(max-width:768px){.hero-content{padding:7rem 2rem 4rem;}.services-grid{grid-template-columns:1fr;}.works-grid{grid-template-columns:1fr;}.achievements-inner{flex-wrap:wrap;}.nav-links{display:none;}}
+
+/* スマホ調整（サンプル共通バッジは画面下に表示） */
+.sample-badge{top:auto;bottom:max(1rem,env(safe-area-inset-bottom));pointer-events:none;}
+@media(max-width:768px){.sample-badge{font-size:10px;padding:4px 12px;}}
+@media(max-width:768px){
+nav{padding:0 1.25rem;}
+.hero-boxes{gap:0.5rem;}
+.hero-box{flex:1;min-width:0;padding:0.8rem 0.4rem;}
+.hero-box-label{letter-spacing:0.05em;}
+.hero-scroll{display:none;}
+}
 </style>
 </head>
 <body>
