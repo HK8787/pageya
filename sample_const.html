@@ -4,183 +4,227 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>田中工務店 | 地域密着の住まいづくり</title>
+<title>田中工務店 | 注文住宅・リノベーション</title>
 <link rel="icon" href="favicon.png" type="image/png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Kaisei+Tokumin:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700;900&family=Noto+Sans+JP:wght@400;500&family=Jost:wght@400;500&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{--earth:#2c2418;--earth-light:#3d3020;--gold:#c8a96e;--cream:#f5f0e6;--muted:#8a7a65;}
-body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--earth);overflow-x:hidden;}
-.sample-badge{position:fixed;top:1rem;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(232,93,47,0.9);color:white;font-size:11px;padding:5px 14px;border-radius:20px;z-index:100;}
-nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(44,36,24,0.97);padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
-.logo{font-family:'Kaisei Tokumin',serif;font-size:1.3rem;color:var(--cream);letter-spacing:0.1em;}
-.logo small{display:block;font-size:9px;letter-spacing:0.3em;color:var(--gold);font-weight:400;margin-top:2px;}
-.nav-links{display:flex;gap:0;}
-.nav-link{font-size:12px;color:rgba(245,240,230,0.6);text-decoration:none;letter-spacing:0.1em;padding:0 1.2rem;height:64px;display:flex;align-items:center;border-right:1px solid rgba(245,240,230,0.08);transition:color 0.2s;}
-.nav-link:hover{color:var(--gold);}
-.nav-cta{background:var(--gold);color:var(--earth);font-weight:500;border:none;}
-.nav-cta:hover{color:var(--earth);opacity:0.9;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f4f0e9;--bg2:#e9e2d6;--ink:#2a2521;--muted:#766c62;--line:#d6ccbe;--wood:#8b5e3c;--green:#4d5b45}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Noto Sans JP',sans-serif;line-height:2;letter-spacing:.04em;-webkit-font-smoothing:antialiased}
+img{display:block;width:100%;height:100%;object-fit:cover}
+a{color:inherit;text-decoration:none}
+.min{font-family:'Zen Old Mincho',serif}
+.en{font-family:'Jost',sans-serif;letter-spacing:.2em}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
 
-.hero{min-height:100vh;background:var(--earth);display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 0;position:relative;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a1008 0%,#2c2418 50%,#1a1008 100%);}
-.hero-texture{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(200,169,110,0.02) 20px,rgba(200,169,110,0.02) 40px);}
-.hero-content{position:relative;z-index:2;padding:8rem 6rem 6rem;max-width:700px;}
-.hero-tag{font-size:10px;letter-spacing:0.5em;color:var(--gold);text-transform:uppercase;margin-bottom:2rem;display:block;}
-.hero h1{font-family:'Kaisei Tokumin',serif;font-size:clamp(2.5rem,5vw,4.2rem);color:var(--cream);font-weight:700;line-height:1.2;margin-bottom:1.5rem;}
-.hero-sub{font-size:14px;color:rgba(245,240,230,0.5);line-height:2;margin-bottom:3rem;font-weight:300;max-width:480px;}
-.hero-boxes{display:flex;gap:1rem;margin-bottom:3rem;}
-.hero-box{border:1px solid rgba(200,169,110,0.3);padding:1rem 1.5rem;min-width:120px;text-align:center;transition:border-color 0.3s;}
-.hero-box:hover{border-color:var(--gold);}
-.hero-box-label{font-size:9px;letter-spacing:0.2em;color:var(--gold);display:block;margin-bottom:0.4rem;}
-.hero-box-val{font-size:15px;color:var(--cream);font-weight:500;}
-.hero-cta{display:inline-block;background:var(--gold);color:var(--earth);font-size:14px;padding:16px 40px;font-weight:700;letter-spacing:0.15em;text-decoration:none;transition:opacity 0.2s;}
-.hero-cta:hover{opacity:0.9;}
-.hero-scroll{position:absolute;right:3rem;bottom:3rem;display:flex;flex-direction:column;align-items:center;gap:6px;}
-.hero-scroll span{font-size:9px;letter-spacing:0.3em;color:rgba(200,169,110,0.5);text-transform:uppercase;writing-mode:vertical-rl;}
-.scroll-bar{width:1px;height:60px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollA 2s ease-in-out infinite;}
+.hd{position:absolute;inset:0 0 auto;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:28px 48px;color:#fff}
+.logo{font-family:'Zen Old Mincho',serif;font-weight:700;font-size:24px;letter-spacing:.2em;line-height:1.2}
+.logo small{display:block;font-family:'Jost';font-size:10px;letter-spacing:.35em;font-weight:400;opacity:.8}
+.gnav{display:flex;gap:36px;align-items:center;font-size:14px}
+.gnav .cta{border:1px solid rgba(255,255,255,.7);padding:12px 26px;transition:.3s}
+.gnav .cta:hover{background:#fff;color:var(--ink)}
+.menu-btn{display:none}
 
-.achievements{background:var(--earth-light);padding:3rem 2.5rem;}
-.achievements-inner{max-width:960px;margin:0 auto;display:flex;gap:0;}
-.achievement{flex:1;text-align:center;padding:1rem;border-right:1px solid rgba(200,169,110,0.15);}
-.achievement:last-child{border:none;}
-.ach-num{font-family:'Kaisei Tokumin',serif;font-size:2.5rem;color:var(--gold);font-weight:700;display:block;}
-.ach-unit{font-size:14px;color:rgba(245,240,230,0.4);}
-.ach-label{font-size:11px;color:rgba(245,240,230,0.45);letter-spacing:0.15em;margin-top:0.3rem;display:block;}
+.hero{position:relative;height:100vh;min-height:680px;color:#fff;overflow:hidden}
+.hero>img{position:absolute;inset:0;animation:zoom 12s ease-out forwards;transform:scale(1.06)}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,.05) 40%,rgba(20,14,8,.7))}
+.hero-in{position:absolute;z-index:2;left:48px;right:48px;bottom:72px;display:flex;justify-content:space-between;align-items:end;gap:40px}
+.hero h1{font-family:'Zen Old Mincho',serif;font-weight:700;font-size:clamp(38px,5.4vw,76px);line-height:1.45;letter-spacing:.12em}
+.hero-sub{max-width:360px;font-size:14px;line-height:2.2;opacity:.9}
+.hero-sub .en{display:block;font-size:12px;margin-bottom:12px;opacity:.8}
 
-.services-section{padding:7rem 2.5rem;background:var(--cream);}
-.services-inner{max-width:960px;margin:0 auto;}
-.section-header{margin-bottom:3rem;}
-.section-tag{font-size:10px;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:0.8rem;}
-.section-h{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--earth);}
-.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
-.service-card{background:white;border-bottom:3px solid var(--earth);padding:2.5rem 2rem;transition:border-color 0.3s,transform 0.3s;}
-.service-card:hover{border-color:var(--gold);transform:translateY(-4px);}
-.service-icon{font-size:2rem;margin-bottom:1rem;display:block;}
-.service-name{font-family:'Kaisei Tokumin',serif;font-size:1.2rem;color:var(--earth);margin-bottom:0.5rem;}
-.service-price{font-size:14px;color:var(--gold);margin-bottom:0.8rem;font-weight:500;}
-.service-desc{font-size:13px;color:var(--muted);line-height:1.9;}
+section{padding:150px 0}
+.sec-en{font-family:'Jost';font-size:13px;letter-spacing:.35em;color:var(--wood);margin-bottom:18px;display:block}
+.h2{font-family:'Zen Old Mincho',serif;font-weight:700;font-size:clamp(28px,3.4vw,44px);line-height:1.6;letter-spacing:.1em}
+.lead{color:var(--muted);font-size:15px;line-height:2.3}
 
-.works-section{padding:7rem 2.5rem;background:var(--earth);}
-.works-inner{max-width:960px;margin:0 auto;}
-.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(200,169,110,0.1);margin-top:3rem;}
-.work-item{background:var(--earth);padding:2rem;text-align:center;}
-.work-num{font-family:'Kaisei Tokumin',serif;font-size:3rem;color:rgba(200,169,110,0.2);display:block;margin-bottom:0.5rem;}
-.work-name{font-size:14px;color:rgba(245,240,230,0.6);letter-spacing:0.1em;}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center}
+.about-imgs{position:relative;height:620px}
+.about-imgs figure{position:absolute;overflow:hidden}
+.about-imgs .a1{left:0;top:0;width:72%;height:78%}
+.about-imgs .a2{right:0;bottom:0;width:52%;height:48%;border:10px solid var(--bg)}
+.about .h2{margin-bottom:36px}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);margin-top:48px;border-top:1px solid var(--line)}
+.nums div{padding:24px 0 0}
+.nums b{font-family:'Jost';font-weight:500;font-size:40px;line-height:1;color:var(--wood)}
+.nums b small{font-family:'Noto Sans JP';font-size:14px;margin-left:4px;color:var(--ink)}
+.nums p{font-size:12px;color:var(--muted);margin-top:8px}
 
-.flow-section{padding:7rem 2.5rem;background:white;}
-.flow-inner{max-width:800px;margin:0 auto;}
-.flow-list{display:flex;flex-direction:column;gap:0;margin-top:3rem;}
-.flow-item{display:grid;grid-template-columns:60px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid rgba(44,36,24,0.08);align-items:start;}
-.flow-num{font-family:'Kaisei Tokumin',serif;font-size:2rem;color:var(--gold);font-weight:700;line-height:1;}
-.flow-title{font-size:16px;font-weight:500;margin-bottom:0.4rem;}
-.flow-desc{font-size:13px;color:var(--muted);line-height:1.9;}
+.works{background:var(--ink);color:var(--bg)}
+.works .sec-en{color:#c9a77f}
+.works-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:64px;gap:40px;flex-wrap:wrap}
+.works-head p{max-width:400px;color:rgba(244,240,233,.65);font-size:14px}
+.works-grid{display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:auto auto;gap:24px}
+.work{position:relative;overflow:hidden}
+.work.big{grid-row:span 2}
+.work figure{height:100%;min-height:300px;overflow:hidden}
+.work figure img{transition:transform 1.2s ease}
+.work:hover figure img{transform:scale(1.05)}
+.work-cap{position:absolute;left:0;right:0;bottom:0;padding:28px;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+.work-cap span{font-family:'Jost';font-size:11px;letter-spacing:.25em;opacity:.8}
+.work-cap h3{font-family:'Zen Old Mincho',serif;font-size:20px;letter-spacing:.08em;margin-top:4px}
 
-.cta-section{background:var(--earth);padding:7rem 2.5rem;text-align:center;}
-.cta-section h2{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--cream);margin:1rem 0;}
-.cta-section p{font-size:14px;color:rgba(245,240,230,0.5);margin-bottom:2rem;}
-.cta-tel{font-family:'Kaisei Tokumin',serif;font-size:clamp(2rem,4vw,3rem);color:var(--gold);display:block;margin:1.5rem 0 0.5rem;}
-.cta-note{font-size:12px;color:rgba(245,240,230,0.3);letter-spacing:0.2em;}
+.svc-list{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:64px}
+.svc{background:var(--bg);padding:48px 36px}
+.svc .en{font-size:12px;color:var(--wood)}
+.svc h3{font-family:'Zen Old Mincho',serif;font-size:24px;letter-spacing:.1em;margin:10px 0 14px}
+.svc p{font-size:14px;color:var(--muted)}
+.svc-price{margin-top:24px;font-size:13px}
+.svc-price b{font-family:'Jost';font-size:24px;font-weight:500;color:var(--wood)}
 
-footer{background:#1a1008;padding:2rem;text-align:center;font-size:11px;color:rgba(245,240,230,0.2);letter-spacing:0.1em;}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
-.reveal.v{opacity:1;transform:translateY(0);}
-@keyframes scrollA{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
-@media(max-width:768px){.hero-content{padding:7rem 2rem 4rem;}.services-grid{grid-template-columns:1fr;}.works-grid{grid-template-columns:1fr;}.achievements-inner{flex-wrap:wrap;}.nav-links{display:none;}}
+.voice{background:var(--bg2)}
+.voice-in{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:center}
+.voice figure{aspect-ratio:4/3;overflow:hidden}
+.voice blockquote{font-family:'Zen Old Mincho',serif;font-size:clamp(20px,2.2vw,26px);line-height:2;letter-spacing:.08em;position:relative;padding-top:48px}
+.voice blockquote::before{content:'“';position:absolute;top:-30px;left:-8px;font-family:'Jost';font-size:120px;color:var(--wood);opacity:.35;line-height:1}
+.voice cite{display:block;margin-top:28px;font-style:normal;font-size:13px;color:var(--muted)}
 
-/* スマホ調整（サンプル共通バッジは画面下に表示） */
-.sample-badge{top:auto;bottom:max(1rem,env(safe-area-inset-bottom));pointer-events:none;}
-@media(max-width:768px){.sample-badge{font-size:10px;padding:4px 12px;}}
-@media(max-width:768px){
-nav{padding:0 1.25rem;}
-.hero-boxes{gap:0.5rem;}
-.hero-box{flex:1;min-width:0;padding:0.8rem 0.4rem;}
-.hero-box-label{letter-spacing:0.05em;}
-.hero-scroll{display:none;}
+.contact{position:relative;padding:160px 0;color:#fff;text-align:center;overflow:hidden}
+.contact>img{position:absolute;inset:0;filter:brightness(.4)}
+.contact .wrap{position:relative}
+.contact .h2{margin:10px 0 18px}
+.contact p{opacity:.85}
+.c-btns{display:flex;justify-content:center;gap:16px;margin-top:44px;flex-wrap:wrap}
+.c-btn{min-width:280px;padding:22px 32px;font-size:15px;letter-spacing:.12em;transition:.3s}
+.c-btn.p{background:var(--wood);color:#fff}.c-btn.p:hover{background:#a06f49}
+.c-btn.s{border:1px solid rgba(255,255,255,.7)}.c-btn.s:hover{background:rgba(255,255,255,.1)}
+.c-tel{margin-top:36px;font-family:'Jost';font-size:32px;letter-spacing:.1em}
+.c-tel small{display:block;font-family:'Noto Sans JP';font-size:12px;opacity:.75;letter-spacing:.1em}
+
+footer{background:var(--ink);color:rgba(244,240,233,.6);padding:56px 0 84px;font-size:12px}
+footer .wrap{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+footer .logo{color:var(--bg)}
+
+.rv{opacity:0;transform:translateY(36px);transition:opacity 1.1s ease,transform 1.1s ease}
+.rv.v{opacity:1;transform:none}
+.sample-badge{position:fixed;left:50%;bottom:max(16px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:100;background:rgba(232,93,47,.92);color:#fff;font-size:11px;padding:6px 16px;border-radius:999px;white-space:nowrap;pointer-events:none}
+
+@media (max-width:900px){
+  .hd{padding:18px 20px}
+  .gnav{position:fixed;inset:0;background:var(--ink);flex-direction:column;justify-content:center;font-size:17px;gap:28px;opacity:0;pointer-events:none;transition:opacity .3s}
+  body.open .gnav{opacity:1;pointer-events:auto}
+  .menu-btn{display:block;position:relative;z-index:60;width:30px;height:16px;border:0;background:none}
+  .menu-btn::before,.menu-btn::after{content:'';position:absolute;left:0;right:0;height:1.5px;background:#fff;transition:.3s}
+  .menu-btn::before{top:0}.menu-btn::after{bottom:0}
+  body.open .menu-btn::before{top:7px;transform:rotate(45deg)}body.open .menu-btn::after{bottom:7px;transform:rotate(-45deg)}
+  .hero-in{flex-direction:column;align-items:flex-start;left:22px;right:22px;bottom:84px}
+  .hero h1{font-size:34px}
+  .wrap{padding:0 22px}
+  section{padding:96px 0}
+  .about,.voice-in{grid-template-columns:1fr;gap:56px}
+  .about-imgs{height:420px}
+  .works-grid{grid-template-columns:1fr}
+  .work.big{grid-row:auto}
+  .svc-list{grid-template-columns:1fr}
+  .svc{padding:36px 26px}
+  .c-btn{min-width:0;width:100%}
+  .contact{padding:110px 0}
 }
+@media (prefers-reduced-motion:reduce){.hero>img{animation:none;transform:none}.rv{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
 <div class="sample-badge">※ PAGEYAのデザインサンプルです</div>
-<nav>
-  <div class="logo">田中工務店<small>TANAKA CONSTRUCTION</small></div>
-  <div class="nav-links">
-    <a href="#" class="nav-link">施工事例</a>
-    <a href="#" class="nav-link">サービス</a>
-    <a href="#" class="nav-link">会社案内</a>
-    <a href="#" class="nav-link">よくある質問</a>
-    <a href="#" class="nav-link nav-cta">無料見積もり</a>
-  </div>
-</nav>
 
-<section class="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-texture"></div>
-  <div class="hero-content">
-    <span class="hero-tag">地域密着の住まいづくり · 創業50年</span>
-    <h1>家族の笑顔が<br>集まる場所を、<br>一緒につくる。</h1>
-    <p class="hero-sub">新築からリフォーム、外壁塗装まで。地域に根ざした50年の実績と技術で、大切な住まいをお守りします。</p>
-    <div class="hero-boxes">
-      <div class="hero-box"><span class="hero-box-label">創業</span><span class="hero-box-val">50年</span></div>
-      <div class="hero-box"><span class="hero-box-label">施工実績</span><span class="hero-box-val">2,000棟</span></div>
-      <div class="hero-box"><span class="hero-box-label">顧客満足度</span><span class="hero-box-val">97%</span></div>
-    </div>
-    <a href="#contact" class="hero-cta">無料見積もりを依頼する</a>
+<header class="hd">
+  <a href="#" class="logo">田中工務店<small>TANAKA KOMUTEN</small></a>
+  <button class="menu-btn" aria-label="メニュー" onclick="document.body.classList.toggle('open')"></button>
+  <nav class="gnav" onclick="document.body.classList.remove('open')">
+    <a href="#about">私たちについて</a>
+    <a href="#works">施工事例</a>
+    <a href="#service">サービス</a>
+    <a href="#contact" class="cta">無料相談・見積もり</a>
+  </nav>
+</header>
+
+<section class="hero" style="padding:0">
+  <img src="img/samples/const-hero.jpg" alt="木と黒の外壁の住宅">
+  <div class="hero-in">
+    <h1>木の家に、<br>ながく住まう。</h1>
+    <p class="hero-sub"><span class="en">SINCE 1974 — KANAGAWA</span>創業50年。地元の大工が設計から施工、アフターメンテナンスまで一貫して手がける、注文住宅とリノベーションの工務店です。</p>
   </div>
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-bar"></div></div>
 </section>
 
-<div class="achievements">
-  <div class="achievements-inner">
-    <div class="achievement"><span class="ach-num">2,000<span class="ach-unit">棟</span></span><span class="ach-label">施工実績</span></div>
-    <div class="achievement"><span class="ach-num">50<span class="ach-unit">年</span></span><span class="ach-label">創業からの歴史</span></div>
-    <div class="achievement"><span class="ach-num">97<span class="ach-unit">%</span></span><span class="ach-label">顧客満足度</span></div>
-    <div class="achievement"><span class="ach-num">1<span class="ach-unit">週間</span></span><span class="ach-label">最短お見積もり</span></div>
-  </div>
-</div>
-
-<section class="services-section" id="services">
-  <div class="services-inner">
-    <div class="section-header reveal">
-      <span class="section-tag">Services</span>
-      <h2 class="section-h">サービス内容</h2>
+<section id="about">
+  <div class="wrap about">
+    <div class="about-imgs rv">
+      <figure class="a1"><img src="img/samples/const-2.jpg" alt="図面を描く設計士"></figure>
+      <figure class="a2"><img src="img/samples/const-4.jpg" alt="明るい室内"></figure>
     </div>
-    <div class="services-grid">
-      <div class="service-card reveal"><span class="service-icon">🏠</span><p class="service-name">新築工事</p><p class="service-price">要お見積もり</p><p class="service-desc">ゼロから理想の住まいを。設計から施工まで一貫対応。土地探しからのご相談も歓迎します。</p></div>
-      <div class="service-card reveal"><span class="service-icon">🔨</span><p class="service-name">リフォーム・増改築</p><p class="service-price">¥10万〜</p><p class="service-desc">水回り・内装・間取り変更など幅広く対応。住みながらのリフォームも可能です。</p></div>
-      <div class="service-card reveal"><span class="service-icon">🎨</span><p class="service-name">外壁・屋根塗装</p><p class="service-price">¥30万〜</p><p class="service-desc">耐久性の高い塗料を使用。丁寧な下地処理で長持ちする仕上がりをお約束します。</p></div>
-      <div class="service-card reveal"><span class="service-icon">🚨</span><p class="service-name">緊急修理・補修</p><p class="service-price">相談無料</p><p class="service-desc">雨漏り・破損など緊急のご依頼にも迅速対応。まずはお電話ください。</p></div>
+    <div class="rv">
+      <span class="sec-en">ABOUT US</span>
+      <h2 class="h2">図面を描いた人が、<br>現場に立つ。</h2>
+      <p class="lead" style="margin-top:36px">営業担当はいません。お客さまのお話を聞いた設計士が図面を描き、社員大工が自分の手で建てる。だから、打ち合わせで話したことが、そのままのかたちで家になります。建てたあとも、年に一度の点検でずっとお付き合いします。</p>
+      <div class="nums">
+        <div><b>50<small>年</small></b><p>地域での実績</p></div>
+        <div><b>2,000<small>棟</small></b><p>施工実績</p></div>
+        <div><b>12<small>名</small></b><p>社員大工</p></div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="flow-section">
-  <div class="flow-inner">
-    <div class="section-header reveal">
-      <span class="section-tag" style="color:var(--gold);">Process</span>
-      <h2 class="section-h">ご依頼の流れ</h2>
+<section class="works" id="works">
+  <div class="wrap">
+    <div class="works-head rv">
+      <div><span class="sec-en">WORKS</span><h2 class="h2">施工事例</h2></div>
+      <p>無垢材と漆喰を中心に、年を重ねるほど味わいが増す素材を使っています。</p>
     </div>
-    <div class="flow-list">
-      <div class="flow-item reveal"><span class="flow-num">01</span><div><p class="flow-title">無料ご相談・現地調査</p><p class="flow-desc">まずはお電話またはメールでご連絡ください。現地調査も無料で承ります。</p></div></div>
-      <div class="flow-item reveal"><span class="flow-num">02</span><div><p class="flow-title">お見積もり・ご提案</p><p class="flow-desc">調査内容をもとに、詳細なお見積もりと施工プランをご提示します。</p></div></div>
-      <div class="flow-item reveal"><span class="flow-num">03</span><div><p class="flow-title">ご契約・着工</p><p class="flow-desc">ご納得いただいた上でご契約。工事スケジュールを確認し着工します。</p></div></div>
-      <div class="flow-item reveal"><span class="flow-num">04</span><div><p class="flow-title">施工・完成・アフターフォロー</p><p class="flow-desc">丁寧な施工で仕上げ。完成後も1年間の無償保証と定期点検でサポートします。</p></div></div>
+    <div class="works-grid">
+      <a href="#" class="work big rv"><figure><img src="img/samples/const-1.jpg" alt="木の外壁の住宅"></figure><div class="work-cap"><span>NEW HOUSE ／ 藤沢市</span><h3>庭とつながる、木の外壁の家</h3></div></a>
+      <a href="#" class="work rv"><figure><img src="img/samples/const-3.jpg" alt="リビング"></figure><div class="work-cap"><span>RENOVATION ／ 横浜市</span><h3>築40年の家を、明るいLDKに</h3></div></a>
+      <a href="#" class="work rv"><figure><img src="img/samples/const-5.jpg" alt="キッチン"></figure><div class="work-cap"><span>KITCHEN ／ 鎌倉市</span><h3>家族が集まるアイランドキッチン</h3></div></a>
     </div>
   </div>
 </section>
 
-<section class="cta-section" id="contact">
-  <span style="font-size:10px;letter-spacing:0.4em;color:rgba(200,169,110,0.5);text-transform:uppercase;" class="reveal">Contact</span>
-  <h2 class="reveal">まずはお気軽にご相談ください</h2>
-  <p class="reveal">見積もり・現地調査は無料です。お気軽にどうぞ。</p>
-  <span class="cta-tel reveal">03-0000-0000</span>
-  <p class="cta-note reveal">受付時間 平日 8:00〜18:00</p>
-  <a href="tel:03-0000-0000" class="hero-cta reveal" style="margin-top:2rem;">今すぐ電話する</a>
+<section id="service">
+  <div class="wrap">
+    <div class="rv"><span class="sec-en">SERVICE</span><h2 class="h2">できること</h2></div>
+    <div class="svc-list rv">
+      <div class="svc"><span class="en">01 — NEW HOUSE</span><h3>注文住宅</h3><p>土地探しから資金計画、設計、施工まで。ご家族の暮らし方からいっしょに考えます。</p><p class="svc-price">坪単価 <b>75</b> 万円〜</p></div>
+      <div class="svc"><span class="en">02 — RENOVATION</span><h3>リノベーション</h3><p>間取りの変更や断熱改修で、今の家をもう一度住みやすく。耐震診断も無料です。</p><p class="svc-price"><b>500</b> 万円〜</p></div>
+      <div class="svc"><span class="en">03 — REFORM</span><h3>小さな修繕</h3><p>水まわり、外壁塗装、網戸の張り替えまで。「こんなことでも？」も大歓迎です。</p><p class="svc-price"><b>1</b> 万円〜</p></div>
+    </div>
+  </div>
 </section>
-<footer>© 2025 田中工務店 · All rights reserved.</footer>
+
+<section class="voice">
+  <div class="wrap voice-in">
+    <figure class="rv"><img src="img/samples/const-5.jpg" alt="光の入るキッチン"></figure>
+    <div class="rv">
+      <span class="sec-en">VOICE</span>
+      <blockquote>打ち合わせで何気なく話した「朝、光の入るキッチンがいい」という一言を、大工さんまで覚えていてくれました。毎朝、この家にしてよかったと思います。</blockquote>
+      <cite>藤沢市　K様ご家族（2023年 新築）</cite>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <img src="img/samples/const-hero.jpg" alt="">
+  <div class="wrap rv">
+    <span class="sec-en" style="color:#e6cfae">CONTACT</span>
+    <h2 class="h2">まずは、話を聞かせてください。</h2>
+    <p>ご相談・お見積もりは無料です。モデルハウスの見学も随時受け付けています。</p>
+    <div class="c-btns"><a href="#" class="c-btn p">無料で相談・見積もりする</a><a href="#" class="c-btn s">モデルハウスを見学する</a></div>
+    <a href="tel:0000000000" class="c-tel" style="display:block"><small>お電話（8:00〜18:00 ／ 水曜定休）</small>0466-00-0000</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><a href="#" class="logo">田中工務店<small>TANAKA KOMUTEN</small></a><p style="margin-top:12px">神奈川県藤沢市0-0-0　建設業許可 神奈川県知事（般-0）第00000号</p></div>
+    <p>© Tanaka Komuten　／　Photos: Unsplash</p>
+  </div>
+</footer>
+
 <script>
-const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('v'); }), {threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('v');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>

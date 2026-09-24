@@ -146,15 +146,6 @@ section{padding:112px 0}
 .mock{position:relative;justify-self:center;width:280px}
 .phone{width:280px;height:560px;border-radius:44px;background:#111;padding:12px;box-shadow:var(--shadow-lg),inset 0 0 0 2px #2a2a2a;transform:rotate(3deg)}
 .phone-screen{width:100%;height:100%;border-radius:34px;overflow:hidden;background:#fff;position:relative}
-.phone-screen .work-preview{height:100%;padding:44px 22px 22px}
-.phone-screen .preview-beauty .p-hero{flex-direction:column}
-.phone-screen .preview-beauty .p-img{width:100%;height:150px}
-.phone-screen .preview-beauty .p-h1{font-size:1.5rem}
-.phone-screen .preview-beauty .p-body{font-size:10px}
-.phone-screen .preview-beauty .p-cta{font-size:10px;padding:8px 16px}
-.phone-screen .preview-beauty .p-cards{flex-direction:column}
-.phone-screen .preview-beauty .p-card-t{font-size:10px}.phone-screen .preview-beauty .p-card-p{font-size:11px}
-.phone-screen .preview-beauty .p-nav-logo{font-size:13px}
 .notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:84px;height:22px;background:#111;border-radius:12px;z-index:2}
 .float{position:absolute;background:var(--white);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow-lg);padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;white-space:nowrap;animation:bob 5s ease-in-out infinite}
 .float small{display:block;font-size:11px;font-weight:500;color:var(--ink-muted)}
@@ -219,125 +210,14 @@ section{padding:112px 0}
 .work-card:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .work-card::after{content:'拡大して見る →';position:absolute;top:12px;right:12px;background:rgba(21,23,28,.85);color:#fff;font-size:12px;font-weight:700;border-radius:999px;padding:4px 12px;opacity:0;transform:translateY(-4px);transition:.2s}
 .work-card:hover::after{opacity:1;transform:none}
-.work-preview{height:236px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.work-preview{aspect-ratio:16/10;overflow:hidden;background:#eee}
+.work-preview img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .8s ease}
+.work-card:hover .work-preview img{transform:scale(1.04)}
 .work-info{padding:18px 22px 22px;border-top:1px solid var(--line)}
 .work-label{display:inline-block;font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:2px 10px;margin-bottom:8px}
 .work-name{font-size:16px;font-weight:700;margin-bottom:2px}
 .work-desc{font-size:13px;color:var(--ink-muted)}
-/* 飲食店プレビュー - 暗くてリッチ */
-.preview-food {
-  background: #0d0b08;
-  align-items: center; justify-content: center;
-  padding: 1.5rem;
-  text-align: center;
-}
-.preview-food .p-badge { font-size: 8px; letter-spacing: 0.3em; color: #b87828; text-transform: uppercase; margin-bottom: 0.6rem; }
-.preview-food .p-name { font-family: 'Kaisei Tokumin', serif; font-size: 1.8rem; color: #f5f0e8; font-weight: 400; margin-bottom: 0.4rem; }
-.preview-food .p-tag { font-size: 9px; color: rgba(245,240,232,0.4); letter-spacing: 0.2em; margin-bottom: 1rem; }
-.preview-food .p-divider { width: 30px; height: 1px; background: #b87828; opacity: 0.5; margin: 0 auto 1rem; }
-.preview-food .p-btn { border: 1px solid rgba(184,120,40,0.5); color: #b87828; font-size: 8px; padding: 5px 14px; letter-spacing: 0.2em; }
-.preview-food .p-menu { display: flex; gap: 1rem; margin-top: 0.8rem; }
-.preview-food .p-menu-item { flex: 1; text-align: left; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.5rem; }
-.preview-food .p-menu-item span { display: block; font-size: 7px; color: rgba(245,240,232,0.35); }
-.preview-food .p-menu-item strong { display: block; font-size: 9px; color: rgba(245,240,232,0.7); }
 
-/* 美容室プレビュー - ミニマル白 */
-.preview-beauty {
-  background: #ffffff;
-  padding: 1.5rem;
-}
-.preview-beauty .p-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 0.5px solid #eee; padding-bottom: 0.6rem; }
-.preview-beauty .p-nav-logo { font-size: 12px; letter-spacing: 0.25em; color: #222; }
-.preview-beauty .p-nav-links { display: flex; gap: 0.5rem; }
-.preview-beauty .p-nav-links span { font-size: 7px; color: #aaa; }
-.preview-beauty .p-hero { display: flex; gap: 1rem; }
-.preview-beauty .p-text { flex: 1; }
-.preview-beauty .p-small { font-size: 7px; letter-spacing: 0.2em; color: #c4a882; text-transform: uppercase; margin-bottom: 0.3rem; }
-.preview-beauty .p-h1 { font-family: 'Kaisei Tokumin', serif; font-size: 1.1rem; color: #222; line-height: 1.4; margin-bottom: 0.5rem; }
-.preview-beauty .p-body { font-size: 7px; color: #888; line-height: 1.7; margin-bottom: 0.6rem; }
-.preview-beauty .p-cta { background: #222; color: white; font-size: 7px; padding: 5px 12px; display: inline-block; }
-.preview-beauty .p-img { width: 70px; height: 100px; background: linear-gradient(135deg, #f5ede0, #e8d5c0); border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
-.preview-beauty .p-img span { font-size: 20px; opacity: 0.4; }
-.preview-beauty .p-cards { display: flex; gap: 0.5rem; margin-top: 0.8rem; }
-.preview-beauty .p-card { flex: 1; background: #fafafa; border: 0.5px solid #eee; padding: 0.5rem; border-radius: 3px; }
-.preview-beauty .p-card-t { font-size: 7px; color: #555; font-weight: 500; }
-.preview-beauty .p-card-p { font-size: 8px; color: #c4a882; margin-top: 2px; }
-
-/* 税理士プレビュー - 紺・信頼感 */
-.preview-tax {
-  background: #f8f9fc;
-  padding: 1.5rem;
-}
-.preview-tax .p-header { background: #1e3a5f; padding: 0.6rem 0.8rem; margin: -1.5rem -1.5rem 1rem; display: flex; align-items: center; justify-content: space-between; }
-.preview-tax .p-logo { font-size: 10px; color: white; font-weight: 500; letter-spacing: 0.05em; }
-.preview-tax .p-tel { font-size: 9px; color: rgba(255,255,255,0.7); }
-.preview-tax .p-hero { display: flex; gap: 0.8rem; align-items: flex-start; }
-.preview-tax .p-badge { background: #e8f0fb; color: #1e3a5f; font-size: 7px; padding: 2px 8px; border-radius: 2px; margin-bottom: 0.4rem; display: inline-block; }
-.preview-tax .p-h1 { font-family: 'Kaisei Tokumin', serif; font-size: 0.95rem; color: #1e3a5f; line-height: 1.4; margin-bottom: 0.4rem; }
-.preview-tax .p-body { font-size: 7px; color: #666; line-height: 1.7; }
-.preview-tax .p-services { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.8rem; }
-.preview-tax .p-service { background: white; border-left: 3px solid #1e3a5f; padding: 0.4rem 0.6rem; font-size: 8px; color: #333; }
-
-/* 小売プレビュー - ポップ・明るい */
-.preview-retail {
-  background: #fff8f2;
-  padding: 1.2rem 1.5rem;
-}
-.preview-retail .p-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; border-bottom: 1px solid #ffe4d0; padding-bottom: 0.6rem; }
-.preview-retail .p-logo { font-family: 'Kaisei Tokumin', serif; font-size: 13px; color: #c0430a; letter-spacing: 0.1em; }
-.preview-retail .p-cart { font-size: 9px; background: #c0430a; color: white; padding: 3px 8px; border-radius: 3px; }
-.preview-retail .p-sale { background: #c0430a; color: white; font-size: 8px; padding: 2px 8px; display: inline-block; border-radius: 2px; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
-.preview-retail .p-catch { font-family: 'Kaisei Tokumin', serif; font-size: 1rem; color: #1a1a1a; margin-bottom: 0.4rem; line-height: 1.4; }
-.preview-retail .p-sub { font-size: 7px; color: #888; margin-bottom: 0.8rem; }
-.preview-retail .p-items { display: flex; gap: 0.5rem; }
-.preview-retail .p-item { flex: 1; background: white; border: 1px solid #ffe4d0; border-radius: 4px; padding: 0.5rem; }
-.preview-retail .p-item-img { height: 40px; background: linear-gradient(135deg, #ffe4d0, #ffd0b0); border-radius: 3px; margin-bottom: 0.3rem; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-.preview-retail .p-item-name { font-size: 7px; color: #444; margin-bottom: 2px; }
-.preview-retail .p-item-price { font-size: 9px; color: #c0430a; font-weight: 500; }
-
-/* 軽貨物プレビュー - シャープ・速さ */
-.preview-delivery {
-  background: #0a1628;
-  padding: 1.5rem;
-  position: relative;
-  overflow: hidden;
-}
-.preview-delivery::after { content: ''; position: absolute; top: -20px; right: -20px; width: 120px; height: 120px; background: rgba(255,180,0,0.06); border-radius: 50%; }
-.preview-delivery .p-label { font-size: 7px; letter-spacing: 0.3em; color: #ffb400; text-transform: uppercase; margin-bottom: 0.4rem; }
-.preview-delivery .p-name { font-family: 'Kaisei Tokumin', serif; font-size: 1.3rem; color: white; font-weight: 700; line-height: 1.2; margin-bottom: 0.3rem; }
-.preview-delivery .p-tagline { font-size: 8px; color: rgba(255,255,255,0.4); margin-bottom: 0.8rem; }
-.preview-delivery .p-stats { display: flex; gap: 0.5rem; margin-bottom: 0.8rem; }
-.preview-delivery .p-stat { border: 1px solid rgba(255,180,0,0.3); padding: 0.4rem 0.5rem; flex: 1; }
-.preview-delivery .p-stat-v { font-size: 11px; color: #ffb400; font-weight: 700; line-height: 1; }
-.preview-delivery .p-stat-l { font-size: 7px; color: rgba(255,255,255,0.4); margin-top: 2px; }
-.preview-delivery .p-services { display: flex; flex-direction: column; gap: 0.3rem; }
-.preview-delivery .p-svc { background: rgba(255,255,255,0.04); border-left: 2px solid #ffb400; padding: 0.3rem 0.5rem; font-size: 8px; color: rgba(255,255,255,0.7); }
-
-/* 工務店プレビュー - アーシー・力強い */
-.preview-const {
-  background: #2c2418;
-  padding: 1.5rem;
-  position: relative;
-}
-.preview-const::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.01) 10px, rgba(255,255,255,0.01) 20px); }
-.preview-const .p-tag { font-size: 7px; letter-spacing: 0.3em; color: #c8a96e; text-transform: uppercase; margin-bottom: 0.5rem; position: relative; }
-.preview-const .p-name { font-family: 'Kaisei Tokumin', serif; font-size: 1.5rem; color: #f0e8d8; font-weight: 700; line-height: 1.2; margin-bottom: 0.3rem; position: relative; }
-.preview-const .p-sub { font-size: 8px; color: rgba(240,232,216,0.45); margin-bottom: 1rem; position: relative; }
-.preview-const .p-boxes { display: flex; gap: 0.4rem; position: relative; }
-.preview-const .p-box { flex: 1; border: 1px solid rgba(200,169,110,0.3); padding: 0.5rem; }
-.preview-const .p-box-t { font-size: 7px; color: #c8a96e; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
-.preview-const .p-box-v { font-size: 11px; color: #f0e8d8; font-weight: 500; }
-.preview-const .p-cta { background: #c8a96e; color: #2c2418; font-size: 8px; padding: 6px 16px; display: inline-block; font-weight: 700; margin-top: 0.8rem; position: relative; }
-
-.preview-recruit { background: #f7f7f5; padding: 1.4rem 1.5rem; justify-content: center; }
-.preview-recruit .p-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-.preview-recruit .p-logo { font-size: 10px; font-weight: 500; color: #1a1a1a; }
-.preview-recruit .p-entry { font-size: 8px; background: #1a1a1a; color: white; padding: 3px 10px; border-radius: 20px; }
-.preview-recruit .p-small { font-size: 7px; letter-spacing: 0.3em; color: var(--accent); margin-bottom: 0.4rem; }
-.preview-recruit .p-h1 { font-family: 'Kaisei Tokumin', serif; font-size: 1.1rem; line-height: 1.4; color: #1a1a1a; margin-bottom: 0.8rem; }
-.preview-recruit .p-jobs { display: flex; flex-direction: column; gap: 0.3rem; }
-.preview-recruit .p-job { display: flex; justify-content: space-between; background: white; border: 1px solid #eee; padding: 0.35rem 0.6rem; font-size: 8px; color: #333; border-radius: 3px; }
-.preview-recruit .p-job span { color: var(--accent); }
 
 
 
@@ -420,7 +300,7 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
 /* modal */
 .modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(21,23,28,.6);backdrop-filter:blur(6px);align-items:center;justify-content:center;padding:16px}
 .modal-overlay.open{display:flex}
-.modal-box{background:var(--white);border-radius:24px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;position:relative;animation:modalIn .25s ease;padding-bottom:28px}
+.modal-box{background:var(--white);border-radius:24px;max-width:760px;width:100%;max-height:92vh;overflow-y:auto;position:relative;animation:modalIn .25s ease;padding-bottom:28px}
 @keyframes modalIn{from{opacity:0;transform:scale(.96) translateY(10px)}to{opacity:1;transform:none}}
 .modal-close{position:absolute;top:16px;right:16px;background:var(--paper-warm);border:0;width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:14px;color:var(--ink-light);display:grid;place-items:center}
 .modal-close:hover{background:var(--line)}
@@ -428,8 +308,8 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
 .modal-label{display:inline-block;font-size:11px;font-weight:700;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:2px 10px;margin-bottom:8px}
 .modal-title{font-size:22px;font-weight:900;margin-bottom:4px}
 .modal-desc{font-size:14px;color:var(--ink-light)}
-.modal-preview-wrap{margin:0 24px;border-radius:16px;overflow:hidden;border:1px solid var(--line);height:280px}
-.modal-preview-wrap>div{height:100%;transform:scale(1.3);transform-origin:top center}
+.modal-preview-wrap{margin:0 24px;border-radius:14px;overflow-y:auto;border:1px solid var(--line);height:min(52vh,460px);background:#f4f4f4;overscroll-behavior:contain}
+.modal-preview-wrap img{display:block;width:100%;height:auto}
 .modal-note{font-size:12px;color:var(--ink-muted);text-align:center;padding:14px 32px 0}
 .modal-actions{display:flex;flex-direction:column;gap:10px;padding:16px 32px 0}
 
@@ -477,8 +357,7 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
   .contact-sec{padding-left:0;padding-right:0}
   .contact-sec .wrap{padding:0 12px}
   .modal-header{padding:24px 64px 12px 20px}
-  .modal-preview-wrap{margin:0 16px;height:240px}
-  .modal-preview-wrap>div{transform:none}
+  .modal-preview-wrap{margin:0 16px;height:38vh}
   .modal-actions{padding:14px 20px 0}
   .sticky-cta{display:flex;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:150;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);transition:transform .3s}
   .sticky-cta.hide{transform:translateY(110%)}
@@ -532,13 +411,7 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
       </ul>
     </div>
     <div class="mock" aria-hidden="true">
-      <div class="phone"><div class="phone-screen"><span class="notch"></span>
-        <div class="work-preview preview-beauty">
-          <div class="p-nav"><span class="p-nav-logo">ATELIER SORA</span><div class="p-nav-links"><span>Menu</span><span>Access</span></div></div>
-          <div class="p-hero"><div class="p-text"><p class="p-small">Hair Salon</p><p class="p-h1">あなたの「好き」を<br>形にする場所。</p><p class="p-body">一人ひとりに合わせたスタイルをご提案します。</p><span class="p-cta">ご予約はこちら</span></div><div class="p-img"><span>✂</span></div></div>
-          <div class="p-cards"><div class="p-card"><p class="p-card-t">カット</p><p class="p-card-p">¥5,500〜</p></div><div class="p-card"><p class="p-card-t">カラー</p><p class="p-card-p">¥7,700〜</p></div></div>
-        </div>
-      </div></div>
+      <div class="phone"><div class="phone-screen"><span class="notch"></span><img src="img/thumbs/beauty-sp.jpg" alt="スマホで表示したサンプルサイト" style="width:100%;height:auto;display:block"></div></div>
       <div class="float float-1"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/></svg></span><div>LINEで相談OK<small>その日のうちに返信</small></div></div>
       <div class="float float-2"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></span><div>検索に出てくる<small>SEO基本設定済み</small></div></div>
     </div>
@@ -637,169 +510,63 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
     <h2 class="h2 reveal">業種に合わせて、<br>ゼロからデザインします。</h2>
     <p class="lead reveal">以下はすべてサンプルです。タップすると拡大、実際のページも見られます。</p>
     <div class="works-grid">
-
-      <!-- 飲食店 -->
-      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('food')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('food')}">
-        <div class="work-preview preview-food">
-          <p class="p-badge">Since 2012 · Tokyo</p>
-          <p class="p-name">灯屋</p>
-          <p class="p-tag">旬の素材と、丁寧な火入れ。</p>
-          <div class="p-divider"></div>
-          <div class="p-btn">ご予約はこちら</div>
-          <div class="p-menu">
-            <div class="p-menu-item"><span>おまかせコース</span><strong>¥12,000〜</strong></div>
-            <div class="p-menu-item"><span>ランチ</span><strong>¥3,200〜</strong></div>
-            <div class="p-menu-item"><span>ペアリング</span><strong>¥5,500〜</strong></div>
-          </div>
-        </div>
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="鮨・割烹・レストランのサンプルを拡大して見る" onclick="openModal('food')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('food')}">
+        <div class="work-preview"><img src="img/thumbs/food.jpg" alt="鮨・割烹・レストランのサンプルサイト" loading="lazy" width="960" height="600"></div>
         <div class="work-info">
           <p class="work-label">飲食店</p>
-          <p class="work-name">和食・割烹・レストラン</p>
-          <p class="work-desc">高級感のある暗色系デザイン</p>
+          <p class="work-name">鮨・割烹・レストラン</p>
+          <p class="work-desc">写真で「行きたい」を引き出す、上質な和のデザイン</p>
         </div>
       </div>
-
-      <!-- 美容室 -->
-      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('beauty')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('beauty')}">
-        <div class="work-preview preview-beauty">
-          <div class="p-nav">
-            <span class="p-nav-logo">ATELIER SORA</span>
-            <div class="p-nav-links"><span>Menu</span>&nbsp;&nbsp;<span>Access</span>&nbsp;&nbsp;<span>予約</span></div>
-          </div>
-          <div class="p-hero">
-            <div class="p-text">
-              <p class="p-small">Hair Salon · Shibuya</p>
-              <p class="p-h1">あなたの「好き」を<br>形にする場所。</p>
-              <p class="p-body">カットからカラー、トリートメントまで。一人ひとりに合ったスタイルをご提案します。</p>
-              <div class="p-cta">ご予約はこちら</div>
-            </div>
-            <div class="p-img"><span>✂</span></div>
-          </div>
-          <div class="p-cards">
-            <div class="p-card"><p class="p-card-t">カット</p><p class="p-card-p">¥5,500〜</p></div>
-            <div class="p-card"><p class="p-card-t">カラー</p><p class="p-card-p">¥9,800〜</p></div>
-            <div class="p-card"><p class="p-card-t">パーマ</p><p class="p-card-p">¥12,000〜</p></div>
-          </div>
-        </div>
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="ヘアサロン・エステ・ネイルのサンプルを拡大して見る" onclick="openModal('beauty')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('beauty')}">
+        <div class="work-preview"><img src="img/thumbs/beauty.jpg" alt="ヘアサロン・エステ・ネイルのサンプルサイト" loading="lazy" width="960" height="600"></div>
         <div class="work-info">
           <p class="work-label">美容室・サロン</p>
           <p class="work-name">ヘアサロン・エステ・ネイル</p>
-          <p class="work-desc">明るく清潔感あるミニマルデザイン</p>
+          <p class="work-desc">余白と写真で世界観を伝える、洗練されたデザイン</p>
         </div>
       </div>
-
-      <!-- 税理士 -->
-      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('tax')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('tax')}">
-        <div class="work-preview preview-tax">
-          <div class="p-header">
-            <span class="p-logo">山田税理士事務所</span>
-            <span class="p-tel">03-0000-0000</span>
-          </div>
-          <div class="p-hero">
-            <div>
-              <span class="p-badge">中小企業・個人事業主専門</span>
-              <p class="p-h1">税務のことは、<br>すべてお任せください。</p>
-              <p class="p-body">創業30年。地域に根ざした丁寧なサポートで、大切な会社の経営を支えます。</p>
-            </div>
-          </div>
-          <div class="p-services">
-            <div class="p-service">記帳代行・確定申告</div>
-            <div class="p-service">法人税・相続税</div>
-            <div class="p-service">創業支援・補助金申請</div>
-          </div>
-        </div>
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="税理士・行政書士・社労士のサンプルを拡大して見る" onclick="openModal('tax')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('tax')}">
+        <div class="work-preview"><img src="img/thumbs/tax.jpg" alt="税理士・行政書士・社労士のサンプルサイト" loading="lazy" width="960" height="600"></div>
         <div class="work-info">
           <p class="work-label">士業・専門家</p>
-          <p class="work-name">税理士・行政書士・司法書士</p>
-          <p class="work-desc">信頼感を伝える紺ベースのデザイン</p>
+          <p class="work-name">税理士・行政書士・社労士</p>
+          <p class="work-desc">信頼感と相談しやすさを両立したデザイン</p>
         </div>
       </div>
-
-      <!-- 工務店 -->
-      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('const')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('const')}">
-        <div class="work-preview preview-const">
-          <p class="p-tag">地域密着の住まいづくり</p>
-          <p class="p-name">田中工務店</p>
-          <p class="p-sub">創業50年 · 施工実績2,000棟以上</p>
-          <div class="p-boxes">
-            <div class="p-box"><p class="p-box-t">新築</p><p class="p-box-v">相談無料</p></div>
-            <div class="p-box"><p class="p-box-t">リフォーム</p><p class="p-box-v">¥10万〜</p></div>
-            <div class="p-box"><p class="p-box-t">外壁塗装</p><p class="p-box-v">¥30万〜</p></div>
-          </div>
-          <div class="p-cta">無料見積もりを依頼する</div>
-        </div>
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="工務店・リフォーム会社のサンプルを拡大して見る" onclick="openModal('const')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('const')}">
+        <div class="work-preview"><img src="img/thumbs/const.jpg" alt="工務店・リフォーム会社のサンプルサイト" loading="lazy" width="960" height="600"></div>
         <div class="work-info">
           <p class="work-label">建設・リフォーム</p>
-          <p class="work-name">工務店・外壁・内装</p>
-          <p class="work-desc">力強さと信頼を伝えるアーシーデザイン</p>
+          <p class="work-name">工務店・リフォーム会社</p>
+          <p class="work-desc">施工事例と職人の想いが伝わるデザイン</p>
         </div>
       </div>
-
-
-      <!-- 小売 -->
-      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('retail')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('retail')}">
-        <div class="work-preview preview-retail">
-          <div class="p-top">
-            <span class="p-logo">KOMACHI STORE</span>
-            <span class="p-cart">カートを見る</span>
-          </div>
-          <span class="p-sale">今週のセール開催中</span>
-          <p class="p-catch">地元に愛される<br>こだわりの雑貨店。</p>
-          <p class="p-sub">オンラインでも、店頭でも。あなたのお気に入りがきっと見つかります。</p>
-          <div class="p-items">
-            <div class="p-item"><div class="p-item-img">🧺</div><p class="p-item-name">天然素材バスケット</p><p class="p-item-price">¥3,200</p></div>
-            <div class="p-item"><div class="p-item-img">🕯️</div><p class="p-item-name">アロマキャンドル</p><p class="p-item-price">¥1,800</p></div>
-            <div class="p-item"><div class="p-item-img">🫙</div><p class="p-item-name">ガラス保存容器</p><p class="p-item-price">¥2,400</p></div>
-          </div>
-        </div>
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="雑貨店・アパレル・食品のサンプルを拡大して見る" onclick="openModal('retail')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('retail')}">
+        <div class="work-preview"><img src="img/thumbs/retail.jpg" alt="雑貨店・アパレル・食品のサンプルサイト" loading="lazy" width="960" height="600"></div>
         <div class="work-info">
           <p class="work-label">小売・ショップ</p>
-          <p class="work-name">雑貨店・アパレル・食料品</p>
-          <p class="work-desc">温かみと購買意欲を引き出すデザイン</p>
+          <p class="work-name">雑貨店・アパレル・食品</p>
+          <p class="work-desc">商品と世界観が映える、やさしいデザイン</p>
         </div>
       </div>
-
-      <!-- 軽貨物運送 -->
-      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('delivery')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('delivery')}">
-        <div class="work-preview preview-delivery">
-          <p class="p-label">軽貨物運送 · 即日対応</p>
-          <p class="p-name">スピード便<br>EXPRESS</p>
-          <p class="p-tagline">当日集荷・翌日配達。確実にお届けします。</p>
-          <div class="p-stats">
-            <div class="p-stat"><p class="p-stat-v">即日</p><p class="p-stat-l">集荷対応</p></div>
-            <div class="p-stat"><p class="p-stat-v">24h</p><p class="p-stat-l">受付対応</p></div>
-            <div class="p-stat"><p class="p-stat-v">全国</p><p class="p-stat-l">配送エリア</p></div>
-          </div>
-          <div class="p-services">
-            <div class="p-svc">定期配送・ルート便</div>
-            <div class="p-svc">スポット便・緊急配送</div>
-            <div class="p-svc">医療・精密機器輸送</div>
-          </div>
-        </div>
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="軽貨物・配送業のサンプルを拡大して見る" onclick="openModal('delivery')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('delivery')}">
+        <div class="work-preview"><img src="img/thumbs/delivery.jpg" alt="軽貨物・配送業のサンプルサイト" loading="lazy" width="960" height="600"></div>
         <div class="work-info">
           <p class="work-label">運送・物流</p>
-          <p class="work-name">軽貨物・宅配・配送業</p>
-          <p class="work-desc">スピード感と信頼を伝えるシャープなデザイン</p>
+          <p class="work-name">軽貨物・配送業</p>
+          <p class="work-desc">スピード感と安心感を伝える、力強いデザイン</p>
         </div>
       </div>
-
-      <!-- 採用サイト -->
-      <div class="work-card reveal" role="button" tabindex="0" aria-label="制作サンプルを拡大して見る" onclick="openModal('recruit')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('recruit')}">
-        <div class="work-preview preview-recruit">
-          <div class="p-top"><span class="p-logo">PAGEYA, Inc.</span><span class="p-entry">エントリー</span></div>
-          <p class="p-small">RECRUIT 2026</p>
-          <p class="p-h1">一緒に、小さな会社の<br>味方になりませんか。</p>
-          <div class="p-jobs">
-            <div class="p-job">Webディレクター<span>→</span></div>
-            <div class="p-job">Webデザイナー<span>→</span></div>
-          </div>
-        </div>
+      <div class="work-card reveal" role="button" tabindex="0" aria-label="求人・採用ページのサンプルを拡大して見る" onclick="openModal('recruit')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('recruit')}">
+        <div class="work-preview"><img src="img/thumbs/recruit.jpg" alt="求人・採用ページのサンプルサイト" loading="lazy" width="960" height="600"></div>
         <div class="work-info">
           <p class="work-label">採用サイト</p>
           <p class="work-name">求人・採用ページ</p>
-          <p class="work-desc">求人媒体だけでは伝わらない、会社の雰囲気を伝えるデザイン</p>
+          <p class="work-desc">会社の雰囲気と働く人を伝えるデザイン</p>
         </div>
       </div>
+    </div>
   </div>
 </section>
 
@@ -935,7 +702,7 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
       <p class="modal-desc" id="modalDesc"></p>
     </div>
     <div class="modal-preview-wrap" id="modalPreview"></div>
-    <p class="modal-note">※ これはサンプルデザインです。お客様の情報に合わせてゼロから作り込みます。</p>
+    <p class="modal-note">↕ スクロールでページ全体を見られます。※ サンプルです。お客様に合わせてゼロから作ります。</p>
     <div class="modal-actions">
       <a href="#" class="btn btn-ghost" id="modalView" target="_blank" rel="noopener">実際のページを見る<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       <a href="#contact" class="btn btn-accent" onclick="closeModal()">このテイストで相談する</a>
@@ -950,139 +717,14 @@ details.faq-item[open] summary::after{transform:translateY(-30%) rotate(-135deg)
 
 <script>
 const works = {
-  recruit: {
-    url: 'sample_recruit.html',
-    label: '採用サイト',
-    title: '求人・採用ページ',
-    desc: '求人媒体だけでは伝わらない、会社の雰囲気や働く人の声を伝えるデザイン。',
-    previewClass: 'work-preview preview-recruit',
-    previewHTML: `
-      <div class="p-top"><span class="p-logo">PAGEYA, Inc.</span><span class="p-entry">エントリー</span></div>
-      <p class="p-small">RECRUIT 2026</p>
-      <p class="p-h1">一緒に、小さな会社の<br>味方になりませんか。</p>
-      <div class="p-jobs">
-        <div class="p-job">Webディレクター<span>→</span></div>
-        <div class="p-job">Webデザイナー<span>→</span></div>
-        <div class="p-job">カスタマーサクセス<span>→</span></div>
-      </div>`
-  },
-  food: {
-    url: 'sample_food.html',
-    label: '飲食店',
-    title: '和食・割烹・レストラン',
-    desc: '高級感のある暗色系デザイン。予約ボタンやメニュー表示を自然に配置。',
-    previewClass: 'work-preview preview-food',
-    previewHTML: `
-      <p class="p-badge">Since 2012 · Tokyo</p>
-      <p class="p-name">灯屋</p>
-      <p class="p-tag">旬の素材と、丁寧な火入れ。</p>
-      <div class="p-divider"></div>
-      <div class="p-btn">ご予約はこちら</div>
-      <div class="p-menu">
-        <div class="p-menu-item"><span>おまかせコース</span><strong>¥12,000〜</strong></div>
-        <div class="p-menu-item"><span>ランチ</span><strong>¥3,200〜</strong></div>
-        <div class="p-menu-item"><span>ペアリング</span><strong>¥5,500〜</strong></div>
-      </div>`
-  },
-  beauty: {
-    url: 'sample_beauty.html',
-    label: '美容室・サロン',
-    title: 'ヘアサロン・エステ・ネイル',
-    desc: '明るく清潔感あるミニマルデザイン。予約導線をシンプルに。',
-    previewClass: 'work-preview preview-beauty',
-    previewHTML: `
-      <div class="p-nav"><span class="p-nav-logo">ATELIER SORA</span><div class="p-nav-links"><span>Menu</span>&nbsp;&nbsp;<span>Access</span>&nbsp;&nbsp;<span>予約</span></div></div>
-      <div class="p-hero">
-        <div class="p-text">
-          <p class="p-small">Hair Salon · Shibuya</p>
-          <p class="p-h1">あなたの「好き」を<br>形にする場所。</p>
-          <p class="p-body">カットからカラー、トリートメントまで。</p>
-          <div class="p-cta">ご予約はこちら</div>
-        </div>
-        <div class="p-img"><span>✂</span></div>
-      </div>
-      <div class="p-cards">
-        <div class="p-card"><p class="p-card-t">カット</p><p class="p-card-p">¥5,500〜</p></div>
-        <div class="p-card"><p class="p-card-t">カラー</p><p class="p-card-p">¥9,800〜</p></div>
-        <div class="p-card"><p class="p-card-t">パーマ</p><p class="p-card-p">¥12,000〜</p></div>
-      </div>`
-  },
-  tax: {
-    url: 'sample_tax.html',
-    label: '士業・専門家',
-    title: '税理士・行政書士・司法書士',
-    desc: '信頼感を伝える紺ベースのデザイン。実績・サービス一覧を見やすく。',
-    previewClass: 'work-preview preview-tax',
-    previewHTML: `
-      <div class="p-header"><span class="p-logo">山田税理士事務所</span><span class="p-tel">03-0000-0000</span></div>
-      <div class="p-hero"><div>
-        <span class="p-badge">中小企業・個人事業主専門</span>
-        <p class="p-h1">税務のことは、<br>すべてお任せください。</p>
-        <p class="p-body">創業30年。地域に根ざした丁寧なサポートで支えます。</p>
-      </div></div>
-      <div class="p-services">
-        <div class="p-service">記帳代行・確定申告</div>
-        <div class="p-service">法人税・相続税</div>
-        <div class="p-service">創業支援・補助金申請</div>
-      </div>`
-  },
-  const: {
-    url: 'sample_const.html',
-    label: '建設・リフォーム',
-    title: '工務店・外壁・内装',
-    desc: '力強さと信頼を伝えるアーシーデザイン。施工実績・無料見積もりを前面に。',
-    previewClass: 'work-preview preview-const',
-    previewHTML: `
-      <p class="p-tag">地域密着の住まいづくり</p>
-      <p class="p-name">田中工務店</p>
-      <p class="p-sub">創業50年 · 施工実績2,000棟以上</p>
-      <div class="p-boxes">
-        <div class="p-box"><p class="p-box-t">新築</p><p class="p-box-v">相談無料</p></div>
-        <div class="p-box"><p class="p-box-t">リフォーム</p><p class="p-box-v">¥10万〜</p></div>
-        <div class="p-box"><p class="p-box-t">外壁塗装</p><p class="p-box-v">¥30万〜</p></div>
-      </div>
-      <div class="p-cta">無料見積もりを依頼する</div>`
-  },
-  retail: {
-    url: 'sample_retail.html',
-    label: '小売・ショップ',
-    title: '雑貨店・アパレル・食料品',
-    desc: '温かみと購買意欲を引き出すデザイン。商品カードと価格を見やすく。',
-    previewClass: 'work-preview preview-retail',
-    previewHTML: `
-      <div class="p-top"><span class="p-logo">KOMACHI STORE</span><span class="p-cart">カートを見る</span></div>
-      <span class="p-sale">今週のセール開催中</span>
-      <p class="p-catch">地元に愛される<br>こだわりの雑貨店。</p>
-      <p class="p-sub">オンラインでも、店頭でも。</p>
-      <div class="p-items">
-        <div class="p-item"><div class="p-item-img">🧺</div><p class="p-item-name">天然素材バスケット</p><p class="p-item-price">¥3,200</p></div>
-        <div class="p-item"><div class="p-item-img">🕯️</div><p class="p-item-name">アロマキャンドル</p><p class="p-item-price">¥1,800</p></div>
-        <div class="p-item"><div class="p-item-img">🫙</div><p class="p-item-name">ガラス保存容器</p><p class="p-item-price">¥2,400</p></div>
-      </div>`
-  },
-  delivery: {
-    url: 'sample_delivery.html',
-    label: '運送・物流',
-    title: '軽貨物・宅配・配送業',
-    desc: 'スピード感と信頼を伝えるシャープなデザイン。対応エリア・サービスを明確に。',
-    previewClass: 'work-preview preview-delivery',
-    previewHTML: `
-      <p class="p-label">軽貨物運送 · 即日対応</p>
-      <p class="p-name">スピード便<br>EXPRESS</p>
-      <p class="p-tagline">当日集荷・翌日配達。確実にお届けします。</p>
-      <div class="p-stats">
-        <div class="p-stat"><p class="p-stat-v">即日</p><p class="p-stat-l">集荷対応</p></div>
-        <div class="p-stat"><p class="p-stat-v">24h</p><p class="p-stat-l">受付対応</p></div>
-        <div class="p-stat"><p class="p-stat-v">全国</p><p class="p-stat-l">配送エリア</p></div>
-      </div>
-      <div class="p-services">
-        <div class="p-svc">定期配送・ルート便</div>
-        <div class="p-svc">スポット便・緊急配送</div>
-        <div class="p-svc">医療・精密機器輸送</div>
-      </div>`
-  }
+  food: { url: 'sample_food.html', label: '飲食店', title: '鮨・割烹・レストラン', desc: '写真で「行きたい」を引き出す、上質な和のデザイン' },
+  beauty: { url: 'sample_beauty.html', label: '美容室・サロン', title: 'ヘアサロン・エステ・ネイル', desc: '余白と写真で世界観を伝える、洗練されたデザイン' },
+  tax: { url: 'sample_tax.html', label: '士業・専門家', title: '税理士・行政書士・社労士', desc: '信頼感と相談しやすさを両立したデザイン' },
+  const: { url: 'sample_const.html', label: '建設・リフォーム', title: '工務店・リフォーム会社', desc: '施工事例と職人の想いが伝わるデザイン' },
+  retail: { url: 'sample_retail.html', label: '小売・ショップ', title: '雑貨店・アパレル・食品', desc: '商品と世界観が映える、やさしいデザイン' },
+  delivery: { url: 'sample_delivery.html', label: '運送・物流', title: '軽貨物・配送業', desc: 'スピード感と安心感を伝える、力強いデザイン' },
+  recruit: { url: 'sample_recruit.html', label: '採用サイト', title: '求人・採用ページ', desc: '会社の雰囲気と働く人を伝えるデザイン' },
 };
-
 
 function openModal(key) {
   const w = works[key];
@@ -1091,7 +733,8 @@ function openModal(key) {
   document.getElementById('modalTitle').textContent = w.title;
   document.getElementById('modalDesc').textContent = w.desc;
   const wrap = document.getElementById('modalPreview');
-  wrap.innerHTML = `<div class="${w.previewClass}" style="height:100%">${w.previewHTML}</div>`;
+  wrap.innerHTML = `<img src="img/full/${key}.jpg" alt="${w.title}のサンプルサイト全体">`;
+  wrap.scrollTop = 0;
   document.getElementById('modalView').href = w.url;
   document.getElementById('modalOverlay').classList.add('open');
   document.body.style.overflow = 'hidden';
