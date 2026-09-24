@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>スピード便EXPRESS | 軽貨物運送・即日対応</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Kaisei+Tokumin:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--navy:#0a1628;--navy-mid:#112240;--yellow:#ffb400;--yellow-light:#fff8e1;--paper:#f8f9fb;--muted:#5a6a80;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--paper);color:var(--navy);overflow-x:hidden;}
+.sample-badge{position:fixed;top:1rem;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(232,93,47,0.9);color:white;font-size:11px;padding:5px 14px;border-radius:20px;z-index:100;}
+.top-bar{background:var(--yellow);padding:8px 2.5rem;display:flex;align-items:center;justify-content:space-between;}
+.top-bar-left{font-size:12px;color:var(--navy);font-weight:500;letter-spacing:0.05em;}
+.top-bar-right{font-size:12px;color:var(--navy);}
+nav{background:var(--navy);padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.logo{font-family:'Kaisei Tokumin',serif;font-size:1.4rem;color:white;letter-spacing:0.1em;}
+.logo small{display:block;font-size:9px;letter-spacing:0.3em;color:var(--yellow);font-weight:300;}
+.nav-tel{font-size:1.2rem;color:white;font-weight:500;letter-spacing:0.05em;}
+.nav-tel small{display:block;font-size:10px;color:rgba(255,255,255,0.5);font-weight:300;text-align:right;}
+.nav-cta{background:var(--yellow);color:var(--navy);font-size:13px;padding:10px 24px;font-weight:700;text-decoration:none;letter-spacing:0.1em;transition:opacity 0.2s;}
+.nav-cta:hover{opacity:0.9;}
+
+.hero{background:var(--navy);min-height:90vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:6rem 2.5rem;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,180,0,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,180,0,0.04) 1px,transparent 1px);background-size:40px 40px;}
+.hero-glow{position:absolute;top:30%;right:10%;width:500px;height:500px;background:radial-gradient(circle,rgba(255,180,0,0.08),transparent 60%);pointer-events:none;}
+.hero-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1;}
+.hero-tag{font-size:10px;letter-spacing:0.5em;color:var(--yellow);text-transform:uppercase;margin-bottom:1.5rem;display:block;}
+.hero h1{font-family:'Kaisei Tokumin',serif;font-size:clamp(2.5rem,5vw,4rem);color:white;font-weight:700;line-height:1.15;margin-bottom:1.2rem;}
+.hero h1 span{color:var(--yellow);}
+.hero-sub{font-size:14px;color:rgba(255,255,255,0.5);line-height:2;margin-bottom:2.5rem;font-weight:300;}
+.hero-cta{display:inline-block;background:var(--yellow);color:var(--navy);font-size:15px;padding:16px 40px;font-weight:700;letter-spacing:0.15em;text-decoration:none;transition:opacity 0.2s;}
+.hero-cta:hover{opacity:0.9;}
+.hero-cta-sub{font-size:12px;color:rgba(255,255,255,0.35);margin-top:1rem;display:block;}
+.hero-stats{display:flex;flex-direction:column;gap:1.5rem;}
+.stat-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,180,0,0.2);padding:1.5rem 2rem;display:flex;align-items:center;gap:1.5rem;transition:border-color 0.3s;}
+.stat-card:hover{border-color:var(--yellow);}
+.stat-num{font-family:'Kaisei Tokumin',serif;font-size:2.5rem;color:var(--yellow);font-weight:700;min-width:80px;}
+.stat-text-name{font-size:14px;color:white;font-weight:500;margin-bottom:0.2rem;}
+.stat-text-desc{font-size:12px;color:rgba(255,255,255,0.4);}
+
+.features-bar{background:var(--navy-mid);padding:2rem 2.5rem;border-top:1px solid rgba(255,180,0,0.1);}
+.features-bar-inner{max-width:960px;margin:0 auto;display:flex;gap:0;}
+.feature-item{flex:1;text-align:center;padding:0.5rem;border-right:1px solid rgba(255,255,255,0.05);}
+.feature-item:last-child{border:none;}
+.feature-icon{font-size:1.5rem;display:block;margin-bottom:0.4rem;}
+.feature-text{font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:0.05em;}
+
+.services-section{padding:7rem 2.5rem;background:white;}
+.services-inner{max-width:960px;margin:0 auto;}
+.section-tag{font-size:10px;letter-spacing:0.4em;color:var(--yellow);text-transform:uppercase;display:block;margin-bottom:0.8rem;}
+.section-h{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--navy);}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
+.service-card{border:2px solid var(--paper);padding:2rem;transition:border-color 0.3s,transform 0.3s;}
+.service-card:hover{border-color:var(--yellow);transform:translateY(-4px);}
+.service-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+.service-name{font-size:15px;font-weight:500;border-left:3px solid var(--yellow);padding-left:0.8rem;margin-bottom:0.8rem;}
+.service-price{font-size:13px;color:var(--yellow);font-weight:500;margin-bottom:0.8rem;}
+.service-desc{font-size:13px;color:var(--muted);line-height:1.9;}
+
+.flow-section{padding:7rem 2.5rem;background:var(--navy);color:white;}
+.flow-inner{max-width:800px;margin:0 auto;}
+.flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,180,0,0.1);margin-top:3rem;}
+.flow-item{background:var(--navy);padding:2rem 1.5rem;text-align:center;}
+.flow-num{width:48px;height:48px;border-radius:50%;background:var(--yellow);color:var(--navy);font-family:'Kaisei Tokumin',serif;font-size:1.2rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;}
+.flow-name{font-size:13px;font-weight:500;color:white;margin-bottom:0.5rem;}
+.flow-desc{font-size:12px;color:rgba(255,255,255,0.4);line-height:1.7;}
+
+.area-section{padding:7rem 2.5rem;background:var(--paper);}
+.area-inner{max-width:700px;margin:0 auto;}
+.area-tags{display:flex;flex-wrap:wrap;gap:0.8rem;margin-top:2rem;}
+.area-tag{background:white;border:1px solid rgba(10,22,40,0.1);padding:6px 16px;font-size:13px;color:var(--navy);border-radius:3px;}
+.area-tag.main{background:var(--navy);color:white;border-color:var(--navy);}
+
+.cta-section{background:var(--yellow);padding:7rem 2.5rem;text-align:center;}
+.cta-section h2{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--navy);margin:1rem 0;}
+.cta-section p{font-size:14px;color:rgba(10,22,40,0.6);margin-bottom:1rem;}
+.cta-tel{font-family:'Kaisei Tokumin',serif;font-size:clamp(2rem,4vw,3.2rem);color:var(--navy);display:block;margin:1.5rem 0 0.5rem;font-weight:700;}
+.cta-note{font-size:12px;color:rgba(10,22,40,0.5);letter-spacing:0.2em;}
+.cta-btn{display:inline-block;margin-top:2rem;background:var(--navy);color:white;font-size:14px;padding:16px 48px;font-weight:700;letter-spacing:0.15em;text-decoration:none;transition:opacity 0.2s;}
+.cta-btn:hover{opacity:0.88;}
+
+footer{background:var(--navy);padding:2rem;text-align:center;font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:0.1em;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.v{opacity:1;transform:translateY(0);}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;}.services-grid{grid-template-columns:1fr;}.flow-grid{grid-template-columns:repeat(2,1fr);}.features-bar-inner{flex-wrap:wrap;}}
+</style>
+</head>
+<body>
+<div class="sample-badge">※ PAGEYAのデザインサンプルです</div>
+<div class="top-bar">
+  <span class="top-bar-left">📦 今なら即日集荷対応！まずはお電話ください</span>
+  <span class="top-bar-right">☎ 090-0000-0000（24時間受付）</span>
+</div>
+<nav>
+  <div class="logo">スピード便EXPRESS<small>SPEED DELIVERY SERVICE</small></div>
+  <div class="nav-tel">090-0000-0000<small>24時間・365日受付</small></div>
+  <a href="#contact" class="nav-cta">今すぐ依頼する</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <span class="hero-tag">軽貨物運送 · 即日対応 · 全国配送</span>
+      <h1>頼んだら、<br><span>すぐ届く。</span><br>それだけです。</h1>
+      <p class="hero-sub">当日集荷・翌日配達。24時間365日受付。急ぎの荷物も、定期便も、確実・迅速にお届けします。</p>
+      <a href="#contact" class="hero-cta">今すぐ依頼する</a>
+      <span class="hero-cta-sub">✓ 見積もり無料　✓ 24時間受付　✓ 法人契約OK</span>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat-card"><span class="stat-num">即日</span><div><p class="stat-text-name">集荷対応</p><p class="stat-text-desc">ご依頼から最短2時間で集荷</p></div></div>
+      <div class="stat-card"><span class="stat-num">24h</span><div><p class="stat-text-name">受付対応</p><p class="stat-text-desc">深夜・休日も電話でご対応</p></div></div>
+      <div class="stat-card"><span class="stat-num">99%</span><div><p class="stat-text-name">翌日配達率</p><p class="stat-text-desc">確実・丁寧にお届けします</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="features-bar">
+  <div class="features-bar-inner">
+    <div class="feature-item"><span class="feature-icon">⚡</span><span class="feature-text">即日集荷対応</span></div>
+    <div class="feature-item"><span class="feature-icon">🌙</span><span class="feature-text">深夜・早朝OK</span></div>
+    <div class="feature-item"><span class="feature-icon">🔒</span><span class="feature-text">荷物保険完備</span></div>
+    <div class="feature-item"><span class="feature-icon">🏥</span><span class="feature-text">医療品対応</span></div>
+    <div class="feature-item"><span class="feature-icon">📋</span><span class="feature-text">法人契約OK</span></div>
+  </div>
+</div>
+
+<section class="services-section" id="services">
+  <div class="services-inner">
+    <div class="reveal">
+      <span class="section-tag">Services</span>
+      <h2 class="section-h">サービス内容</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><span class="service-icon">🚀</span><p class="service-name">スポット便・緊急配送</p><p class="service-price">要お見積もり</p><p class="service-desc">急ぎの配送に最短2時間で対応。ビジネス書類から精密機器まで迅速にお届けします。</p></div>
+      <div class="service-card reveal"><span class="service-icon">🔄</span><p class="service-name">定期配送・ルート便</p><p class="service-price">月額契約対応</p><p class="service-desc">毎日・週次など定期的な配送をお得な月額料金で。専任ドライバーが担当します。</p></div>
+      <div class="service-card reveal"><span class="service-icon">🏥</span><p class="service-name">医療・精密機器輸送</p><p class="service-price">要お見積もり</p><p class="service-desc">デリケートな荷物も専用梱包・細心の注意で安全にお届け。医療機関との取引実績多数。</p></div>
+      <div class="service-card reveal"><span class="service-icon">🏢</span><p class="service-name">企業間配送</p><p class="service-price">法人契約対応</p><p class="service-desc">BtoB配送を一括管理。請求書払い・月次精算に対応。コスト削減のご提案も可能です。</p></div>
+      <div class="service-card reveal"><span class="service-icon">🌙</span><p class="service-name">深夜・早朝配送</p><p class="service-price">要お見積もり</p><p class="service-desc">通常の配送業者が対応できない時間帯にも対応。24時間365日稼働しています。</p></div>
+      <div class="service-card reveal"><span class="service-icon">📦</span><p class="service-name">引越し・大型荷物</p><p class="service-price">要お見積もり</p><p class="service-desc">一般的な引越し業者より柔軟に対応。単身引越しや一部の荷物移動に最適です。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="flow-section">
+  <div class="flow-inner">
+    <div class="reveal">
+      <span class="section-tag" style="color:var(--yellow);">How to Order</span>
+      <h2 class="section-h" style="color:white;">ご依頼の流れ</h2>
+    </div>
+    <div class="flow-grid reveal">
+      <div class="flow-item"><div class="flow-num">01</div><p class="flow-name">お電話・LINE</p><p class="flow-desc">24時間いつでもご連絡ください</p></div>
+      <div class="flow-item"><div class="flow-num">02</div><p class="flow-name">お見積もり</p><p class="flow-desc">内容・距離・荷物量で即座にご提示</p></div>
+      <div class="flow-item"><div class="flow-num">03</div><p class="flow-name">集荷</p><p class="flow-desc">最短2時間でお伺いします</p></div>
+      <div class="flow-item"><div class="flow-num">04</div><p class="flow-name">配達完了</p><p class="flow-desc">完了報告・写真でご確認</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="area-section">
+  <div class="area-inner">
+    <div class="reveal">
+      <span class="section-tag">Service Area</span>
+      <h2 class="section-h">対応エリア</h2>
+      <p style="font-size:14px;color:var(--muted);margin-top:0.5rem;">東京都を中心に関東全域に対応。遠方もご相談ください。</p>
+    </div>
+    <div class="area-tags reveal">
+      <span class="area-tag main">東京都（全域）</span>
+      <span class="area-tag main">神奈川県</span>
+      <span class="area-tag main">埼玉県</span>
+      <span class="area-tag main">千葉県</span>
+      <span class="area-tag">茨城県</span>
+      <span class="area-tag">栃木県</span>
+      <span class="area-tag">群馬県</span>
+      <span class="area-tag">山梨県</span>
+      <span class="area-tag">静岡県（一部）</span>
+      <span class="area-tag">その他 要相談</span>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <span style="font-size:10px;letter-spacing:0.4em;color:rgba(10,22,40,0.4);text-transform:uppercase;" class="reveal">Contact</span>
+  <h2 class="reveal">24時間・いつでもお気軽に</h2>
+  <p class="reveal">まずはお電話またはLINEでご相談ください。見積もりは無料です。</p>
+  <span class="cta-tel reveal">090-0000-0000</span>
+  <p class="cta-note reveal">24時間 · 365日受付（年中無休）</p>
+  <a href="tel:090-0000-0000" class="cta-btn reveal">今すぐ電話する</a>
+</section>
+<footer>© 2025 スピード便EXPRESS · All rights reserved.</footer>
+<script>
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('v'); }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAGEYA | 小さな会社の、頼れるホームページ屋さん</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Kaisei+Tokumin:wght@400;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --ink: #1a1a1a; --ink-light: #555; --ink-muted: #999;
+  --paper: #fafaf7; --paper-warm: #f3f1eb;
+  --accent: #e85d2f; --border: #e2dfd6; --white: #ffffff;
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--paper); color: var(--ink); line-height: 1.7; }
+
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,250,247,0.93); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2rem; height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { font-family: 'Kaisei Tokumin', serif; font-size: 1.3rem; color: var(--ink); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+.nav-logo span { display: inline-block; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 13px; color: var(--ink-light); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--accent); }
+.nav-cta { background: var(--accent); color: white !important; padding: 8px 20px; border-radius: 4px; font-size: 13px !important; }
+
+.hero { min-height: 100vh; padding: 120px 2rem 80px; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; justify-content: center; }
+.hero-eyebrow { font-size: 12px; letter-spacing: 0.3em; color: var(--accent); text-transform: uppercase; margin-bottom: 1.5rem; display: block; opacity:0; animation: fadeUp 0.6s ease forwards 0.2s; }
+.hero-title { font-family: 'Kaisei Tokumin', serif; font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 700; line-height: 1.25; margin-bottom: 1.5rem; opacity:0; animation: fadeUp 0.6s ease forwards 0.4s; }
+.hero-title em { font-style: normal; color: var(--accent); position: relative; }
+.hero-title em::after { content:''; position: absolute; bottom: 2px; left:0; right:0; height:3px; background: var(--accent); opacity:0.3; border-radius:2px; }
+.hero-sub { font-size: clamp(1rem, 2vw, 1.2rem); color: var(--ink-light); max-width: 560px; margin-bottom: 2.5rem; font-weight: 300; opacity:0; animation: fadeUp 0.6s ease forwards 0.6s; }
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; opacity:0; animation: fadeUp 0.6s ease forwards 0.8s; }
+.btn-primary { background: var(--accent); color: white; padding: 14px 32px; border-radius: 4px; font-size: 15px; font-weight: 500; text-decoration: none; display: inline-block; transition: opacity 0.2s, transform 0.2s; }
+.btn-primary:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-secondary { border: 1.5px solid var(--border); color: var(--ink); padding: 14px 32px; border-radius: 4px; font-size: 15px; text-decoration: none; display: inline-block; transition: border-color 0.2s, background 0.2s; }
+.btn-secondary:hover { border-color: var(--ink); background: var(--paper-warm); }
+.hero-note { margin-top: 2rem; font-size: 12px; color: var(--ink-muted); opacity:0; animation: fadeUp 0.6s ease forwards 1s; }
+.hero-note span { color: var(--accent); }
+
+.pain-section { background: var(--ink); color: white; padding: 5rem 2rem; }
+.pain-inner { max-width: 800px; margin: 0 auto; }
+.section-label { font-size: 11px; letter-spacing: 0.35em; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 1.2rem; }
+.pain-title { font-family: 'Kaisei Tokumin', serif; font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; margin-bottom: 3rem; color: white; line-height: 1.5; }
+.pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5px; background: rgba(255,255,255,0.08); }
+.pain-item { background: var(--ink); padding: 1.8rem 1.5rem; }
+.pain-item strong { display: block; font-size: 15px; color: white; margin-bottom: 0.4rem; font-weight: 500; }
+.pain-item p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.8; }
+
+.solution-section { padding: 6rem 2rem; }
+.solution-inner { max-width: 800px; margin: 0 auto; }
+.section-title { font-family: 'Kaisei Tokumin', serif; font-size: clamp(1.5rem, 3.5vw, 2.2rem); font-weight: 700; margin-bottom: 1rem; line-height: 1.5; }
+.section-lead { font-size: 15px; color: var(--ink-light); max-width: 560px; margin-bottom: 3.5rem; font-weight: 300; }
+.steps { display: flex; flex-direction: column; }
+.step { display: grid; grid-template-columns: 48px 1fr; gap: 1.5rem; padding: 2rem 0; border-top: 1px solid var(--border); align-items: start; }
+.step:last-child { border-bottom: 1px solid var(--border); }
+.step-num { font-family: 'Kaisei Tokumin', serif; font-size: 1.6rem; color: var(--accent); font-weight: 700; line-height: 1; padding-top: 4px; }
+.step-title { font-size: 16px; font-weight: 500; margin-bottom: 0.4rem; }
+.step-body { font-size: 14px; color: var(--ink-light); line-height: 1.8; }
+
+/* WORKS SECTION */
+.works-section { padding: 6rem 2rem; background: var(--paper-warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.works-inner { max-width: 960px; margin: 0 auto; }
+.works-lead { font-size: 15px; color: var(--ink-light); max-width: 560px; margin-bottom: 3rem; font-weight: 300; }
+.works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
+.work-card {
+  background: white; border-radius: 10px; overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+.work-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+.work-card::after { content: '拡大して見る →'; position: absolute; bottom: 0; left: 0; right: 0; background: var(--accent); color: white; font-size: 12px; text-align: center; padding: 6px; opacity: 0; transition: opacity 0.2s; }
+.work-card:hover::after { opacity: 1; }
+.work-card { position: relative; }
+.work-preview {
+  height: 200px; position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+}
+
+/* 飲食店プレビュー - 暗くてリッチ */
+.preview-food {
+  background: #0d0b08;
+  align-items: center; justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+.preview-food .p-badge { font-size: 8px; letter-spacing: 0.3em; color: #b87828; text-transform: uppercase; margin-bottom: 0.6rem; }
+.preview-food .p-name { font-family: 'Kaisei Tokumin', serif; font-size: 1.8rem; color: #f5f0e8; font-weight: 400; margin-bottom: 0.4rem; }
+.preview-food .p-tag { font-size: 9px; color: rgba(245,240,232,0.4); letter-spacing: 0.2em; margin-bottom: 1rem; }
+.preview-food .p-divider { width: 30px; height: 1px; background: #b87828; opacity: 0.5; margin: 0 auto 1rem; }
+.preview-food .p-btn { border: 1px solid rgba(184,120,40,0.5); color: #b87828; font-size: 8px; padding: 5px 14px; letter-spacing: 0.2em; }
+.preview-food .p-menu { display: flex; gap: 1rem; margin-top: 0.8rem; }
+.preview-food .p-menu-item { flex: 1; text-align: left; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.5rem; }
+.preview-food .p-menu-item span { display: block; font-size: 7px; color: rgba(245,240,232,0.35); }
+.preview-food .p-menu-item strong { display: block; font-size: 9px; color: rgba(245,240,232,0.7); }
+
+/* 美容室プレビュー - ミニマル白 */
+.preview-beauty {
+  background: #ffffff;
+  padding: 1.5rem;
+}
+.preview-beauty .p-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 0.5px solid #eee; padding-bottom: 0.6rem; }
+.preview-beauty .p-nav-logo { font-size: 12px; letter-spacing: 0.25em; color: #222; }
+.preview-beauty .p-nav-links { display: flex; gap: 0.5rem; }
+.preview-beauty .p-nav-links span { font-size: 7px; color: #aaa; }
+.preview-beauty .p-hero { display: flex; gap: 1rem; }
+.preview-beauty .p-text { flex: 1; }
+.preview-beauty .p-small { font-size: 7px; letter-spacing: 0.2em; color: #c4a882; text-transform: uppercase; margin-bottom: 0.3rem; }
+.preview-beauty .p-h1 { font-family: 'Kaisei Tokumin', serif; font-size: 1.1rem; color: #222; line-height: 1.4; margin-bottom: 0.5rem; }
+.preview-beauty .p-body { font-size: 7px; color: #888; line-height: 1.7; margin-bottom: 0.6rem; }
+.preview-beauty .p-cta { background: #222; color: white; font-size: 7px; padding: 5px 12px; display: inline-block; }
+.preview-beauty .p-img { width: 70px; height: 100px; background: linear-gradient(135deg, #f5ede0, #e8d5c0); border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.preview-beauty .p-img span { font-size: 20px; opacity: 0.4; }
+.preview-beauty .p-cards { display: flex; gap: 0.5rem; margin-top: 0.8rem; }
+.preview-beauty .p-card { flex: 1; background: #fafafa; border: 0.5px solid #eee; padding: 0.5rem; border-radius: 3px; }
+.preview-beauty .p-card-t { font-size: 7px; color: #555; font-weight: 500; }
+.preview-beauty .p-card-p { font-size: 8px; color: #c4a882; margin-top: 2px; }
+
+/* 税理士プレビュー - 紺・信頼感 */
+.preview-tax {
+  background: #f8f9fc;
+  padding: 1.5rem;
+}
+.preview-tax .p-header { background: #1e3a5f; padding: 0.6rem 0.8rem; margin: -1.5rem -1.5rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+.preview-tax .p-logo { font-size: 10px; color: white; font-weight: 500; letter-spacing: 0.05em; }
+.preview-tax .p-tel { font-size: 9px; color: rgba(255,255,255,0.7); }
+.preview-tax .p-hero { display: flex; gap: 0.8rem; align-items: flex-start; }
+.preview-tax .p-badge { background: #e8f0fb; color: #1e3a5f; font-size: 7px; padding: 2px 8px; border-radius: 2px; margin-bottom: 0.4rem; display: inline-block; }
+.preview-tax .p-h1 { font-family: 'Kaisei Tokumin', serif; font-size: 0.95rem; color: #1e3a5f; line-height: 1.4; margin-bottom: 0.4rem; }
+.preview-tax .p-body { font-size: 7px; color: #666; line-height: 1.7; }
+.preview-tax .p-services { display: flex; flex-direction: column; gap: 0.3rem; margin-top: 0.8rem; }
+.preview-tax .p-service { background: white; border-left: 3px solid #1e3a5f; padding: 0.4rem 0.6rem; font-size: 8px; color: #333; }
+
+/* 小売プレビュー - ポップ・明るい */
+.preview-retail {
+  background: #fff8f2;
+  padding: 1.2rem 1.5rem;
+}
+.preview-retail .p-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; border-bottom: 1px solid #ffe4d0; padding-bottom: 0.6rem; }
+.preview-retail .p-logo { font-family: 'Kaisei Tokumin', serif; font-size: 13px; color: #c0430a; letter-spacing: 0.1em; }
+.preview-retail .p-cart { font-size: 9px; background: #c0430a; color: white; padding: 3px 8px; border-radius: 3px; }
+.preview-retail .p-sale { background: #c0430a; color: white; font-size: 8px; padding: 2px 8px; display: inline-block; border-radius: 2px; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+.preview-retail .p-catch { font-family: 'Kaisei Tokumin', serif; font-size: 1rem; color: #1a1a1a; margin-bottom: 0.4rem; line-height: 1.4; }
+.preview-retail .p-sub { font-size: 7px; color: #888; margin-bottom: 0.8rem; }
+.preview-retail .p-items { display: flex; gap: 0.5rem; }
+.preview-retail .p-item { flex: 1; background: white; border: 1px solid #ffe4d0; border-radius: 4px; padding: 0.5rem; }
+.preview-retail .p-item-img { height: 40px; background: linear-gradient(135deg, #ffe4d0, #ffd0b0); border-radius: 3px; margin-bottom: 0.3rem; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+.preview-retail .p-item-name { font-size: 7px; color: #444; margin-bottom: 2px; }
+.preview-retail .p-item-price { font-size: 9px; color: #c0430a; font-weight: 500; }
+
+/* 軽貨物プレビュー - シャープ・速さ */
+.preview-delivery {
+  background: #0a1628;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.preview-delivery::after { content: ''; position: absolute; top: -20px; right: -20px; width: 120px; height: 120px; background: rgba(255,180,0,0.06); border-radius: 50%; }
+.preview-delivery .p-label { font-size: 7px; letter-spacing: 0.3em; color: #ffb400; text-transform: uppercase; margin-bottom: 0.4rem; }
+.preview-delivery .p-name { font-family: 'Kaisei Tokumin', serif; font-size: 1.3rem; color: white; font-weight: 700; line-height: 1.2; margin-bottom: 0.3rem; }
+.preview-delivery .p-tagline { font-size: 8px; color: rgba(255,255,255,0.4); margin-bottom: 0.8rem; }
+.preview-delivery .p-stats { display: flex; gap: 0.5rem; margin-bottom: 0.8rem; }
+.preview-delivery .p-stat { border: 1px solid rgba(255,180,0,0.3); padding: 0.4rem 0.5rem; flex: 1; }
+.preview-delivery .p-stat-v { font-size: 11px; color: #ffb400; font-weight: 700; line-height: 1; }
+.preview-delivery .p-stat-l { font-size: 7px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+.preview-delivery .p-services { display: flex; flex-direction: column; gap: 0.3rem; }
+.preview-delivery .p-svc { background: rgba(255,255,255,0.04); border-left: 2px solid #ffb400; padding: 0.3rem 0.5rem; font-size: 8px; color: rgba(255,255,255,0.7); }
+
+/* 工務店プレビュー - アーシー・力強い */
+.preview-const {
+  background: #2c2418;
+  padding: 1.5rem;
+  position: relative;
+}
+.preview-const::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.01) 10px, rgba(255,255,255,0.01) 20px); }
+.preview-const .p-tag { font-size: 7px; letter-spacing: 0.3em; color: #c8a96e; text-transform: uppercase; margin-bottom: 0.5rem; position: relative; }
+.preview-const .p-name { font-family: 'Kaisei Tokumin', serif; font-size: 1.5rem; color: #f0e8d8; font-weight: 700; line-height: 1.2; margin-bottom: 0.3rem; position: relative; }
+.preview-const .p-sub { font-size: 8px; color: rgba(240,232,216,0.45); margin-bottom: 1rem; position: relative; }
+.preview-const .p-boxes { display: flex; gap: 0.4rem; position: relative; }
+.preview-const .p-box { flex: 1; border: 1px solid rgba(200,169,110,0.3); padding: 0.5rem; }
+.preview-const .p-box-t { font-size: 7px; color: #c8a96e; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+.preview-const .p-box-v { font-size: 11px; color: #f0e8d8; font-weight: 500; }
+.preview-const .p-cta { background: #c8a96e; color: #2c2418; font-size: 8px; padding: 6px 16px; display: inline-block; font-weight: 700; margin-top: 0.8rem; position: relative; }
+
+.work-info { padding: 1rem 1.2rem 1.2rem; }
+.work-label { font-size: 10px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.3rem; }
+.work-name { font-size: 15px; font-weight: 500; color: var(--ink); margin-bottom: 0.2rem; }
+.work-desc { font-size: 12px; color: var(--ink-muted); }
+
+/* PRICE */
+.price-section { padding: 6rem 2rem; }
+.price-inner { max-width: 800px; margin: 0 auto; }
+.price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 2.5rem; }
+.price-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 2rem 1.5rem; position: relative; }
+.price-card.featured { border-color: var(--accent); border-width: 2px; }
+.featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; font-size: 11px; padding: 3px 14px; border-radius: 20px; white-space: nowrap; }
+.price-plan { font-size: 12px; letter-spacing: 0.2em; color: var(--ink-muted); text-transform: uppercase; margin-bottom: 0.6rem; }
+.price-amount { font-family: 'Kaisei Tokumin', serif; font-size: 2.2rem; font-weight: 700; line-height: 1; margin-bottom: 0.3rem; }
+.price-amount small { font-size: 14px; font-weight: 400; font-family: 'Noto Sans JP', sans-serif; color: var(--ink-muted); }
+.price-desc { font-size: 13px; color: var(--ink-light); margin: 1rem 0; padding-top: 1rem; border-top: 1px solid var(--border); line-height: 1.8; }
+.price-list { list-style: none; margin-top: 1rem; }
+.price-list li { font-size: 13px; color: var(--ink-light); padding: 4px 0 4px 1.2rem; position: relative; }
+.price-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-size: 12px; }
+
+/* FAQ */
+.faq-section { padding: 6rem 2rem; background: var(--paper-warm); border-top: 1px solid var(--border); }
+.faq-inner { max-width: 700px; margin: 0 auto; }
+.faq-item { border-top: 1px solid var(--border); padding: 1.5rem 0; }
+.faq-item:last-child { border-bottom: 1px solid var(--border); }
+.faq-q { font-size: 15px; font-weight: 500; margin-bottom: 0.8rem; display: flex; gap: 0.8rem; }
+.faq-q::before { content: 'Q'; color: var(--accent); font-family: 'Kaisei Tokumin', serif; font-weight: 700; flex-shrink: 0; }
+.faq-a { font-size: 14px; color: var(--ink-light); line-height: 1.9; padding-left: 1.8rem; }
+
+/* CTA */
+.cta-section { background: var(--accent); padding: 6rem 2rem; text-align: center; }
+.cta-inner { max-width: 600px; margin: 0 auto; }
+.cta-title { font-family: 'Kaisei Tokumin', serif; font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 700; color: white; margin-bottom: 1rem; line-height: 1.4; }
+.cta-sub { font-size: 15px; color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; font-weight: 300; }
+.cta-tel { font-family: 'Kaisei Tokumin', serif; font-size: clamp(1.8rem, 5vw, 2.8rem); color: white; font-weight: 700; letter-spacing: 0.05em; display: block; margin-bottom: 0.5rem; }
+.cta-note { font-size: 12px; color: rgba(255,255,255,0.6); }
+.cta-btn { display: inline-block; background: white; color: var(--accent); font-weight: 700; font-size: 15px; padding: 16px 40px; border-radius: 4px; text-decoration: none; margin-top: 1.5rem; transition: opacity 0.2s, transform 0.2s; }
+.cta-btn:hover { opacity: 0.92; transform: translateY(-2px); }
+
+footer { background: var(--ink); color: rgba(255,255,255,0.35); text-align: center; padding: 2rem; font-size: 12px; letter-spacing: 0.1em; }
+
+@keyframes fadeUp { from { opacity:0; transform: translateY(20px); } to { opacity:1; transform: translateY(0); } }
+@media (max-width: 600px) { .nav-links { display: none; } .hero { padding-top: 100px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo"><span></span>PAGEYA</a>
+  <ul class="nav-links">
+    <li><a href="#flow">ご依頼の流れ</a></li>
+    <li><a href="#works">制作事例</a></li>
+    <li><a href="#price">料金</a></li>
+    <li><a href="https://line.me/R/ti/p/@025wquqd" target="_blank" class="nav-cta" style="background:#06C755;">LINEで相談する</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">HP制作代行 · 全業種対応</p>
+  <h1 class="hero-title">大手には頼みにくい。<br>でも、<em>ちゃんとしたもの</em>が欲しい。</h1>
+  <p class="hero-sub">「PAGEYA」は、個人店・中小企業のホームページを、丁寧に・素早く・リーズナブルに作る制作代行サービスです。難しいことはすべてこちらで。あなたはお店のことだけ考えていてください。</p>
+  <div class="hero-actions">
+    <a href="https://line.me/R/ti/p/@025wquqd" target="_blank" class="btn-primary" style="background:#06C755;">LINEで無料相談する</a>
+    <a href="#works" class="btn-secondary">制作事例を見る</a>
+  </div>
+  <p class="hero-note"><span>✓</span> 相談・見積もり無料　<span>✓</span> 最短1週間納品　<span>✓</span> 買い切り・保守不要プランあり</p>
+</section>
+
+<section class="pain-section">
+  <div class="pain-inner">
+    <span class="section-label">こんなお悩みありませんか</span>
+    <h2 class="pain-title">「うちにはまだ早い」と思っていませんか？<br>その間にも、お客さんは検索しています。</h2>
+    <div class="pain-grid">
+      <div class="pain-item"><strong>ホームページがない</strong><p>Googleで検索されても出てこない。存在しないも同然になっている。</p></div>
+      <div class="pain-item"><strong>制作会社は高すぎる</strong><p>見積もりを取ったら50万〜と言われ、そのまま諦めてしまった。</p></div>
+      <div class="pain-item"><strong>自分で作るのは大変</strong><p>Wixやペライチを触ってみたけど、途中で止まったままになっている。</p></div>
+      <div class="pain-item"><strong>相談できる人がいない</strong><p>何から始めればいいかわからないまま、時間だけが過ぎている。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="solution-section" id="flow">
+  <div class="solution-inner">
+    <span class="section-label">ご依頼の流れ</span>
+    <h2 class="section-title">お客様にやっていただくのは、<br>お話しすることだけです。</h2>
+    <p class="section-lead">写真の手配から文章まで、面倒な作業はすべて代行します。ITが苦手でも大丈夫。</p>
+    <div class="steps">
+      <div class="step"><span class="step-num">01</span><div><p class="step-title">無料ヒアリング（30分）</p><p class="step-body">お店の雰囲気・伝えたいこと・ご予算をお聞きします。ZoomでもLINEでも対応可能です。</p></div></div>
+      <div class="step"><span class="step-num">02</span><div><p class="step-title">デザイン案のご提示</p><p class="step-body">3〜5日でデザインの初稿をお見せします。イメージと違えば何度でも修正します。</p></div></div>
+      <div class="step"><span class="step-num">03</span><div><p class="step-title">修正・仕上げ</p><p class="step-body">文章・写真・色などをご確認いただきながら仕上げます。修正は2回まで無料。</p></div></div>
+      <div class="step"><span class="step-num">04</span><div><p class="step-title">公開・納品</p><p class="step-body">サーバー設定・公開作業もすべてこちらで行います。あとはURLをシェアするだけ。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section class="works-section" id="works">
+  <div class="works-inner">
+    <span class="section-label">制作サンプル</span>
+    <h2 class="section-title">業種に合わせた<br>デザインをご提案します。</h2>
+    <p class="works-lead">これらはすべてサンプルです。お客様のお店・会社に合わせてゼロから作り込みます。</p>
+    <div class="works-grid">
+
+      <!-- 飲食店 -->
+      <div class="work-card" onclick="openModal('food')">
+        <div class="work-preview preview-food">
+          <p class="p-badge">Since 2012 · Tokyo</p>
+          <p class="p-name">灯屋</p>
+          <p class="p-tag">旬の素材と、丁寧な火入れ。</p>
+          <div class="p-divider"></div>
+          <div class="p-btn">ご予約はこちら</div>
+          <div class="p-menu">
+            <div class="p-menu-item"><span>おまかせコース</span><strong>¥12,000〜</strong></div>
+            <div class="p-menu-item"><span>ランチ</span><strong>¥3,200〜</strong></div>
+            <div class="p-menu-item"><span>ペアリング</span><strong>¥5,500〜</strong></div>
+          </div>
+        </div>
+        <div class="work-info">
+          <p class="work-label">飲食店</p>
+          <p class="work-name">和食・割烹・レストラン</p>
+          <p class="work-desc">高級感のある暗色系デザイン</p>
+        </div>
+      </div>
+
+      <!-- 美容室 -->
+      <div class="work-card" onclick="openModal('beauty')">
+        <div class="work-preview preview-beauty">
+          <div class="p-nav">
+            <span class="p-nav-logo">ATELIER SORA</span>
+            <div class="p-nav-links"><span>Menu</span>&nbsp;&nbsp;<span>Access</span>&nbsp;&nbsp;<span>予約</span></div>
+          </div>
+          <div class="p-hero">
+            <div class="p-text">
+              <p class="p-small">Hair Salon · Shibuya</p>
+              <p class="p-h1">あなたの「好き」を<br>形にする場所。</p>
+              <p class="p-body">カットからカラー、トリートメントまで。一人ひとりに合ったスタイルをご提案します。</p>
+              <div class="p-cta">ご予約はこちら</div>
+            </div>
+            <div class="p-img"><span>✂</span></div>
+          </div>
+          <div class="p-cards">
+            <div class="p-card"><p class="p-card-t">カット</p><p class="p-card-p">¥5,500〜</p></div>
+            <div class="p-card"><p class="p-card-t">カラー</p><p class="p-card-p">¥9,800〜</p></div>
+            <div class="p-card"><p class="p-card-t">パーマ</p><p class="p-card-p">¥12,000〜</p></div>
+          </div>
+        </div>
+        <div class="work-info">
+          <p class="work-label">美容室・サロン</p>
+          <p class="work-name">ヘアサロン・エステ・ネイル</p>
+          <p class="work-desc">明るく清潔感あるミニマルデザイン</p>
+        </div>
+      </div>
+
+      <!-- 税理士 -->
+      <div class="work-card" onclick="openModal('tax')">
+        <div class="work-preview preview-tax">
+          <div class="p-header">
+            <span class="p-logo">山田税理士事務所</span>
+            <span class="p-tel">03-0000-0000</span>
+          </div>
+          <div class="p-hero">
+            <div>
+              <span class="p-badge">中小企業・個人事業主専門</span>
+              <p class="p-h1">税務のことは、<br>すべてお任せください。</p>
+              <p class="p-body">創業30年。地域に根ざした丁寧なサポートで、大切な会社の経営を支えます。</p>
+            </div>
+          </div>
+          <div class="p-services">
+            <div class="p-service">記帳代行・確定申告</div>
+            <div class="p-service">法人税・相続税</div>
+            <div class="p-service">創業支援・補助金申請</div>
+          </div>
+        </div>
+        <div class="work-info">
+          <p class="work-label">士業・専門家</p>
+          <p class="work-name">税理士・行政書士・司法書士</p>
+          <p class="work-desc">信頼感を伝える紺ベースのデザイン</p>
+        </div>
+      </div>
+
+      <!-- 工務店 -->
+      <div class="work-card" onclick="openModal('const')">
+        <div class="work-preview preview-const">
+          <p class="p-tag">地域密着の住まいづくり</p>
+          <p class="p-name">田中工務店</p>
+          <p class="p-sub">創業50年 · 施工実績2,000棟以上</p>
+          <div class="p-boxes">
+            <div class="p-box"><p class="p-box-t">新築</p><p class="p-box-v">相談無料</p></div>
+            <div class="p-box"><p class="p-box-t">リフォーム</p><p class="p-box-v">¥10万〜</p></div>
+            <div class="p-box"><p class="p-box-t">外壁塗装</p><p class="p-box-v">¥30万〜</p></div>
+          </div>
+          <div class="p-cta">無料見積もりを依頼する</div>
+        </div>
+        <div class="work-info">
+          <p class="work-label">建設・リフォーム</p>
+          <p class="work-name">工務店・外壁・内装</p>
+          <p class="work-desc">力強さと信頼を伝えるアーシーデザイン</p>
+        </div>
+      </div>
+
+
+      <!-- 小売 -->
+      <div class="work-card" onclick="openModal('retail')">
+        <div class="work-preview preview-retail">
+          <div class="p-top">
+            <span class="p-logo">KOMACHI STORE</span>
+            <span class="p-cart">カートを見る</span>
+          </div>
+          <span class="p-sale">今週のセール開催中</span>
+          <p class="p-catch">地元に愛される<br>こだわりの雑貨店。</p>
+          <p class="p-sub">オンラインでも、店頭でも。あなたのお気に入りがきっと見つかります。</p>
+          <div class="p-items">
+            <div class="p-item"><div class="p-item-img">🧺</div><p class="p-item-name">天然素材バスケット</p><p class="p-item-price">¥3,200</p></div>
+            <div class="p-item"><div class="p-item-img">🕯️</div><p class="p-item-name">アロマキャンドル</p><p class="p-item-price">¥1,800</p></div>
+            <div class="p-item"><div class="p-item-img">🫙</div><p class="p-item-name">ガラス保存容器</p><p class="p-item-price">¥2,400</p></div>
+          </div>
+        </div>
+        <div class="work-info">
+          <p class="work-label">小売・ショップ</p>
+          <p class="work-name">雑貨店・アパレル・食料品</p>
+          <p class="work-desc">温かみと購買意欲を引き出すデザイン</p>
+        </div>
+      </div>
+
+      <!-- 軽貨物運送 -->
+      <div class="work-card" onclick="openModal('delivery')">
+        <div class="work-preview preview-delivery">
+          <p class="p-label">軽貨物運送 · 即日対応</p>
+          <p class="p-name">スピード便<br>EXPRESS</p>
+          <p class="p-tagline">当日集荷・翌日配達。確実にお届けします。</p>
+          <div class="p-stats">
+            <div class="p-stat"><p class="p-stat-v">即日</p><p class="p-stat-l">集荷対応</p></div>
+            <div class="p-stat"><p class="p-stat-v">24h</p><p class="p-stat-l">受付対応</p></div>
+            <div class="p-stat"><p class="p-stat-v">全国</p><p class="p-stat-l">配送エリア</p></div>
+          </div>
+          <div class="p-services">
+            <div class="p-svc">定期配送・ルート便</div>
+            <div class="p-svc">スポット便・緊急配送</div>
+            <div class="p-svc">医療・精密機器輸送</div>
+          </div>
+        </div>
+        <div class="work-info">
+          <p class="work-label">運送・物流</p>
+          <p class="work-name">軽貨物・宅配・配送業</p>
+          <p class="work-desc">スピード感と信頼を伝えるシャープなデザイン</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="price-section" id="price">
+  <div class="price-inner">
+    <span class="section-label">料金プラン</span>
+    <h2 class="section-title">明朗会計、追加費用なし。</h2>
+    <p class="section-lead">すべて買い切り。月額費用・保守費用は一切かかりません。</p>
+    <div class="price-grid">
+      <div class="price-card">
+        <p class="price-plan">ミニマム</p>
+        <p class="price-amount">¥39,800<small> 税込</small></p>
+        <p class="price-desc">とにかくまず「存在する」ことが大事。シンプルに1ページで伝えます。</p>
+        <ul class="price-list">
+          <li>1ページ完結型</li>
+          <li>スマホ対応</li>
+          <li>Googleマップ設置</li>
+          <li>修正2回まで無料</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <span class="featured-badge">いちばん人気</span>
+        <p class="price-plan">スタンダード</p>
+        <p class="price-amount">¥79,800<small> 税込</small></p>
+        <p class="price-desc">TOP・メニュー・アクセス・お問い合わせなど複数ページでしっかり伝えます。</p>
+        <ul class="price-list">
+          <li>5ページまで</li>
+          <li>スマホ対応</li>
+          <li>お問い合わせフォーム</li>
+          <li>Googleマップ設置</li>
+          <li>修正3回まで無料</li>
+          <li>公開後1ヶ月サポート</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <p class="price-plan">プレミアム</p>
+        <p class="price-amount">¥148,000<small> 税込〜</small></p>
+        <p class="price-desc">こだわりのデザイン・機能が必要な方へ。要件に合わせてご提案します。</p>
+        <ul class="price-list">
+          <li>ページ数・機能要相談</li>
+          <li>オリジナルデザイン</li>
+          <li>予約フォーム等対応</li>
+          <li>SEO基本設定込み</li>
+          <li>修正5回まで無料</li>
+          <li>公開後3ヶ月サポート</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section" id="faq">
+  <div class="faq-inner">
+    <span class="section-label">よくある質問</span>
+    <h2 class="section-title">気になることを解消してください。</h2>
+    <div class="faq-item"><p class="faq-q">写真や文章は自分で用意しないといけませんか？</p><p class="faq-a">基本的にはお客様にご用意いただきますが、スマホで撮った写真でも問題ありません。文章についてもヒアリング内容をもとにこちらで作成しますのでご安心ください。</p></div>
+    <div class="faq-item"><p class="faq-q">納品後に内容を更新したくなったらどうなりますか？</p><p class="faq-a">納品後の更新・修正は別途お見積もりになります。ただし、価格・営業時間などの小さな変更は1回3,000円〜対応しています。</p></div>
+    <div class="faq-item"><p class="faq-q">サーバーやドメインはどうすればいいですか？</p><p class="faq-a">すべてこちらで手配・設定します。サーバー・ドメイン費用は別途実費をご負担いただきます（年間1〜2万円程度）。</p></div>
+    <div class="faq-item"><p class="faq-q">打ち合わせは対面ですか？</p><p class="faq-a">基本的にオンライン（Zoom・LINE・メール）での対応です。全国どこでも対応可能です。</p></div>
+    <div class="faq-item"><p class="faq-q">支払い方法は？</p><p class="faq-a">銀行振込にて、着手時50%・納品時50%のお支払いをお願いしています。</p></div>
+  </div>
+</section>
+
+<!-- CONTACT FORM SECTION -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <span class="section-label">お問い合わせ</span>
+      <h2 class="section-title">まずは気軽に<br>相談してみてください。</h2>
+      <p class="section-lead">見積もりだけでも大歓迎。売り込みは一切しません。</p>
+      <div class="contact-info-block">
+        <div class="contact-info-item">
+          <span class="ci-label">LINE</span>
+          <span class="ci-value"><a href="https://line.me/R/ti/p/@025wquqd" target="_blank" style="color:var(--accent);text-decoration:none;">@025wquqd（友だち追加）</a></span>
+        </div>
+        <div class="contact-info-item">
+          <span class="ci-label">メール</span>
+          <span class="ci-value">pageya.info@gmail.com</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="ci-label">受付</span>
+          <span class="ci-value">平日 10:00〜19:00</span>
+        </div>
+      </div>
+      <a href="https://line.me/R/ti/p/@025wquqd" target="_blank" class="line-add-btn">LINEで気軽に相談する</a>
+    </div>
+    <div class="contact-right">
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">お名前 <span class="required">必須</span></label>
+          <input type="text" class="form-input" placeholder="山田 太郎" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">会社名・屋号</label>
+          <input type="text" class="form-input" placeholder="株式会社〇〇 / 個人でも可">
+        </div>
+        <div class="form-group">
+          <label class="form-label">メールアドレス <span class="required">必須</span></label>
+          <input type="email" class="form-input" placeholder="example@gmail.com" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">電話番号</label>
+          <input type="tel" class="form-input" placeholder="090-0000-0000">
+        </div>
+        <div class="form-group">
+          <label class="form-label">ご相談内容 <span class="required">必須</span></label>
+          <textarea class="form-textarea" rows="4" placeholder="業種・ご予算・気になっていることなど、お気軽にご記入ください。" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">送信する</button>
+        <p class="form-note">通常1〜2営業日以内にご返信いたします。</p>
+      </form>
+      <div class="form-success" id="formSuccess">
+        <p class="success-icon">✓</p>
+        <p class="success-title">送信しました！</p>
+        <p class="success-body">1〜2営業日以内にご連絡いたします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-header">
+      <span class="modal-label" id="modalLabel"></span>
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <p class="modal-desc" id="modalDesc"></p>
+    </div>
+    <div class="modal-preview-wrap" id="modalPreview"></div>
+    <p class="modal-note">※ これはサンプルデザインです。お客様の情報に合わせてゼロから作り込みます。</p>
+    <a href="#contact" class="modal-cta" onclick="closeModal()">このテイストで相談する</a>
+  </div>
+</div>
+
+<footer><p>© 2025 PAGEYA · All rights reserved.</p></footer>
+
+<style>
+/* CONTACT */
+.contact-section { padding: 6rem 2rem; background: var(--ink); }
+.contact-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: 5rem; align-items: start; }
+.contact-left .section-label { color: var(--accent); }
+.contact-left .section-title { color: white; }
+.contact-left .section-lead { color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; }
+.contact-info-block { display: flex; flex-direction: column; gap: 1rem; }
+.contact-info-item { display: flex; gap: 1rem; align-items: baseline; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem; }
+.ci-label { font-size: 11px; letter-spacing: 0.2em; color: var(--accent); width: 40px; flex-shrink: 0; }
+.ci-value { font-size: 14px; color: rgba(255,255,255,0.75); }
+
+.contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+.form-label { font-size: 13px; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 0.5rem; }
+.required { font-size: 10px; background: var(--accent); color: white; padding: 1px 6px; border-radius: 2px; }
+.form-input, .form-textarea {
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px; padding: 10px 14px; font-size: 14px; color: white;
+  font-family: 'Noto Sans JP', sans-serif; transition: border-color 0.2s; outline: none;
+  width: 100%;
+}
+.form-input::placeholder, .form-textarea::placeholder { color: rgba(255,255,255,0.25); }
+.form-input:focus, .form-textarea:focus { border-color: var(--accent); }
+.form-textarea { resize: vertical; }
+.form-submit {
+  background: var(--accent); color: white; border: none; padding: 14px;
+  border-radius: 4px; font-size: 15px; font-weight: 500; cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif; transition: opacity 0.2s;
+  margin-top: 0.5rem;
+}
+.form-submit:hover { opacity: 0.88; }
+.form-note { font-size: 12px; color: rgba(255,255,255,0.3); text-align: center; }
+.line-add-btn {
+  display: inline-block; margin-top: 1.5rem;
+  background: #06C755; color: white; font-size: 14px; font-weight: 500;
+  padding: 12px 28px; border-radius: 4px; text-decoration: none;
+  transition: opacity 0.2s;
+}
+.line-add-btn:hover { opacity: 0.88; }
+.form-success { display: none; text-align: center; padding: 3rem 1rem; }
+.success-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; }
+.success-title { font-family: 'Kaisei Tokumin', serif; font-size: 1.4rem; color: white; margin-bottom: 0.5rem; }
+.success-body { font-size: 14px; color: rgba(255,255,255,0.5); }
+
+/* MODAL */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.75); backdrop-filter: blur(4px);
+  align-items: center; justify-content: center; padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  background: var(--paper); border-radius: 12px; max-width: 600px; width: 100%;
+  max-height: 90vh; overflow-y: auto; position: relative;
+  animation: modalIn 0.25s ease;
+}
+@keyframes modalIn { from { opacity:0; transform: scale(0.95) translateY(10px); } to { opacity:1; transform: scale(1) translateY(0); } }
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem; background: rgba(0,0,0,0.08);
+  border: none; width: 32px; height: 32px; border-radius: 50%; cursor: pointer;
+  font-size: 13px; color: var(--ink-light); display: flex; align-items: center; justify-content: center;
+}
+.modal-close:hover { background: rgba(0,0,0,0.15); }
+.modal-header { padding: 2rem 2rem 1.2rem; }
+.modal-label { font-size: 10px; letter-spacing: 0.3em; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 0.5rem; }
+.modal-title { font-family: 'Kaisei Tokumin', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+.modal-desc { font-size: 13px; color: var(--ink-muted); }
+.modal-preview-wrap { margin: 0 1.5rem; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); height: 280px; }
+.modal-preview-wrap > div { height: 100%; transform: scale(1.3); transform-origin: top center; }
+.modal-note { font-size: 11px; color: var(--ink-muted); text-align: center; padding: 1rem 2rem 0; }
+.modal-cta {
+  display: block; margin: 1.2rem 2rem 2rem; background: var(--accent); color: white;
+  text-align: center; padding: 14px; border-radius: 4px; font-size: 14px;
+  font-weight: 500; text-decoration: none; transition: opacity 0.2s;
+}
+.modal-cta:hover { opacity: 0.88; }
+
+@media (max-width: 700px) {
+  .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+}
+</style>
+
+<script>
+// Work card data
+const works = {
+  food: {
+    label: '飲食店',
+    title: '和食・割烹・レストラン',
+    desc: '高級感のある暗色系デザイン。予約ボタンやメニュー表示を自然に配置。',
+    previewClass: 'work-preview preview-food',
+    previewHTML: `
+      <p class="p-badge">Since 2012 · Tokyo</p>
+      <p class="p-name">灯屋</p>
+      <p class="p-tag">旬の素材と、丁寧な火入れ。</p>
+      <div class="p-divider"></div>
+      <div class="p-btn">ご予約はこちら</div>
+      <div class="p-menu">
+        <div class="p-menu-item"><span>おまかせコース</span><strong>¥12,000〜</strong></div>
+        <div class="p-menu-item"><span>ランチ</span><strong>¥3,200〜</strong></div>
+        <div class="p-menu-item"><span>ペアリング</span><strong>¥5,500〜</strong></div>
+      </div>`
+  },
+  beauty: {
+    label: '美容室・サロン',
+    title: 'ヘアサロン・エステ・ネイル',
+    desc: '明るく清潔感あるミニマルデザイン。予約導線をシンプルに。',
+    previewClass: 'work-preview preview-beauty',
+    previewHTML: `
+      <div class="p-nav"><span class="p-nav-logo">ATELIER SORA</span><div class="p-nav-links"><span>Menu</span>&nbsp;&nbsp;<span>Access</span>&nbsp;&nbsp;<span>予約</span></div></div>
+      <div class="p-hero">
+        <div class="p-text">
+          <p class="p-small">Hair Salon · Shibuya</p>
+          <p class="p-h1">あなたの「好き」を<br>形にする場所。</p>
+          <p class="p-body">カットからカラー、トリートメントまで。</p>
+          <div class="p-cta">ご予約はこちら</div>
+        </div>
+        <div class="p-img"><span>✂</span></div>
+      </div>
+      <div class="p-cards">
+        <div class="p-card"><p class="p-card-t">カット</p><p class="p-card-p">¥5,500〜</p></div>
+        <div class="p-card"><p class="p-card-t">カラー</p><p class="p-card-p">¥9,800〜</p></div>
+        <div class="p-card"><p class="p-card-t">パーマ</p><p class="p-card-p">¥12,000〜</p></div>
+      </div>`
+  },
+  tax: {
+    label: '士業・専門家',
+    title: '税理士・行政書士・司法書士',
+    desc: '信頼感を伝える紺ベースのデザイン。実績・サービス一覧を見やすく。',
+    previewClass: 'work-preview preview-tax',
+    previewHTML: `
+      <div class="p-header"><span class="p-logo">山田税理士事務所</span><span class="p-tel">03-0000-0000</span></div>
+      <div class="p-hero"><div>
+        <span class="p-badge">中小企業・個人事業主専門</span>
+        <p class="p-h1">税務のことは、<br>すべてお任せください。</p>
+        <p class="p-body">創業30年。地域に根ざした丁寧なサポートで支えます。</p>
+      </div></div>
+      <div class="p-services">
+        <div class="p-service">記帳代行・確定申告</div>
+        <div class="p-service">法人税・相続税</div>
+        <div class="p-service">創業支援・補助金申請</div>
+      </div>`
+  },
+  const: {
+    label: '建設・リフォーム',
+    title: '工務店・外壁・内装',
+    desc: '力強さと信頼を伝えるアーシーデザイン。施工実績・無料見積もりを前面に。',
+    previewClass: 'work-preview preview-const',
+    previewHTML: `
+      <p class="p-tag">地域密着の住まいづくり</p>
+      <p class="p-name">田中工務店</p>
+      <p class="p-sub">創業50年 · 施工実績2,000棟以上</p>
+      <div class="p-boxes">
+        <div class="p-box"><p class="p-box-t">新築</p><p class="p-box-v">相談無料</p></div>
+        <div class="p-box"><p class="p-box-t">リフォーム</p><p class="p-box-v">¥10万〜</p></div>
+        <div class="p-box"><p class="p-box-t">外壁塗装</p><p class="p-box-v">¥30万〜</p></div>
+      </div>
+      <div class="p-cta">無料見積もりを依頼する</div>`
+  },
+  retail: {
+    label: '小売・ショップ',
+    title: '雑貨店・アパレル・食料品',
+    desc: '温かみと購買意欲を引き出すデザイン。商品カードと価格を見やすく。',
+    previewClass: 'work-preview preview-retail',
+    previewHTML: `
+      <div class="p-top"><span class="p-logo">KOMACHI STORE</span><span class="p-cart">カートを見る</span></div>
+      <span class="p-sale">今週のセール開催中</span>
+      <p class="p-catch">地元に愛される<br>こだわりの雑貨店。</p>
+      <p class="p-sub">オンラインでも、店頭でも。</p>
+      <div class="p-items">
+        <div class="p-item"><div class="p-item-img">🧺</div><p class="p-item-name">天然素材バスケット</p><p class="p-item-price">¥3,200</p></div>
+        <div class="p-item"><div class="p-item-img">🕯️</div><p class="p-item-name">アロマキャンドル</p><p class="p-item-price">¥1,800</p></div>
+        <div class="p-item"><div class="p-item-img">🫙</div><p class="p-item-name">ガラス保存容器</p><p class="p-item-price">¥2,400</p></div>
+      </div>`
+  },
+  delivery: {
+    label: '運送・物流',
+    title: '軽貨物・宅配・配送業',
+    desc: 'スピード感と信頼を伝えるシャープなデザイン。対応エリア・サービスを明確に。',
+    previewClass: 'work-preview preview-delivery',
+    previewHTML: `
+      <p class="p-label">軽貨物運送 · 即日対応</p>
+      <p class="p-name">スピード便<br>EXPRESS</p>
+      <p class="p-tagline">当日集荷・翌日配達。確実にお届けします。</p>
+      <div class="p-stats">
+        <div class="p-stat"><p class="p-stat-v">即日</p><p class="p-stat-l">集荷対応</p></div>
+        <div class="p-stat"><p class="p-stat-v">24h</p><p class="p-stat-l">受付対応</p></div>
+        <div class="p-stat"><p class="p-stat-v">全国</p><p class="p-stat-l">配送エリア</p></div>
+      </div>
+      <div class="p-services">
+        <div class="p-svc">定期配送・ルート便</div>
+        <div class="p-svc">スポット便・緊急配送</div>
+        <div class="p-svc">医療・精密機器輸送</div>
+      </div>`
+  }
+};
+
+function openModal(key) {
+  const w = works[key];
+  if (!w) return;
+  document.getElementById('modalLabel').textContent = w.label;
+  document.getElementById('modalTitle').textContent = w.title;
+  document.getElementById('modalDesc').textContent = w.desc;
+  const wrap = document.getElementById('modalPreview');
+  wrap.innerHTML = `<div class="${w.previewClass}" style="height:100%">${w.previewHTML}</div>`;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function handleSubmit(e) {
+  e.preventDefault();
+  document.querySelector('.contact-form').style.display = 'none';
+  document.getElementById('formSuccess').style.display = 'block';
+}
+</script>

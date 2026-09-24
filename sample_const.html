@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>田中工務店 | 地域密着の住まいづくり</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Kaisei+Tokumin:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--earth:#2c2418;--earth-light:#3d3020;--gold:#c8a96e;--cream:#f5f0e6;--muted:#8a7a65;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--earth);overflow-x:hidden;}
+.sample-badge{position:fixed;top:1rem;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(232,93,47,0.9);color:white;font-size:11px;padding:5px 14px;border-radius:20px;z-index:100;}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(44,36,24,0.97);padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Kaisei Tokumin',serif;font-size:1.3rem;color:var(--cream);letter-spacing:0.1em;}
+.logo small{display:block;font-size:9px;letter-spacing:0.3em;color:var(--gold);font-weight:400;margin-top:2px;}
+.nav-links{display:flex;gap:0;}
+.nav-link{font-size:12px;color:rgba(245,240,230,0.6);text-decoration:none;letter-spacing:0.1em;padding:0 1.2rem;height:64px;display:flex;align-items:center;border-right:1px solid rgba(245,240,230,0.08);transition:color 0.2s;}
+.nav-link:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--earth);font-weight:500;border:none;}
+.nav-cta:hover{color:var(--earth);opacity:0.9;}
+
+.hero{min-height:100vh;background:var(--earth);display:flex;flex-direction:column;justify-content:flex-end;padding:0 0 0;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,#1a1008 0%,#2c2418 50%,#1a1008 100%);}
+.hero-texture{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(200,169,110,0.02) 20px,rgba(200,169,110,0.02) 40px);}
+.hero-content{position:relative;z-index:2;padding:8rem 6rem 6rem;max-width:700px;}
+.hero-tag{font-size:10px;letter-spacing:0.5em;color:var(--gold);text-transform:uppercase;margin-bottom:2rem;display:block;}
+.hero h1{font-family:'Kaisei Tokumin',serif;font-size:clamp(2.5rem,5vw,4.2rem);color:var(--cream);font-weight:700;line-height:1.2;margin-bottom:1.5rem;}
+.hero-sub{font-size:14px;color:rgba(245,240,230,0.5);line-height:2;margin-bottom:3rem;font-weight:300;max-width:480px;}
+.hero-boxes{display:flex;gap:1rem;margin-bottom:3rem;}
+.hero-box{border:1px solid rgba(200,169,110,0.3);padding:1rem 1.5rem;min-width:120px;text-align:center;transition:border-color 0.3s;}
+.hero-box:hover{border-color:var(--gold);}
+.hero-box-label{font-size:9px;letter-spacing:0.2em;color:var(--gold);display:block;margin-bottom:0.4rem;}
+.hero-box-val{font-size:15px;color:var(--cream);font-weight:500;}
+.hero-cta{display:inline-block;background:var(--gold);color:var(--earth);font-size:14px;padding:16px 40px;font-weight:700;letter-spacing:0.15em;text-decoration:none;transition:opacity 0.2s;}
+.hero-cta:hover{opacity:0.9;}
+.hero-scroll{position:absolute;right:3rem;bottom:3rem;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.hero-scroll span{font-size:9px;letter-spacing:0.3em;color:rgba(200,169,110,0.5);text-transform:uppercase;writing-mode:vertical-rl;}
+.scroll-bar{width:1px;height:60px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollA 2s ease-in-out infinite;}
+
+.achievements{background:var(--earth-light);padding:3rem 2.5rem;}
+.achievements-inner{max-width:960px;margin:0 auto;display:flex;gap:0;}
+.achievement{flex:1;text-align:center;padding:1rem;border-right:1px solid rgba(200,169,110,0.15);}
+.achievement:last-child{border:none;}
+.ach-num{font-family:'Kaisei Tokumin',serif;font-size:2.5rem;color:var(--gold);font-weight:700;display:block;}
+.ach-unit{font-size:14px;color:rgba(245,240,230,0.4);}
+.ach-label{font-size:11px;color:rgba(245,240,230,0.45);letter-spacing:0.15em;margin-top:0.3rem;display:block;}
+
+.services-section{padding:7rem 2.5rem;background:var(--cream);}
+.services-inner{max-width:960px;margin:0 auto;}
+.section-header{margin-bottom:3rem;}
+.section-tag{font-size:10px;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;display:block;margin-bottom:0.8rem;}
+.section-h{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--earth);}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+.service-card{background:white;border-bottom:3px solid var(--earth);padding:2.5rem 2rem;transition:border-color 0.3s,transform 0.3s;}
+.service-card:hover{border-color:var(--gold);transform:translateY(-4px);}
+.service-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+.service-name{font-family:'Kaisei Tokumin',serif;font-size:1.2rem;color:var(--earth);margin-bottom:0.5rem;}
+.service-price{font-size:14px;color:var(--gold);margin-bottom:0.8rem;font-weight:500;}
+.service-desc{font-size:13px;color:var(--muted);line-height:1.9;}
+
+.works-section{padding:7rem 2.5rem;background:var(--earth);}
+.works-inner{max-width:960px;margin:0 auto;}
+.works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(200,169,110,0.1);margin-top:3rem;}
+.work-item{background:var(--earth);padding:2rem;text-align:center;}
+.work-num{font-family:'Kaisei Tokumin',serif;font-size:3rem;color:rgba(200,169,110,0.2);display:block;margin-bottom:0.5rem;}
+.work-name{font-size:14px;color:rgba(245,240,230,0.6);letter-spacing:0.1em;}
+
+.flow-section{padding:7rem 2.5rem;background:white;}
+.flow-inner{max-width:800px;margin:0 auto;}
+.flow-list{display:flex;flex-direction:column;gap:0;margin-top:3rem;}
+.flow-item{display:grid;grid-template-columns:60px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid rgba(44,36,24,0.08);align-items:start;}
+.flow-num{font-family:'Kaisei Tokumin',serif;font-size:2rem;color:var(--gold);font-weight:700;line-height:1;}
+.flow-title{font-size:16px;font-weight:500;margin-bottom:0.4rem;}
+.flow-desc{font-size:13px;color:var(--muted);line-height:1.9;}
+
+.cta-section{background:var(--earth);padding:7rem 2.5rem;text-align:center;}
+.cta-section h2{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--cream);margin:1rem 0;}
+.cta-section p{font-size:14px;color:rgba(245,240,230,0.5);margin-bottom:2rem;}
+.cta-tel{font-family:'Kaisei Tokumin',serif;font-size:clamp(2rem,4vw,3rem);color:var(--gold);display:block;margin:1.5rem 0 0.5rem;}
+.cta-note{font-size:12px;color:rgba(245,240,230,0.3);letter-spacing:0.2em;}
+
+footer{background:#1a1008;padding:2rem;text-align:center;font-size:11px;color:rgba(245,240,230,0.2);letter-spacing:0.1em;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.v{opacity:1;transform:translateY(0);}
+@keyframes scrollA{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+@media(max-width:768px){.hero-content{padding:7rem 2rem 4rem;}.services-grid{grid-template-columns:1fr;}.works-grid{grid-template-columns:1fr;}.achievements-inner{flex-wrap:wrap;}.nav-links{display:none;}}
+</style>
+</head>
+<body>
+<div class="sample-badge">※ PAGEYAのデザインサンプルです</div>
+<nav>
+  <div class="logo">田中工務店<small>TANAKA CONSTRUCTION</small></div>
+  <div class="nav-links">
+    <a href="#" class="nav-link">施工事例</a>
+    <a href="#" class="nav-link">サービス</a>
+    <a href="#" class="nav-link">会社案内</a>
+    <a href="#" class="nav-link">よくある質問</a>
+    <a href="#" class="nav-link nav-cta">無料見積もり</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-content">
+    <span class="hero-tag">地域密着の住まいづくり · 創業50年</span>
+    <h1>家族の笑顔が<br>集まる場所を、<br>一緒につくる。</h1>
+    <p class="hero-sub">新築からリフォーム、外壁塗装まで。地域に根ざした50年の実績と技術で、大切な住まいをお守りします。</p>
+    <div class="hero-boxes">
+      <div class="hero-box"><span class="hero-box-label">創業</span><span class="hero-box-val">50年</span></div>
+      <div class="hero-box"><span class="hero-box-label">施工実績</span><span class="hero-box-val">2,000棟</span></div>
+      <div class="hero-box"><span class="hero-box-label">顧客満足度</span><span class="hero-box-val">97%</span></div>
+    </div>
+    <a href="#contact" class="hero-cta">無料見積もりを依頼する</a>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-bar"></div></div>
+</section>
+
+<div class="achievements">
+  <div class="achievements-inner">
+    <div class="achievement"><span class="ach-num">2,000<span class="ach-unit">棟</span></span><span class="ach-label">施工実績</span></div>
+    <div class="achievement"><span class="ach-num">50<span class="ach-unit">年</span></span><span class="ach-label">創業からの歴史</span></div>
+    <div class="achievement"><span class="ach-num">97<span class="ach-unit">%</span></span><span class="ach-label">顧客満足度</span></div>
+    <div class="achievement"><span class="ach-num">1<span class="ach-unit">週間</span></span><span class="ach-label">最短お見積もり</span></div>
+  </div>
+</div>
+
+<section class="services-section" id="services">
+  <div class="services-inner">
+    <div class="section-header reveal">
+      <span class="section-tag">Services</span>
+      <h2 class="section-h">サービス内容</h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><span class="service-icon">🏠</span><p class="service-name">新築工事</p><p class="service-price">要お見積もり</p><p class="service-desc">ゼロから理想の住まいを。設計から施工まで一貫対応。土地探しからのご相談も歓迎します。</p></div>
+      <div class="service-card reveal"><span class="service-icon">🔨</span><p class="service-name">リフォーム・増改築</p><p class="service-price">¥10万〜</p><p class="service-desc">水回り・内装・間取り変更など幅広く対応。住みながらのリフォームも可能です。</p></div>
+      <div class="service-card reveal"><span class="service-icon">🎨</span><p class="service-name">外壁・屋根塗装</p><p class="service-price">¥30万〜</p><p class="service-desc">耐久性の高い塗料を使用。丁寧な下地処理で長持ちする仕上がりをお約束します。</p></div>
+      <div class="service-card reveal"><span class="service-icon">🚨</span><p class="service-name">緊急修理・補修</p><p class="service-price">相談無料</p><p class="service-desc">雨漏り・破損など緊急のご依頼にも迅速対応。まずはお電話ください。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="flow-section">
+  <div class="flow-inner">
+    <div class="section-header reveal">
+      <span class="section-tag" style="color:var(--gold);">Process</span>
+      <h2 class="section-h">ご依頼の流れ</h2>
+    </div>
+    <div class="flow-list">
+      <div class="flow-item reveal"><span class="flow-num">01</span><div><p class="flow-title">無料ご相談・現地調査</p><p class="flow-desc">まずはお電話またはメールでご連絡ください。現地調査も無料で承ります。</p></div></div>
+      <div class="flow-item reveal"><span class="flow-num">02</span><div><p class="flow-title">お見積もり・ご提案</p><p class="flow-desc">調査内容をもとに、詳細なお見積もりと施工プランをご提示します。</p></div></div>
+      <div class="flow-item reveal"><span class="flow-num">03</span><div><p class="flow-title">ご契約・着工</p><p class="flow-desc">ご納得いただいた上でご契約。工事スケジュールを確認し着工します。</p></div></div>
+      <div class="flow-item reveal"><span class="flow-num">04</span><div><p class="flow-title">施工・完成・アフターフォロー</p><p class="flow-desc">丁寧な施工で仕上げ。完成後も1年間の無償保証と定期点検でサポートします。</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <span style="font-size:10px;letter-spacing:0.4em;color:rgba(200,169,110,0.5);text-transform:uppercase;" class="reveal">Contact</span>
+  <h2 class="reveal">まずはお気軽にご相談ください</h2>
+  <p class="reveal">見積もり・現地調査は無料です。お気軽にどうぞ。</p>
+  <span class="cta-tel reveal">03-0000-0000</span>
+  <p class="cta-note reveal">受付時間 平日 8:00〜18:00</p>
+  <a href="tel:03-0000-0000" class="hero-cta reveal" style="margin-top:2rem;">今すぐ電話する</a>
+</section>
+<footer>© 2025 田中工務店 · All rights reserved.</footer>
+<script>
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('v'); }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

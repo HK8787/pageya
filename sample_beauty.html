@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ATELIER SORA | Hair Salon · Shibuya</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Kaisei+Tokumin:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--cream:#faf7f2;--warm:#f0ebe0;--gold:#c4a882;--ink:#1a1a1a;--muted:#888;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;}
+.sample-badge{position:fixed;top:1rem;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(232,93,47,0.9);color:white;font-size:11px;padding:5px 14px;border-radius:20px;z-index:100;}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(250,247,242,0.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(196,168,130,0.2);padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.5rem;letter-spacing:0.25em;color:var(--ink);}
+.logo small{display:block;font-family:'Noto Sans JP',sans-serif;font-size:9px;letter-spacing:0.3em;color:var(--gold);font-style:normal;}
+.nav-links{display:flex;gap:2rem;}
+.nav-links a{font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:0.15em;}
+.nav-book{background:var(--ink);color:white;padding:8px 20px;font-size:11px;letter-spacing:0.15em;text-decoration:none;transition:background 0.2s;}
+.nav-book:hover{background:#333;}
+
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:8rem 4rem 4rem 6rem;}
+.hero-en{font-family:'Cormorant Garamond',serif;font-size:11px;letter-spacing:0.4em;color:var(--gold);margin-bottom:1.5rem;display:block;}
+.hero-title{font-family:'Kaisei Tokumin',serif;font-size:clamp(2.5rem,4vw,3.8rem);line-height:1.3;margin-bottom:1.5rem;}
+.hero-title em{font-style:normal;border-bottom:2px solid var(--gold);}
+.hero-sub{font-size:14px;color:var(--muted);line-height:2;margin-bottom:2.5rem;max-width:360px;font-weight:300;}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+.btn-dark{background:var(--ink);color:white;padding:14px 32px;font-size:13px;letter-spacing:0.15em;text-decoration:none;transition:background 0.2s;}
+.btn-dark:hover{background:#333;}
+.btn-outline{border:1.5px solid var(--ink);color:var(--ink);padding:14px 32px;font-size:13px;letter-spacing:0.15em;text-decoration:none;transition:all 0.2s;}
+.btn-outline:hover{background:var(--ink);color:white;}
+.hero-right{background:linear-gradient(135deg,#f5ede0 0%,#e8d5c0 40%,#d4b896 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.hero-right::before{content:'✂';font-size:200px;opacity:0.06;position:absolute;color:var(--ink);}
+.hero-right-content{text-align:center;z-index:1;}
+.hero-right-content p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:rgba(26,26,26,0.4);letter-spacing:0.2em;}
+
+.menu-section{padding:8rem 2rem;background:white;}
+.menu-inner{max-width:960px;margin:0 auto;}
+.section-header{display:flex;align-items:baseline;gap:2rem;margin-bottom:3rem;}
+.section-en{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-style:italic;color:var(--gold);}
+.section-jp{font-size:13px;letter-spacing:0.2em;color:var(--muted);}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.menu-card{border:1px solid rgba(196,168,130,0.25);padding:2rem;transition:border-color 0.3s,box-shadow 0.3s;}
+.menu-card:hover{border-color:var(--gold);box-shadow:0 4px 24px rgba(196,168,130,0.15);}
+.menu-card-en{font-family:'Cormorant Garamond',serif;font-size:1rem;font-style:italic;color:var(--gold);margin-bottom:0.4rem;}
+.menu-card-name{font-size:15px;font-weight:500;margin-bottom:0.5rem;}
+.menu-card-desc{font-size:12px;color:var(--muted);line-height:1.9;margin-bottom:1rem;}
+.menu-card-price{font-size:15px;color:var(--gold);font-family:'Cormorant Garamond',serif;letter-spacing:0.05em;}
+
+.staff-section{padding:8rem 2rem;background:var(--cream);}
+.staff-inner{max-width:800px;margin:0 auto;text-align:center;}
+.staff-img{width:160px;height:160px;border-radius:50%;background:linear-gradient(135deg,#f5ede0,#d4b896);margin:2rem auto;display:flex;align-items:center;justify-content:center;font-size:60px;opacity:0.5;}
+.staff-name{font-family:'Kaisei Tokumin',serif;font-size:1.4rem;margin-bottom:0.3rem;}
+.staff-title{font-size:12px;letter-spacing:0.2em;color:var(--gold);margin-bottom:1.5rem;}
+.staff-bio{font-size:14px;color:var(--muted);line-height:2;max-width:500px;margin:0 auto;}
+
+.info-section{padding:6rem 2rem;background:white;border-top:1px solid rgba(196,168,130,0.2);}
+.info-inner{max-width:800px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.info-block h3{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:var(--gold);margin-bottom:1.5rem;}
+.info-row{display:flex;gap:1rem;padding:0.8rem 0;border-bottom:1px solid rgba(196,168,130,0.15);}
+.info-label{font-size:11px;letter-spacing:0.15em;color:var(--gold);min-width:70px;flex-shrink:0;}
+.info-value{font-size:13px;color:var(--muted);line-height:1.7;}
+
+.reserve-section{padding:8rem 2rem;background:var(--ink);text-align:center;color:white;}
+.reserve-section h2{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.8rem,3vw,2.6rem);margin:1rem 0 0.5rem;}
+.reserve-section p{font-size:14px;color:rgba(255,255,255,0.5);margin-bottom:2rem;}
+.reserve-section .tel{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);color:var(--gold);display:block;margin-bottom:0.5rem;letter-spacing:0.1em;}
+.reserve-section .tel-note{font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:0.2em;}
+.btn-gold{display:inline-block;margin-top:2rem;background:var(--gold);color:var(--ink);font-size:13px;padding:14px 40px;letter-spacing:0.2em;text-decoration:none;font-weight:500;transition:opacity 0.2s;}
+.btn-gold:hover{opacity:0.85;}
+
+footer{background:#111;padding:2rem;text-align:center;font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:0.15em;}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.v{opacity:1;transform:translateY(0);}
+@media(max-width:768px){.hero{grid-template-columns:1fr;}.hero-right{height:300px;}.hero-left{padding:7rem 2rem 3rem;}.menu-grid{grid-template-columns:1fr;}.info-inner{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="sample-badge">※ PAGEYAのデザインサンプルです</div>
+<nav>
+  <div class="logo">ATELIER SORA<small>HAIR SALON · SHIBUYA</small></div>
+  <div class="nav-links"><a href="#">Menu</a><a href="#">Staff</a><a href="#">Access</a><a href="#" class="nav-book">ご予約</a></div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-en">Hair Salon · Est. 2018</span>
+    <h1 class="hero-title">あなたの<em>「好き」</em>を<br>形にする場所。</h1>
+    <p class="hero-sub">カットからカラー、トリートメントまで。一人ひとりの骨格・髪質・ライフスタイルに合わせたスタイルをご提案します。</p>
+    <div class="hero-actions">
+      <a href="#reserve" class="btn-dark">ご予約はこちら</a>
+      <a href="#menu" class="btn-outline">メニューを見る</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-content">
+      <p>Your style,<br>your story.</p>
+    </div>
+  </div>
+</section>
+
+<section class="menu-section" id="menu">
+  <div class="menu-inner">
+    <div class="section-header reveal">
+      <span class="section-en">Menu</span>
+      <span class="section-jp">メニュー・料金</span>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card reveal"><p class="menu-card-en">Cut</p><p class="menu-card-name">カット</p><p class="menu-card-desc">骨格・髪質に合わせた丁寧なカット。毎日のスタイリングが楽になる仕上がりに。</p><p class="menu-card-price">¥5,500〜</p></div>
+      <div class="menu-card reveal"><p class="menu-card-en">Color</p><p class="menu-card-name">カラー</p><p class="menu-card-desc">ダメージを抑えた高品質なカラー剤を使用。トレンドカラーから自然な仕上がりまで対応。</p><p class="menu-card-price">¥9,800〜</p></div>
+      <div class="menu-card reveal"><p class="menu-card-en">Perm</p><p class="menu-card-name">パーマ</p><p class="menu-card-desc">自然なウェーブからデジタルパーマまで。なりたいスタイルに合わせてご提案します。</p><p class="menu-card-price">¥12,000〜</p></div>
+      <div class="menu-card reveal"><p class="menu-card-en">Treatment</p><p class="menu-card-name">トリートメント</p><p class="menu-card-desc">髪の内部から補修・保湿。ダメージを受けた髪を本来の美しさへ。</p><p class="menu-card-price">¥3,300〜</p></div>
+      <div class="menu-card reveal"><p class="menu-card-en">Head Spa</p><p class="menu-card-name">ヘッドスパ</p><p class="menu-card-desc">頭皮環境を整えるリラクゼーションメニュー。日々の疲れをリセット。</p><p class="menu-card-price">¥4,400〜</p></div>
+      <div class="menu-card reveal"><p class="menu-card-en">Set</p><p class="menu-card-name">ヘアセット</p><p class="menu-card-desc">成人式・結婚式・各種お祝いのヘアセット。特別な日を彩ります。</p><p class="menu-card-price">¥6,600〜</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="staff-section">
+  <div class="staff-inner">
+    <div class="section-header reveal" style="justify-content:center;">
+      <span class="section-en">Staff</span>
+      <span class="section-jp">スタッフ紹介</span>
+    </div>
+    <div class="staff-img reveal">👩</div>
+    <p class="staff-name reveal">田中 あおい</p>
+    <p class="staff-title reveal">オーナー / スタイリスト</p>
+    <p class="staff-bio reveal">「お客様一人ひとりの魅力を引き出すこと」をモットーに、10年以上のキャリアを積んできました。カラーとパーマの資格を多数取得。あなたの「なりたい」を形にします。</p>
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="info-inner">
+    <div class="info-block reveal">
+      <h3>Shop Info</h3>
+      <div class="info-row"><span class="info-label">住所</span><span class="info-value">東京都渋谷区〇〇1-2-3<br>△△ビル 1F</span></div>
+      <div class="info-row"><span class="info-label">最寄駅</span><span class="info-value">渋谷駅 徒歩5分</span></div>
+      <div class="info-row"><span class="info-label">TEL</span><span class="info-value">03-0000-0000</span></div>
+    </div>
+    <div class="info-block reveal">
+      <h3>Hours</h3>
+      <div class="info-row"><span class="info-label">平日</span><span class="info-value">10:00〜20:00</span></div>
+      <div class="info-row"><span class="info-label">土日祝</span><span class="info-value">9:00〜19:00</span></div>
+      <div class="info-row"><span class="info-label">定休日</span><span class="info-value">毎週火曜日</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="reserve-section" id="reserve">
+  <span class="section-en" style="color:var(--gold);font-style:italic;font-size:2rem;" class="reveal">Reservation</span>
+  <h2 class="reveal">ご予約・お問い合わせ</h2>
+  <p class="reveal">お電話またはLINEにてご予約を承っております。</p>
+  <span class="tel reveal">03-0000-0000</span>
+  <p class="tel-note reveal">受付時間 10:00〜19:00（定休日除く）</p>
+  <a href="tel:03-0000-0000" class="btn-gold reveal">電話でご予約</a>
+</section>
+<footer>© 2025 ATELIER SORA · All rights reserved.</footer>
+<script>
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('v'); }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

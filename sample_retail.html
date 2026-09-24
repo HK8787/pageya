@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KOMACHI STORE | 地元に愛されるこだわりの雑貨店</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Kaisei+Tokumin:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--orange:#c0430a;--orange-light:#fff0e8;--warm:#fff8f2;--ink:#1a1a1a;--muted:#777;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--warm);color:var(--ink);overflow-x:hidden;}
+.sample-badge{position:fixed;top:1rem;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(232,93,47,0.9);color:white;font-size:11px;padding:5px 14px;border-radius:20px;z-index:100;}
+.announcement{background:var(--orange);color:white;text-align:center;padding:10px;font-size:12px;letter-spacing:0.2em;}
+.announcement span{background:rgba(255,255,255,0.2);padding:2px 8px;border-radius:2px;margin-right:0.5rem;font-weight:500;}
+nav{background:white;border-bottom:1px solid #ffe4d0;padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:50;}
+.logo{font-family:'Kaisei Tokumin',serif;font-size:1.6rem;color:var(--orange);letter-spacing:0.15em;}
+.logo small{display:block;font-size:9px;letter-spacing:0.3em;color:var(--muted);font-weight:300;}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+.nav-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:0.1em;}
+.cart-btn{background:var(--orange);color:white;padding:8px 20px;font-size:12px;text-decoration:none;border-radius:3px;letter-spacing:0.1em;}
+
+.hero{background:white;padding:5rem 2.5rem;border-bottom:2px solid var(--orange-light);}
+.hero-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.hero-label{font-size:11px;letter-spacing:0.3em;color:var(--orange);text-transform:uppercase;margin-bottom:1rem;display:block;}
+.hero h1{font-family:'Kaisei Tokumin',serif;font-size:clamp(2rem,3.5vw,3rem);line-height:1.4;margin-bottom:1.2rem;}
+.hero-sub{font-size:14px;color:var(--muted);line-height:2;margin-bottom:2rem;font-weight:300;}
+.hero-badges{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:2rem;}
+.badge{background:var(--orange-light);color:var(--orange);font-size:11px;padding:4px 12px;border-radius:20px;letter-spacing:0.05em;}
+.hero-cta{background:var(--orange);color:white;padding:14px 36px;font-size:14px;text-decoration:none;display:inline-block;letter-spacing:0.15em;transition:opacity 0.2s;}
+.hero-cta:hover{opacity:0.88;}
+.hero-visual{position:relative;}
+.hero-visual-main{background:linear-gradient(135deg,#ffe8d6,#ffd0b0,#ffb888);border-radius:8px;height:360px;display:flex;align-items:center;justify-content:center;font-size:80px;position:relative;overflow:hidden;}
+.hero-visual-main::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 20px,rgba(255,255,255,0.1) 20px,rgba(255,255,255,0.1) 40px);}
+.hero-visual-sub{display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:0.8rem;}
+.hero-visual-item{background:var(--orange-light);border-radius:4px;height:80px;display:flex;align-items:center;justify-content:center;font-size:28px;}
+
+.sale-section{background:var(--orange);padding:3rem 2.5rem;text-align:center;color:white;}
+.sale-inner{max-width:800px;margin:0 auto;}
+.sale-tag{font-size:11px;letter-spacing:0.4em;text-transform:uppercase;opacity:0.7;margin-bottom:0.5rem;}
+.sale-title{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:1rem;}
+.sale-timer{display:flex;gap:1rem;justify-content:center;margin:1.5rem 0;}
+.timer-item{background:rgba(255,255,255,0.15);padding:0.8rem 1.5rem;border-radius:4px;text-align:center;}
+.timer-num{font-family:'Kaisei Tokumin',serif;font-size:2rem;display:block;}
+.timer-label{font-size:10px;opacity:0.7;letter-spacing:0.2em;}
+
+.products-section{padding:7rem 2.5rem;background:white;}
+.products-inner{max-width:1000px;margin:0 auto;}
+.section-header{margin-bottom:3rem;}
+.section-tag{font-size:11px;letter-spacing:0.3em;color:var(--orange);text-transform:uppercase;display:block;margin-bottom:0.8rem;}
+.section-h{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.6rem,3vw,2rem);}
+.products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.product-card{border-radius:8px;overflow:hidden;border:1px solid #ffe4d0;transition:transform 0.3s,box-shadow 0.3s;}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(192,67,10,0.12);}
+.product-img{height:180px;display:flex;align-items:center;justify-content:center;font-size:60px;background:linear-gradient(135deg,#fff0e8,#ffe4d0);}
+.product-info{padding:1.2rem;background:white;}
+.product-tag{font-size:10px;color:var(--orange);letter-spacing:0.15em;margin-bottom:0.3rem;display:block;}
+.product-name{font-size:15px;font-weight:500;margin-bottom:0.5rem;}
+.product-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:0.8rem;}
+.product-price{font-size:17px;color:var(--orange);font-weight:500;}
+.product-price del{font-size:12px;color:var(--muted);margin-left:0.3rem;font-weight:300;}
+
+.feature-section{padding:7rem 2.5rem;background:var(--warm);}
+.feature-inner{max-width:900px;margin:0 auto;}
+.feature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;}
+.feature-item{text-align:center;padding:2rem 1rem;background:white;border-radius:8px;border:1px solid #ffe4d0;}
+.feature-icon{font-size:2rem;margin-bottom:0.8rem;display:block;}
+.feature-name{font-size:13px;font-weight:500;margin-bottom:0.3rem;}
+.feature-desc{font-size:11px;color:var(--muted);line-height:1.7;}
+
+.info-section{padding:5rem 2.5rem;background:white;border-top:2px solid var(--orange-light);}
+.info-inner{max-width:700px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+.info-block h3{font-size:14px;font-weight:500;border-left:3px solid var(--orange);padding-left:0.8rem;margin-bottom:1.5rem;}
+.info-row{display:flex;gap:1rem;padding:0.6rem 0;border-bottom:1px solid var(--orange-light);}
+.info-label{font-size:11px;letter-spacing:0.1em;color:var(--orange);min-width:60px;flex-shrink:0;}
+.info-value{font-size:13px;color:var(--muted);}
+
+footer{background:var(--ink);padding:2rem;text-align:center;font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:0.1em;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.v{opacity:1;transform:translateY(0);}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;}.products-grid{grid-template-columns:repeat(2,1fr);}.feature-grid{grid-template-columns:repeat(2,1fr);}.info-inner{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="sample-badge">※ PAGEYAのデザインサンプルです</div>
+<div class="announcement"><span>SALE</span>今週末まで！対象商品20%OFF開催中</div>
+<nav>
+  <div class="logo">KOMACHI STORE<small>NATURAL LIFESTYLE GOODS</small></div>
+  <div class="nav-links">
+    <a href="#">商品一覧</a><a href="#">新着</a><a href="#">セール</a><a href="#">店舗情報</a>
+    <a href="#" class="cart-btn">カートを見る</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-label">Natural & Handmade Goods</span>
+      <h1>暮らしに、<br>ほんの少しの<br>こだわりを。</h1>
+      <p class="hero-sub">素材にこだわった日用品から、手作りの温もりあふれる雑貨まで。あなたの毎日をちょっと豊かにする品々を取り揃えています。</p>
+      <div class="hero-badges">
+        <span class="badge">天然素材</span>
+        <span class="badge">国産品多数</span>
+        <span class="badge">ギフト対応</span>
+        <span class="badge">送料無料（5,000円〜）</span>
+      </div>
+      <a href="#products" class="hero-cta">商品を見る</a>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="hero-visual-main">🧺</div>
+      <div class="hero-visual-sub">
+        <div class="hero-visual-item">🕯️</div>
+        <div class="hero-visual-item">🫙</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sale-section">
+  <div class="sale-inner">
+    <p class="sale-tag">Limited Sale</p>
+    <h2 class="sale-title">週末限定セール開催中！</h2>
+    <div class="sale-timer" id="timer">
+      <div class="timer-item"><span class="timer-num" id="t-h">12</span><span class="timer-label">時間</span></div>
+      <div class="timer-item"><span class="timer-num" id="t-m">34</span><span class="timer-label">分</span></div>
+      <div class="timer-item"><span class="timer-num" id="t-s">56</span><span class="timer-label">秒</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="products-section" id="products">
+  <div class="products-inner">
+    <div class="section-header reveal">
+      <span class="section-tag">Popular Items</span>
+      <h2 class="section-h">人気商品</h2>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal"><div class="product-img">🧺</div><div class="product-info"><span class="product-tag">Natural Living</span><p class="product-name">天然素材バスケット</p><p class="product-desc">職人が一つひとつ手編みした、丈夫で美しいバスケット。</p><p class="product-price">¥3,200 <del>¥4,000</del></p></div></div>
+      <div class="product-card reveal"><div class="product-img">🕯️</div><div class="product-info"><span class="product-tag">Aroma</span><p class="product-name">アロマキャンドル</p><p class="product-desc">天然精油100%使用。やさしい香りで空間を包みます。</p><p class="product-price">¥1,800</p></div></div>
+      <div class="product-card reveal"><div class="product-img">🫙</div><div class="product-info"><span class="product-tag">Kitchen</span><p class="product-name">ガラス保存容器セット</p><p class="product-desc">密閉性の高いガラス容器。食材を美しく保存できます。</p><p class="product-price">¥2,400</p></div></div>
+      <div class="product-card reveal"><div class="product-img">🌿</div><div class="product-info"><span class="product-tag">Green</span><p class="product-name">ミニ観葉植物</p><p class="product-desc">デスクや窓辺に。手のひらサイズで育てやすい品種です。</p><p class="product-price">¥1,200〜</p></div></div>
+      <div class="product-card reveal"><div class="product-img">🪴</div><div class="product-info"><span class="product-tag">Pottery</span><p class="product-name">手びねりマグカップ</p><p class="product-desc">地元の陶芸家による一点もの。毎日の食卓に温もりを。</p><p class="product-price">¥3,800</p></div></div>
+      <div class="product-card reveal"><div class="product-img">🎁</div><div class="product-info"><span class="product-tag">Gift</span><p class="product-name">ギフトセット</p><p class="product-desc">人気商品を詰め合わせたギフトボックス。のし対応可能。</p><p class="product-price">¥5,500〜</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="feature-section">
+  <div class="feature-inner">
+    <div class="section-header reveal">
+      <span class="section-tag">Why KOMACHI</span>
+      <h2 class="section-h">選ばれる理由</h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature-item reveal"><span class="feature-icon">🌿</span><p class="feature-name">素材へのこだわり</p><p class="feature-desc">天然素材・国産品を中心に厳選した商品のみを取り扱います。</p></div>
+      <div class="feature-item reveal"><span class="feature-icon">🎁</span><p class="feature-name">ギフト包装無料</p><p class="feature-desc">のし・メッセージカード対応。大切な方へのギフトにも。</p></div>
+      <div class="feature-item reveal"><span class="feature-icon">🚚</span><p class="feature-name">5,000円〜送料無料</p><p class="feature-desc">5,000円以上のご購入で全国送料無料。翌日配達も対応。</p></div>
+      <div class="feature-item reveal"><span class="feature-icon">🔄</span><p class="feature-name">返品・交換OK</p><p class="feature-desc">商品到着後7日以内であれば、返品・交換を承ります。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="info-section">
+  <div class="info-inner">
+    <div class="info-block reveal">
+      <h3>店舗情報</h3>
+      <div class="info-row"><span class="info-label">住所</span><span class="info-value">東京都〇〇区△△1-2-3</span></div>
+      <div class="info-row"><span class="info-label">TEL</span><span class="info-value">03-0000-0000</span></div>
+      <div class="info-row"><span class="info-label">最寄駅</span><span class="info-value">〇〇駅 徒歩5分</span></div>
+    </div>
+    <div class="info-block reveal">
+      <h3>営業時間</h3>
+      <div class="info-row"><span class="info-label">平日</span><span class="info-value">10:00〜19:00</span></div>
+      <div class="info-row"><span class="info-label">土日祝</span><span class="info-value">10:00〜18:00</span></div>
+      <div class="info-row"><span class="info-label">定休日</span><span class="info-value">毎週水曜日</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2025 KOMACHI STORE · All rights reserved.</footer>
+<script>
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('v'); }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+// Timer
+let end = new Date(); end.setHours(end.getHours() + 12, end.getMinutes() + 34, end.getSeconds() + 56);
+setInterval(() => {
+  const diff = end - new Date();
+  if(diff <= 0) return;
+  const h = Math.floor(diff/3600000), m = Math.floor((diff%3600000)/60000), s = Math.floor((diff%60000)/1000);
+  document.getElementById('t-h').textContent = String(h).padStart(2,'0');
+  document.getElementById('t-m').textContent = String(m).padStart(2,'0');
+  document.getElementById('t-s').textContent = String(s).padStart(2,'0');
+}, 1000);
+</script>
+</body>
+</html>

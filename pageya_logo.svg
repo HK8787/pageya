@@ -1,0 +1,7 @@
+<svg width="400" height="160" viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="160" rx="12" fill="#ffffff" stroke="#e2dfd6" stroke-width="1"/>
+  <text y="100" font-family="Arial Black, sans-serif" font-size="52" font-weight="900" letter-spacing="6" text-anchor="middle" x="200">
+    <tspan fill="#1a1a1a">PAGE</tspan><tspan fill="#e85d2f">YA</tspan>
+  </text>
+  <text x="200" y="128" font-family="Arial, sans-serif" font-size="11" letter-spacing="6" text-anchor="middle" fill="#999999">HP制作代行</text>
+</svg>

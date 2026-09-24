@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>山田税理士事務所 | 中小企業・個人事業主専門</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Kaisei+Tokumin:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--navy:#1e3a5f;--navy-light:#2a4f7c;--blue-light:#e8f0fb;--ink:#1a1a1a;--muted:#666;--paper:#f8f9fc;--accent:#e85d2f;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden;}
+.sample-badge{position:fixed;top:1rem;left:50%;transform:translateX(-50%);white-space:nowrap;background:rgba(232,93,47,0.9);color:white;font-size:11px;padding:5px 14px;border-radius:20px;z-index:100;}
+header{background:var(--navy);padding:0 2.5rem;height:64px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-size:16px;font-weight:500;color:white;letter-spacing:0.05em;}
+.logo small{display:block;font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.2em;font-weight:300;}
+.header-tel{font-size:18px;color:white;font-weight:500;letter-spacing:0.05em;}
+.header-tel small{display:block;font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.1em;font-weight:300;text-align:right;}
+nav{background:var(--navy-light);padding:0 2.5rem;height:44px;display:flex;align-items:center;gap:0;}
+.nav-item{height:44px;display:flex;align-items:center;padding:0 1.5rem;font-size:12px;color:rgba(255,255,255,0.75);text-decoration:none;letter-spacing:0.1em;border-right:1px solid rgba(255,255,255,0.1);transition:background 0.2s;}
+.nav-item:hover{background:rgba(255,255,255,0.08);}
+.nav-item.cta{background:var(--accent);color:white;margin-left:auto;border:none;}
+
+.hero{background:white;padding:6rem 2.5rem;border-bottom:1px solid #e5e8ef;}
+.hero-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+.hero-badge{background:var(--blue-light);color:var(--navy);font-size:12px;padding:5px 16px;border-radius:2px;display:inline-block;margin-bottom:1.2rem;letter-spacing:0.1em;}
+.hero h1{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.8rem,3vw,2.6rem);color:var(--navy);line-height:1.5;margin-bottom:1rem;}
+.hero-lead{font-size:14px;color:var(--muted);line-height:2;margin-bottom:2rem;}
+.btn-navy{background:var(--navy);color:white;padding:14px 32px;font-size:14px;text-decoration:none;display:inline-block;letter-spacing:0.1em;transition:background 0.2s;}
+.btn-navy:hover{background:var(--navy-light);}
+.btn-outline{border:2px solid var(--navy);color:var(--navy);padding:12px 28px;font-size:14px;text-decoration:none;display:inline-block;letter-spacing:0.1em;transition:all 0.2s;margin-left:1rem;}
+.btn-outline:hover{background:var(--navy);color:white;}
+.hero-stats{background:var(--blue-light);padding:2rem;border-radius:4px;}
+.stat-item{text-align:center;padding:1rem;}
+.stat-num{font-family:'Kaisei Tokumin',serif;font-size:2.5rem;color:var(--navy);font-weight:700;display:block;}
+.stat-label{font-size:11px;color:var(--muted);letter-spacing:0.15em;margin-top:0.3rem;display:block;}
+.stat-divider{height:1px;background:rgba(30,58,95,0.1);margin:0.5rem 0;}
+
+.feature-bar{background:var(--navy);padding:2rem 2.5rem;}
+.feature-bar-inner{max-width:900px;margin:0 auto;display:flex;gap:0;}
+.feature-bar-item{flex:1;text-align:center;padding:0.5rem 1rem;border-right:1px solid rgba(255,255,255,0.1);}
+.feature-bar-item:last-child{border:none;}
+.feature-bar-icon{font-size:1.5rem;display:block;margin-bottom:0.4rem;}
+.feature-bar-text{font-size:12px;color:rgba(255,255,255,0.75);letter-spacing:0.05em;}
+
+.services-section{padding:6rem 2.5rem;background:white;}
+.services-inner{max-width:900px;margin:0 auto;}
+.section-title{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.5rem,2.5vw,2rem);color:var(--navy);margin-bottom:0.5rem;}
+.section-lead{font-size:14px;color:var(--muted);margin-bottom:3rem;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.service-card{border:1px solid #e5e8ef;padding:2rem;transition:border-color 0.3s,box-shadow 0.3s;}
+.service-card:hover{border-color:var(--navy);box-shadow:0 4px 20px rgba(30,58,95,0.1);}
+.service-card-icon{font-size:2rem;margin-bottom:1rem;display:block;}
+.service-card-name{font-size:15px;font-weight:500;color:var(--navy);margin-bottom:0.5rem;border-left:3px solid var(--navy);padding-left:0.8rem;}
+.service-card-desc{font-size:13px;color:var(--muted);line-height:1.9;}
+
+.flow-section{padding:6rem 2.5rem;background:var(--paper);}
+.flow-inner{max-width:900px;margin:0 auto;}
+.flow-steps{display:flex;gap:0;margin-top:2.5rem;position:relative;}
+.flow-steps::before{content:'';position:absolute;top:28px;left:28px;right:28px;height:2px;background:linear-gradient(to right,var(--navy),var(--blue-light));z-index:0;}
+.flow-step{flex:1;text-align:center;position:relative;z-index:1;}
+.flow-num{width:56px;height:56px;border-radius:50%;background:var(--navy);color:white;font-family:'Kaisei Tokumin',serif;font-size:1.2rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;}
+.flow-name{font-size:13px;font-weight:500;color:var(--navy);margin-bottom:0.3rem;}
+.flow-desc{font-size:11px;color:var(--muted);line-height:1.7;}
+
+.profile-section{padding:6rem 2.5rem;background:white;border-top:1px solid #e5e8ef;}
+.profile-inner{max-width:700px;margin:0 auto;display:grid;grid-template-columns:180px 1fr;gap:3rem;align-items:start;}
+.profile-img{width:160px;height:160px;border-radius:4px;background:linear-gradient(135deg,var(--blue-light),#c5d8f0);display:flex;align-items:center;justify-content:center;font-size:60px;}
+.profile-title{font-size:12px;letter-spacing:0.2em;color:var(--accent);margin-bottom:0.5rem;}
+.profile-name{font-family:'Kaisei Tokumin',serif;font-size:1.6rem;color:var(--navy);margin-bottom:1rem;}
+.profile-desc{font-size:14px;color:var(--muted);line-height:2;}
+
+.cta-section{background:var(--navy);padding:6rem 2.5rem;text-align:center;}
+.cta-section h2{font-family:'Kaisei Tokumin',serif;font-size:clamp(1.8rem,3vw,2.4rem);color:white;margin:1rem 0;}
+.cta-section p{font-size:14px;color:rgba(255,255,255,0.6);margin-bottom:2rem;}
+.cta-tel{font-family:'Kaisei Tokumin',serif;font-size:clamp(2rem,4vw,3rem);color:white;display:block;margin:1.5rem 0 0.5rem;}
+.cta-note{font-size:12px;color:rgba(255,255,255,0.4);letter-spacing:0.2em;}
+.btn-white{display:inline-block;margin-top:2rem;background:white;color:var(--navy);font-size:14px;padding:14px 40px;letter-spacing:0.1em;font-weight:500;text-decoration:none;transition:opacity 0.2s;}
+.btn-white:hover{opacity:0.9;}
+
+footer{background:#111;padding:1.5rem;text-align:center;font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:0.1em;}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.reveal.v{opacity:1;transform:translateY(0);}
+@media(max-width:768px){.hero-inner{grid-template-columns:1fr;}.feature-bar-inner{flex-wrap:wrap;}.services-grid{grid-template-columns:1fr;}.profile-inner{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="sample-badge">※ PAGEYAのデザインサンプルです</div>
+<header>
+  <div class="logo">山田税理士事務所<small>YAMADA TAX ACCOUNTANT OFFICE</small></div>
+  <div class="header-tel">03-0000-0000<small>受付 平日 9:00〜18:00</small></div>
+</header>
+<nav>
+  <a href="#" class="nav-item">事務所案内</a>
+  <a href="#" class="nav-item">サービス</a>
+  <a href="#" class="nav-item">料金</a>
+  <a href="#" class="nav-item">税理士紹介</a>
+  <a href="#" class="nav-item">よくある質問</a>
+  <a href="#" class="nav-item cta">無料相談を申込む</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-badge">中小企業・個人事業主専門</span>
+      <h1>税務のことは、<br>すべてお任せください。</h1>
+      <p class="hero-lead">創業30年。地域に根ざした丁寧なサポートで、大切な会社の経営を支えます。まずはお気軽にご相談ください。</p>
+      <a href="#contact" class="btn-navy">無料相談を申し込む</a>
+      <a href="#services" class="btn-outline">サービスを見る</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div class="stat-item"><span class="stat-num">30年</span><span class="stat-label">創業からの実績</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><span class="stat-num">500社</span><span class="stat-label">顧問先企業数</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat-item"><span class="stat-num">98%</span><span class="stat-label">顧客継続率</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="feature-bar">
+  <div class="feature-bar-inner">
+    <div class="feature-bar-item"><span class="feature-bar-icon">🆓</span><span class="feature-bar-text">初回相談無料</span></div>
+    <div class="feature-bar-item"><span class="feature-bar-icon">📞</span><span class="feature-bar-text">電話相談対応</span></div>
+    <div class="feature-bar-item"><span class="feature-bar-icon">💻</span><span class="feature-bar-text">オンライン対応</span></div>
+    <div class="feature-bar-item"><span class="feature-bar-icon">🗓️</span><span class="feature-bar-text">土曜相談可</span></div>
+    <div class="feature-bar-item"><span class="feature-bar-icon">🏢</span><span class="feature-bar-text">訪問対応可</span></div>
+  </div>
+</div>
+
+<section class="services-section" id="services">
+  <div class="services-inner">
+    <div class="reveal">
+      <p class="section-title">サービス一覧</p>
+      <p class="section-lead">税務から経営相談まで、幅広くサポートします。</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal"><span class="service-card-icon">📒</span><p class="service-card-name">記帳代行・確定申告</p><p class="service-card-desc">日々の経理から確定申告まで一括サポート。毎月の帳簿作成もお任せください。</p></div>
+      <div class="service-card reveal"><span class="service-card-icon">🏢</span><p class="service-card-name">法人税申告</p><p class="service-card-desc">法人税・消費税の申告書作成から節税対策まで。決算対策もご相談ください。</p></div>
+      <div class="service-card reveal"><span class="service-card-icon">🏠</span><p class="service-card-name">相続税・贈与税</p><p class="service-card-desc">相続発生前からの対策が重要です。早めのご相談をおすすめします。</p></div>
+      <div class="service-card reveal"><span class="service-card-icon">🚀</span><p class="service-card-name">創業支援・会社設立</p><p class="service-card-desc">起業時の手続きから資金調達、補助金申請まで幅広くサポートします。</p></div>
+      <div class="service-card reveal"><span class="service-card-icon">💰</span><p class="service-card-name">給与計算・社会保険</p><p class="service-card-desc">毎月の給与計算から年末調整、社会保険手続きまで対応します。</p></div>
+      <div class="service-card reveal"><span class="service-card-icon">📊</span><p class="service-card-name">経営コンサルティング</p><p class="service-card-desc">財務状況の分析・改善提案。数字に基づいた経営判断をサポートします。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="flow-section">
+  <div class="flow-inner">
+    <div class="reveal">
+      <p class="section-title">ご依頼の流れ</p>
+      <p class="section-lead">初めての方でも安心してご利用いただけます。</p>
+    </div>
+    <div class="flow-steps reveal">
+      <div class="flow-step"><div class="flow-num">01</div><p class="flow-name">無料相談</p><p class="flow-desc">まずはお気軽に<br>ご相談ください</p></div>
+      <div class="flow-step"><div class="flow-num">02</div><p class="flow-name">ご提案・見積</p><p class="flow-desc">内容をご確認の上<br>お見積もりを提示</p></div>
+      <div class="flow-step"><div class="flow-num">03</div><p class="flow-name">契約・開始</p><p class="flow-desc">ご納得いただいた上で<br>契約・業務開始</p></div>
+      <div class="flow-step"><div class="flow-num">04</div><p class="flow-name">継続サポート</p><p class="flow-desc">年間を通じて<br>丁寧にサポート</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <span style="font-size:10px;letter-spacing:0.4em;color:rgba(255,255,255,0.4);text-transform:uppercase;" class="reveal">Contact</span>
+  <h2 class="reveal">まずはお気軽にご相談ください</h2>
+  <p class="reveal">初回相談は無料です。どんな小さなご質問でも歓迎します。</p>
+  <span class="cta-tel reveal">03-0000-0000</span>
+  <p class="cta-note reveal">受付時間 平日 9:00〜18:00（土曜応相談）</p>
+  <a href="tel:03-0000-0000" class="btn-white reveal">今すぐ電話する</a>
+</section>
+<footer>© 2025 山田税理士事務所 · All rights reserved.</footer>
+<script>
+const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('v'); }), {threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

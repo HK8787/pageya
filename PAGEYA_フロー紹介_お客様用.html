@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAGEYA | ご依頼の流れ</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Kaisei+Tokumin:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --ink:#1a1a1a;--muted:#888;--accent:#e85d2f;--paper:#fafaf7;--warm:#f3f1eb;--border:#e2dfd6;
+}
+html{scroll-behavior:smooth;}
+body{font-family:'Noto Sans JP',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;}
+
+/* HERO */
+.hero{
+  background:var(--ink);
+  padding:4rem 3rem 3rem;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(232,93,47,0.15) 0%,transparent 70%);
+}
+.hero-label{font-size:11px;letter-spacing:0.4em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:1rem;opacity:0;animation:fadeUp 0.6s ease 0.2s forwards;}
+.hero-title{font-family:'Kaisei Tokumin',serif;font-size:clamp(2rem,5vw,3.2rem);color:white;font-weight:700;line-height:1.2;margin-bottom:1rem;opacity:0;animation:fadeUp 0.6s ease 0.4s forwards;}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.5);font-weight:300;max-width:480px;line-height:1.8;opacity:0;animation:fadeUp 0.6s ease 0.6s forwards;}
+.hero-accent{position:absolute;right:3rem;top:50%;transform:translateY(-50%);font-family:'Kaisei Tokumin',serif;font-size:clamp(4rem,10vw,7rem);color:rgba(232,93,47,0.12);font-weight:700;line-height:1;pointer-events:none;}
+
+/* STEPS */
+.steps{padding:3rem 2rem;max-width:900px;margin:0 auto;}
+
+.step-item{
+  display:grid;grid-template-columns:80px 1fr;gap:0;
+  margin-bottom:0;
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.6s ease,transform 0.6s ease;
+}
+.step-item.visible{opacity:1;transform:translateY(0);}
+
+.step-left{display:flex;flex-direction:column;align-items:center;}
+.step-num{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--accent);color:white;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Kaisei Tokumin',serif;font-size:1.1rem;font-weight:700;
+  flex-shrink:0;position:relative;z-index:1;
+}
+.step-line{width:2px;flex:1;background:var(--border);margin:4px 0;}
+.step-item:last-child .step-line{display:none;}
+
+.step-right{padding:0 0 2.5rem 1.5rem;}
+.step-tag{font-size:10px;letter-spacing:0.3em;color:var(--accent);text-transform:uppercase;display:block;margin-bottom:0.4rem;}
+.step-title{font-family:'Kaisei Tokumin',serif;font-size:1.3rem;font-weight:700;margin-bottom:0.5rem;}
+.step-body{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:0.8rem;}
+.step-card{
+  background:white;border:1px solid var(--border);border-radius:8px;
+  padding:0.8rem 1.2rem;display:inline-flex;align-items:center;gap:0.5rem;
+  font-size:13px;color:var(--ink);
+}
+.step-card .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+
+/* HIGHLIGHT STEP */
+.step-item.highlight .step-num{background:var(--ink);}
+.step-item.highlight .step-right{
+  background:linear-gradient(135deg,rgba(232,93,47,0.04),transparent);
+  border-left:2px solid var(--accent);
+  padding-left:calc(1.5rem - 2px);
+  border-radius:0 8px 8px 0;
+}
+
+/* PRICE BAR */
+.price-bar{
+  background:var(--ink);margin:0 2rem 3rem;border-radius:12px;
+  padding:2rem 2.5rem;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;
+}
+.price-item{padding:0 1.5rem;border-right:1px solid rgba(255,255,255,0.08);}
+.price-item:last-child{border-right:none;}
+.price-label{font-size:11px;letter-spacing:0.2em;color:rgba(255,255,255,0.4);display:block;margin-bottom:0.4rem;}
+.price-value{font-family:'Kaisei Tokumin',serif;font-size:1.4rem;color:white;font-weight:700;}
+.price-value small{font-size:12px;color:rgba(255,255,255,0.4);font-family:'Noto Sans JP',sans-serif;font-weight:400;}
+.price-note{font-size:11px;color:var(--accent);margin-top:0.2rem;}
+
+/* FOOTER CTA */
+.cta{background:var(--warm);border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center;}
+.cta-title{font-family:'Kaisei Tokumin',serif;font-size:1.4rem;margin-bottom:0.5rem;}
+.cta-sub{font-size:14px;color:var(--muted);margin-bottom:1.5rem;}
+.cta-btn{
+  display:inline-block;background:#06C755;color:white;
+  padding:14px 36px;border-radius:4px;font-size:15px;font-weight:500;
+  text-decoration:none;transition:opacity 0.2s;
+}
+.cta-btn:hover{opacity:0.88;}
+.cta-note{font-size:12px;color:var(--muted);margin-top:0.8rem;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+@media(max-width:600px){
+  .hero{padding:3rem 1.5rem 2.5rem;}
+  .hero-accent{display:none;}
+  .price-bar{grid-template-columns:1fr;gap:1rem;}
+  .price-item{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);padding:0 0 1rem;}
+  .price-item:last-child{border-bottom:none;padding-bottom:0;}
+  .steps{padding:2rem 1rem;}
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-accent">FLOW</div>
+  <span class="hero-label">PAGEYA · ご依頼の流れ</span>
+  <h1 class="hero-title">お客様にやっていただくのは、<br>お話しすることだけです。</h1>
+  <p class="hero-sub">写真の手配から文章・公開作業まで、難しいことはすべてPAGEYAが対応します。</p>
+</div>
+
+<div class="steps">
+
+  <div class="step-item">
+    <div class="step-left"><div class="step-num">01</div><div class="step-line"></div></div>
+    <div class="step-right">
+      <span class="step-tag">無料相談</span>
+      <p class="step-title">まずはお気軽にご相談ください</p>
+      <p class="step-body">LINEまたはZoomで30分ほど。業種・デザインイメージ・ご予算をお聞きします。見積もりだけでも大歓迎です。</p>
+      <div class="step-card"><span class="dot"></span>相談・見積もり無料</div>
+    </div>
+  </div>
+
+  <div class="step-item highlight">
+    <div class="step-left"><div class="step-num">02</div><div class="step-line"></div></div>
+    <div class="step-right">
+      <span class="step-tag">契約・着手金</span>
+      <p class="step-title">電子契約で手間なし。着手金50%で制作スタート</p>
+      <p class="step-body">クラウドサインによる電子契約でスマホからサインできます。着手金のお支払いが確認できたら制作を開始します。</p>
+      <div class="step-card"><span class="dot"></span>電子契約・銀行振込対応</div>
+    </div>
+  </div>
+
+  <div class="step-item">
+    <div class="step-left"><div class="step-num">03</div><div class="step-line"></div></div>
+    <div class="step-right">
+      <span class="step-tag">制作</span>
+      <p class="step-title">3〜5日でデザイン初稿をご提示します</p>
+      <p class="step-body">ヒアリング内容をもとにデザイン・文章をこちらで作成。写真はスマホで撮ったものをLINEで送っていただくだけでOKです。</p>
+      <div class="step-card"><span class="dot"></span>文章作成・写真加工も対応</div>
+    </div>
+  </div>
+
+  <div class="step-item">
+    <div class="step-left"><div class="step-num">04</div><div class="step-line"></div></div>
+    <div class="step-right">
+      <span class="step-tag">確認・修正</span>
+      <p class="step-title">プレビューURLで実際の動きをご確認いただけます</p>
+      <p class="step-body">実際にブラウザで開いて確認できるURLをお送りします。気になる点があれば無料修正回数以内で対応します。</p>
+      <div class="step-card"><span class="dot"></span>スマホでも確認可能</div>
+    </div>
+  </div>
+
+  <div class="step-item highlight">
+    <div class="step-left"><div class="step-num">05</div><div class="step-line"></div></div>
+    <div class="step-right">
+      <span class="step-tag">残金・公開</span>
+      <p class="step-title">OKをいただいたら残金50%のお支払いで公開</p>
+      <p class="step-body">残金のお支払いが確認できたら本番サーバーに公開します。サーバー設定・公開作業もすべてこちらで対応します。</p>
+      <div class="step-card"><span class="dot"></span>最短1週間で公開</div>
+    </div>
+  </div>
+
+  <div class="step-item">
+    <div class="step-left"><div class="step-num">06</div><div class="step-line"></div></div>
+    <div class="step-right">
+      <span class="step-tag">納品・サポート</span>
+      <p class="step-title">公開後1ヶ月は無料サポート対応</p>
+      <p class="step-body">不具合があればすぐ対応します。Google Search Consoleの設定マニュアルもお渡しします。その後の更新・修正も別途対応可能です。</p>
+      <div class="step-card"><span class="dot"></span>LINE でいつでも相談OK</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- 料金 -->
+<div class="price-bar" style="max-width:860px;margin:0 auto 3rem;">
+  <div class="price-item">
+    <span class="price-label">ミニマム</span>
+    <p class="price-value">¥39,800<small> 税込</small></p>
+    <p class="price-note">1ページ完結型</p>
+  </div>
+  <div class="price-item">
+    <span class="price-label">スタンダード　人気</span>
+    <p class="price-value">¥79,800<small> 税込</small></p>
+    <p class="price-note">5ページ・フォーム付き</p>
+  </div>
+  <div class="price-item">
+    <span class="price-label">プレミアム</span>
+    <p class="price-value">¥148,000<small> 税込〜</small></p>
+    <p class="price-note">ページ数・機能要相談</p>
+  </div>
+</div>
+
+<div class="cta">
+  <h2 class="cta-title">まずは無料相談から</h2>
+  <p class="cta-sub">見積もりだけでも大歓迎。売り込みは一切しません。</p>
+  <a href="https://line.me/R/ti/p/@025wquqd" target="_blank" class="cta-btn">LINEで気軽に相談する</a>
+  <p class="cta-note">PAGEYA　｜　090-3802-1234　｜　平日10:00〜19:00</p>
+</div>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => {
+    if(e.isIntersecting){
+      setTimeout(() => e.target.classList.add('visible'), i * 100);
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.step-item').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
